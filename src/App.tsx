@@ -13,8 +13,8 @@ function App() {
       <main>
         <HeroSection />
         <CoreExpertiseSection />
-        <SolutionsSection />
         <AboutSection />
+        <SolutionsSection />
       </main>
       <Footer />
     </div>
