@@ -1,61 +1,241 @@
 # System Patterns
 
-## Frontend
-- Framework: React 18 with Vite
-- Styling: TailwindCSS
-- Routing: React Router DOM
-- Layout: Navbar + Footer
-- Components scaffolded from Figma MCP, then adapted with static content
+## Component Architecture
 
-## Responsive Design Implementation
-- **Desktop-first CSS**: Default styles for desktop (1024px+), then use max-width media queries
-- **TailwindCSS approach**: Default classes for desktop, `md:` and `sm:` for smaller screens
-- **Progressive scaling**: `lg:` (default), `md:` (tablet), `sm:` (mobile) breakpoints
-- **Media queries**: `@media (max-width: 1024px)` for tablet, `@media (max-width: 768px)` for mobile
+### Layout Components (`components/layout/`)
+```typescript
+// Layout wrapper with routing
+const Layout: React.FC = () => {
+  return (
+    <div className="Layout">
+      <Navbar />
+      <main>
+        <Outlet />
+      </main>
+      <Footer />
+    </div>
+  );
+};
 
-## Figma MCP Integration
-- Use Figma MCP server to generate component skeletons from design
-- Apply Tailwind classes for consistency
-- Store generated UI components in `src/components/`
-- Populate components with static data after generation
-- **Desktop layouts first** then adapt for smaller screens during MCP conversion
+// Enhanced Navbar with dropdowns and active states
+const Navbar: React.FC = () => {
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const location = useLocation();
+  // Click-outside handling, route change detection, active state management
+};
+```
 
-## Static Data Management
-- Services data stored in `src/data/services.js`
-- Case studies data stored in `src/data/caseStudies.js`
-- Static imports in components for type safety
-- JSON or JavaScript objects for structured content
+### Section Components (`components/sections/`)
+```typescript
+// Motion-free section components with Figma-based styling
+const HeroSection: React.FC = () => {
+  // Auto-sliding hero with manual navigation
+};
 
-## Components
-- ServiceCard: mapped from Figma design, populated with static data
-- CaseStudyCard: mapped from Figma design, populated with static data
-- Layout: wraps pages with Navbar + Footer
-- ContactInfo: static company information component
-- **AdaptiveNavbar**: Desktop horizontal menu, collapses to hamburger on mobile
-- **ResponsiveGrid**: Desktop-first grids that stack on smaller screens
+const SolutionsSection: React.FC = () => {
+  // Auto-sliding carousel with drag functionality
+  // 4-second intervals, smooth transitions
+};
+```
 
-## Progressive Adaptation Patterns
-- **Content prioritization**: Full content on desktop, condensed on mobile
-- **Navigation scaling**: Full menu → collapsed menu → hamburger menu
-- **Layout adaptation**: Multi-column → single column on smaller screens
-- **Image scaling**: Full-size images → optimized versions for mobile
+### Page Components (`pages/`)
+```typescript
+// Page components that aggregate sections
+const HomePage: React.FC = () => {
+  return (
+    <div className="HomePage">
+      <HeroSection />
+      <CoreExpertiseSection />
+      <AboutSection />
+      <SolutionsSection />
+    </div>
+  );
+};
+```
 
-## Contact Form
-- Design imported from Figma
-- Client-side validation using React Hook Form or similar
-- Form submission via service like Formspree, Netlify Forms, or EmailJS
-- No PHP backend required
-- **Desktop-optimized forms** with mobile-friendly adaptations
+## Styling Patterns
 
-## Performance Optimization
-- **Desktop-first assets**: High-quality images and media for primary experience
-- **Progressive optimization**: Smaller assets loaded on mobile devices
-- **Lazy loading**: Non-critical content especially important on mobile
-- **Code splitting**: Route-based splitting benefits mobile performance
+### Figma-Based Design System
+```typescript
+// Consistent color palette
+const colors = {
+  primary: '#0F071D',      // Dark background
+  secondary: '#7B4EFF',    // Purple CTA buttons
+  accent: '#4EC6C6',       // Cyan active states
+  text: '#F5F5F5',         // Light text
+  muted: '#B0B0B0',        // Muted text
+  surface: '#1B1328',      // Card backgrounds
+};
 
-## Deployment
-- Build command: `npm run build`
-- Deploy `dist/` folder to static hosting
-- Environment variables for form service configuration
-- Optimized for CDN distribution
-- **Cross-device testing** as part of deployment process
+// Typography with Roboto font
+style={{ fontFamily: 'Roboto' }}
+```
+
+### Responsive Design Patterns
+```css
+/* Desktop-first approach */
+.container {
+  @apply max-w-[1440px] mx-auto px-[120px];
+}
+
+/* Consistent spacing */
+.section-spacing {
+  @apply py-[120px];
+}
+
+/* Component spacing */
+.component-gap {
+  @apply gap-[24px];
+}
+```
+
+## State Management Patterns
+
+### Dropdown Management
+```typescript
+const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+
+// Click-outside handling
+useEffect(() => {
+  const handleClickOutside = (event: MouseEvent) => {
+    if (navRef.current && !navRef.current.contains(event.target as Node)) {
+      setActiveDropdown(null);
+    }
+  };
+  document.addEventListener('mousedown', handleClickOutside);
+  return () => document.removeEventListener('mousedown', handleClickOutside);
+}, []);
+```
+
+### Carousel State Management
+```typescript
+const [currentSlide, setCurrentSlide] = useState(0);
+const [isDragging, setIsDragging] = useState(false);
+
+// Auto-slide with pause on interaction
+useEffect(() => {
+  if (!isDragging) {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % items.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }
+}, [isDragging, items.length]);
+```
+
+## Routing Patterns
+
+### React Router Setup
+```typescript
+// App.tsx routing configuration
+<Router>
+  <Routes>
+    <Route path="/" element={<Layout />}>
+      <Route index element={<HomePage />} />
+      <Route path="about" element={<AboutPage />} />
+      <Route path="services" element={<ServicesPage />} />
+      <Route path="contact" element={<ContactPage />} />
+    </Route>
+  </Routes>
+</Router>
+```
+
+### Active Link Detection
+```typescript
+const isActivePage = (path: string) => {
+  return location.pathname === path;
+};
+
+// Apply active styles conditionally
+className={`${isActivePage('/') ? 'bg-[#4EC6C6] text-[#0F071D]' : 'text-[#F5F5F5]'}`}
+```
+
+## Performance Patterns
+
+### Motion-Free Animations
+```css
+/* CSS transitions instead of JavaScript animations */
+.transition-smooth {
+  @apply transition-all duration-300;
+}
+
+.hover-effect {
+  @apply hover:bg-[#F5F5F5] hover:text-[#0F071D];
+}
+```
+
+### Image Optimization
+```typescript
+// Proper image sizing and formats
+<img 
+  src="/images/image.png" 
+  alt="Description" 
+  className="w-[104px] h-[70px] object-contain"
+/>
+```
+
+## Event Handling Patterns
+
+### Drag Functionality
+```typescript
+const handleMouseDown = (e: React.MouseEvent) => {
+  setIsDragging(true);
+  setStartX(e.pageX - (carouselRef.current?.offsetLeft || 0));
+  setScrollLeft(carouselRef.current?.scrollLeft || 0);
+};
+
+const handleMouseMove = (e: React.MouseEvent) => {
+  if (!isDragging) return;
+  e.preventDefault();
+  const x = e.pageX - (carouselRef.current?.offsetLeft || 0);
+  const walk = (x - startX) * 2;
+  if (carouselRef.current) {
+    carouselRef.current.scrollLeft = scrollLeft - walk;
+  }
+};
+```
+
+## Build & Deployment Patterns
+
+### Production Configuration
+```json
+// package.json optimizations
+{
+  "homepage": "./",
+  "scripts": {
+    "build": "react-scripts build",
+    "serve": "serve -s build"
+  }
+}
+```
+
+### Static Asset Management
+```
+public/
+├── images/
+│   ├── relique-logo-white.png
+│   ├── about.png
+│   └── icons/
+└── index.html
+```
+
+## Component Communication Patterns
+
+### Props Interface Design
+```typescript
+interface SectionProps {
+  title?: string;
+  subtitle?: string;
+  className?: string;
+  children?: React.ReactNode;
+}
+```
+
+### Event Propagation
+```typescript
+// Prevent event bubbling in interactive components
+onClick={(e) => {
+  e.stopPropagation();
+  handleAction();
+}}
+```
