@@ -1,5 +1,4 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect, useRef } from 'react';
 
 interface SolutionCard {
   id: string;
@@ -12,12 +11,19 @@ interface SolutionCard {
 }
 
 const SolutionsSection: React.FC = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+
   const solutionsData: SolutionCard[] = [
     {
       id: '1',
       title: 'BFSI',
       description: 'Driving digital banking excellence with core system upgrades, secure onboarding, and compliance-ready solutions.',
-      image: '/images/solutions/bfsi.webp',
+      image: '/images/icons/bank.svg',
       bgColor: '#7B4EFF',
       iconColor: '#FFFFFF'
     },
@@ -25,7 +31,7 @@ const SolutionsSection: React.FC = () => {
       id: '2',
       title: 'IT & Tech Services',
       description: 'Empowering enterprises with cloud migration, DevOps, cybersecurity, and next-gen IT frameworks.',
-      image: '/images/solutions/it-tech.webp',
+      image: '/images/icons/cloud-setting.svg',
       bgColor: '#6D75ED',
       iconColor: '#FFFFFF'
     },
@@ -33,7 +39,7 @@ const SolutionsSection: React.FC = () => {
       id: '3',
       title: 'Retail & E-Commerce',
       description: 'Enabling smarter retail with AI-driven pricing, loyalty programs, and seamless marketplace integration.',
-      image: '/images/solutions/retail.webp',
+      image: '/images/icons/cart.svg',
       bgColor: '#5E9BDB',
       iconColor: '#FFFFFF'
     },
@@ -41,113 +47,207 @@ const SolutionsSection: React.FC = () => {
       id: '4',
       title: 'Data & Analytics',
       description: 'Transforming data into actionable insights with BI dashboards, data lakes, and real-time analytics.',
-      image: '/images/solutions/data-analytics.webp',
+      image: '/images/icons/data.svg',
+      bgColor: '#54B6CD',
+      iconColor: '#FFFFFF'
+    },
+    {
+      id: '5',
+      title: 'Startup Advisory',
+      description: 'Transforming data into actionable insights with BI dashboards, data lakes, and real-time analytics.',
+      image: '/images/icons/data.svg',
       bgColor: '#54B6CD',
       iconColor: '#FFFFFF'
     }
   ];
 
+  // Auto-slide functionality
+  useEffect(() => {
+    if (!isDragging) {
+      intervalRef.current = setInterval(() => {
+        setCurrentIndex((prevIndex) => 
+          prevIndex === solutionsData.length - 1 ? 0 : prevIndex + 1
+        );
+      }, 4000);
+    }
+
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, [isDragging, solutionsData.length]);
+
+  // Handle mouse drag start
+  const handleMouseDown = (e: React.MouseEvent) => {
+    setIsDragging(true);
+    setStartX(e.pageX - (carouselRef.current?.offsetLeft || 0));
+    setScrollLeft(carouselRef.current?.scrollLeft || 0);
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+  };
+
+  // Handle mouse drag
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.pageX - (carouselRef.current?.offsetLeft || 0);
+    const walk = (x - startX) * 2;
+    if (carouselRef.current) {
+      carouselRef.current.scrollLeft = scrollLeft - walk;
+    }
+  };
+
+  // Handle mouse drag end
+  const handleMouseUp = () => {
+    setIsDragging(false);
+    // Snap to nearest card
+    if (carouselRef.current) {
+      const cardWidth = 320; // 300px width + 20px gap
+      const newIndex = Math.round(carouselRef.current.scrollLeft / cardWidth);
+      setCurrentIndex(Math.min(Math.max(newIndex, 0), solutionsData.length - 1));
+    }
+  };
+
+  // Handle touch events for mobile
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setIsDragging(true);
+    setStartX(e.touches[0].pageX - (carouselRef.current?.offsetLeft || 0));
+    setScrollLeft(carouselRef.current?.scrollLeft || 0);
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDragging) return;
+    const x = e.touches[0].pageX - (carouselRef.current?.offsetLeft || 0);
+    const walk = (x - startX) * 2;
+    if (carouselRef.current) {
+      carouselRef.current.scrollLeft = scrollLeft - walk;
+    }
+  };
+
+  const handleTouchEnd = () => {
+    setIsDragging(false);
+    if (carouselRef.current) {
+      const cardWidth = 320;
+      const newIndex = Math.round(carouselRef.current.scrollLeft / cardWidth);
+      setCurrentIndex(Math.min(Math.max(newIndex, 0), solutionsData.length - 1));
+    }
+  };
+
+  // Update carousel position when currentIndex changes
+  useEffect(() => {
+    if (carouselRef.current && !isDragging) {
+      const cardWidth = 320;
+      carouselRef.current.scrollTo({
+        left: currentIndex * cardWidth,
+        behavior: 'smooth'
+      });
+    }
+  }, [currentIndex, isDragging]);
+
   return (
     <section className="bg-[#0F071D] py-[120px]">
       <div className="max-w-[1440px] mx-auto px-[120px]">
         {/* Section Header */}
-        <div className="mb-[70px]">
-          <motion.h2 
-            className="text-[#F5F5F5] font-medium text-[40px] leading-[1.35em] mb-[16px] max-w-[504px]"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            style={{ fontFamily: 'Roboto' }}
-          >
-            Solutions That Drive Growth
-          </motion.h2>
-          
-          <motion.p 
-            className="text-[#B0B0B0] font-normal text-[20px] leading-[1.6em] mb-[32px] max-w-[590px]"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-            style={{ fontFamily: 'Roboto' }}
-          >
-            Explore industry-specific solutions and innovations powering transformation across sectors.
-          </motion.p>
+        <div className="mb-[70px] flex justify-between items-start">
+          {/* Left side - Title and Description */}
+          <div className="max-w-[504px]">
+            <h2 
+              className="text-[#F5F5F5] font-medium text-[40px] leading-[1.35em] mb-[16px]"
+              style={{ fontFamily: 'Roboto' }}
+            >
+              Solutions That Drive Growth
+            </h2>
+            
+            <p 
+              className="text-[#B0B0B0] font-normal text-[16px] leading-[1.75em]"
+              style={{ fontFamily: 'Roboto' }}
+            >
+              Explore industry-specific solutions and innovations powering transformation across sectors.
+            </p>
+          </div>
 
-          <motion.a
+          {/* Right side - Button */}
+          <a
             href="#view-all-services"
-            className="inline-flex items-center justify-center px-[20px] py-[12px] bg-[#7B4EFF] text-[#F5F5F5] font-medium text-[16px] leading-[1.5em] rounded-full hover:bg-[#6A42E6] transition-all duration-300"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
-            whileHover={{ 
-              scale: 1.05,
-              backgroundColor: "#6A42E6",
-              boxShadow: "0px 4px 12px rgba(123, 78, 255, 0.3)"
-            }}
-            whileTap={{ scale: 0.95 }}
+            className="inline-flex items-center justify-center w-[183px] px-[20px] py-[12px] bg-[#7B4EFF] text-[#F5F5F5] font-medium text-[16px] leading-[1.5em] rounded-full hover:bg-[#6A42E6] transition-all duration-300"
             style={{
               fontFamily: 'Roboto',
-              letterSpacing: '-1.25%'
+              letterSpacing: '-1.25%',
+              paddingRight: '21.39px'
             }}
           >
             View All Services
-          </motion.a>
+          </a>
         </div>
 
-        {/* Solutions Grid */}
-        <div className="grid grid-cols-4 gap-[20px]">
-          {solutionsData.map((solution, index) => (
-            <motion.div
-              key={solution.id}
-              className="group cursor-pointer"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1 * index }}
-              viewport={{ once: true }}
-              whileHover={{ y: -10 }}
-            >
-              <div 
-                className="rounded-[16px] h-[264px] p-[30px] flex flex-col justify-end relative overflow-hidden"
-                style={{ backgroundColor: solution.bgColor }}
-              >
-                {/* Background Pattern/Image */}
-                <div className="absolute inset-0 opacity-20">
-                  <img 
-                    src={solution.image}
-                    alt=""
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                </div>
-
-                {/* Icon Circle */}
-                <div className="absolute top-[38px] left-[30px] w-[80px] h-[80px] bg-[#0F071D] rounded-full flex items-center justify-center">
-                  {/* SVG icons would go here based on the solution type */}
-                  <div className="w-[36px] h-[36px] bg-white rounded opacity-80"></div>
-                </div>
-
-                {/* Content */}
-                <div className="relative z-10">
-                  <h3 
-                    className="text-[#F5F5F5] font-medium text-[16px] leading-[1.25em] mb-[12px]"
-                    style={{ fontFamily: 'Roboto' }}
+        {/* Solutions Carousel */}
+        <div className="relative pt-[8px] pb-[8px]">
+          <div 
+            ref={carouselRef}
+            className="overflow-x-auto overflow-y-visible scrollbar-hide cursor-grab active:cursor-grabbing"
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={handleMouseUp}
+            onMouseLeave={handleMouseUp}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+            style={{ 
+              scrollBehavior: isDragging ? 'auto' : 'smooth',
+              userSelect: 'none'
+            }}
+          >
+            <div className="flex gap-[20px] min-w-max py-[8px]">
+              {solutionsData.map((solution) => (
+                <div
+                  key={solution.id}
+                  className="group cursor-pointer flex-shrink-0 w-[300px] text-center"
+                >
+                  <div 
+                    className="rounded-[16px] h-[264px] p-[30px] flex flex-col items-center justify-center relative overflow-hidden hover:transform hover:-translate-y-2 transition-transform duration-300"
+                    style={{ backgroundColor: solution.bgColor }}
                   >
-                    {solution.title}
-                  </h3>
-                  <p 
-                    className="text-[#F5F5F5] font-normal text-[14px] leading-[1.43em]"
-                    style={{ fontFamily: 'Roboto' }}
-                  >
-                    {solution.description}
-                  </p>
-                </div>
+                    {/* Icon Circle */}
+                    <div className="w-[80px] h-[80px] bg-[#0F071D] rounded-full flex items-center justify-center mb-[24px]">
+                      {/* SVG icons would go here based on the solution type */}
+                      <div className="w-[36px] h-[36px] rounded">
+                        <img 
+                          src={solution.image}
+                          alt=""
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                          draggable={false}
+                        />
+                      </div>
+                    </div>
 
-                {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </div>
-            </motion.div>
-          ))}
+                    {/* Content */}
+                    <div className="relative z-10">
+                      <h3 
+                        className="text-[#F5F5F5] font-medium text-[16px] leading-[1.25em] mb-[12px]"
+                        style={{ fontFamily: 'Roboto' }}
+                      >
+                        {solution.title}
+                      </h3>
+                      <p 
+                        className="text-[#F5F5F5] font-normal text-[14px] leading-[1.43em]"
+                        style={{ fontFamily: 'Roboto' }}
+                      >
+                        {solution.description}
+                      </p>
+                    </div>
+
+                    {/* Hover Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
