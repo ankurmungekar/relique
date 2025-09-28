@@ -1,22 +1,21 @@
 import React from 'react';
-import Navbar from './components/Navbar';
-import HeroSection from './components/HeroSection';
-import CoreExpertiseSection from './components/CoreExpertiseSection';
-import SolutionsSection from './components/SolutionsSection';
-import AboutSection from './components/AboutSection';
-import Footer from './components/Footer';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Layout } from './components/layout';
+import { HomePage, AboutPage, ServicesPage, ContactPage } from './pages';
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
-      <main>
-        <HeroSection />
-        <CoreExpertiseSection />
-        <AboutSection />
-        <SolutionsSection />
-      </main>
-      <Footer />
+      <Router>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<HomePage />} />
+            <Route path="about" element={<AboutPage />} />
+            <Route path="services" element={<ServicesPage />} />
+            <Route path="contact" element={<ContactPage />} />
+          </Route>
+        </Routes>
+      </Router>
     </div>
   );
 }

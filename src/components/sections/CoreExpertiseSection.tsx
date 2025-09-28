@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
-import { ChevronLeft, ChevronRight } from './icons/ChevronIcons';
+import { ChevronLeft, ChevronRight } from '../ui/icons/ChevronIcons';
 
 // Import Swiper styles
 import 'swiper/css';
