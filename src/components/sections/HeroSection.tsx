@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, EffectFade } from 'swiper/modules';
+import Button from '../ui/Button';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -121,19 +122,18 @@ const HeroSection: React.FC = () => {
                     </p>
 
                     {/* CTA Button */}
-                    <a
+                    <Button
                       href="#explore-solutions"
-                      className="inline-flex items-center justify-center px-[16px] sm:px-[18px] lg:px-[21px] py-[10px] sm:py-[11px] lg:py-[12px] font-medium text-[14px] sm:text-[15px] lg:text-[16px] leading-[1.5em] rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg w-[160px] sm:w-[170px] lg:w-[183px]"
+                      variant="primary"
+                      className="hover:scale-105 hover:shadow-lg"
                       style={{
-                        fontFamily: 'Roboto',
-                        letterSpacing: '-1.25%',
                         backgroundColor: slide.buttonColor,
                         color: slide.buttonColor === "#4EC6C6" ? "#0F071D" : "#FFFFFF",
                         boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)'
                       }}
                     >
                       {slide.buttonText}
-                    </a>
+                    </Button>
                   </div>
                 </div>
               </SwiperSlide>

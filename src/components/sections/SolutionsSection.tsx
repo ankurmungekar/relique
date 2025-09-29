@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import Button from '../ui/Button';
 
 interface SolutionCard {
   id: string;
@@ -172,17 +173,18 @@ const SolutionsSection: React.FC = () => {
           </div>
 
           {/* Right side - Button */}
-          <a
+          <Button
             href="#view-all-services"
-            className="inline-flex items-center justify-center w-[183px] px-[20px] py-[12px] bg-[#7B4EFF] text-[#F5F5F5] font-medium text-[16px] leading-[1.5em] rounded-full hover:bg-[#6A42E6] transition-all duration-300"
+            variant="primary"
+            className="w-[183px]"
             style={{
-              fontFamily: 'Roboto',
-              letterSpacing: '-1.25%',
+              backgroundColor: '#7B4EFF',
+              color: '#F5F5F5',
               paddingRight: '21.39px'
             }}
           >
             View All Services
-          </a>
+          </Button>
         </div>
 
         {/* Solutions Carousel */}

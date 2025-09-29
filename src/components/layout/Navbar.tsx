@@ -80,116 +80,19 @@ const Navbar: React.FC = () => {
             </Link>
           </div>
 
-          {/* Industries */}
-          <div className="relative ml-[24px]">
-            <button 
-              onClick={() => handleDropdownToggle('industries')}
-              className={`inline-flex items-center justify-center px-[12px] py-[12px] rounded-full font-medium text-[16px] leading-[1.5em] transition-all duration-300 gap-[9.92px] ${
-                activeDropdown === 'industries' 
-                  ? 'bg-[#F5F5F5] text-[#0F071D]' 
+          {/* Solutions Hub */}
+          <div className="ml-[24px]">
+            <Link 
+              to="/services"
+              className={`inline-flex items-center justify-center px-[12px] py-[12px] rounded-full font-medium text-[16px] leading-[1.5em] transition-all duration-300 ${
+                isActivePage('/solutions') 
+                  ? 'bg-[#4EC6C6] text-[#0F071D]' 
                   : 'text-[#F5F5F5] hover:bg-[#F5F5F5] hover:text-[#0F071D]'
               }`}
               style={{ fontFamily: 'Roboto' }}
             >
-              Industries
-              <div
-                className={`transform transition-transform duration-200 ${
-                  activeDropdown === 'industries' ? 'rotate-180' : 'rotate-0'
-                }`}
-              >
-                <ChevronDown size={12} />
-              </div>
-            </button>
-            
-            {/* Industries Dropdown */}
-            {activeDropdown === 'industries' && (
-              <div className="absolute top-full left-0 mt-2 w-[200px] bg-[#1B1328] rounded-lg shadow-lg border border-[#2A1F3D] py-2 z-50">
-                <Link 
-                  to="/industries/bfsi" 
-                  className="block px-4 py-2 text-[#F5F5F5] hover:bg-[#2A1F3D] hover:text-[#4EC6C6] transition-colors duration-200"
-                  style={{ fontFamily: 'Roboto' }}
-                  onClick={() => setActiveDropdown(null)}
-                >
-                  BFSI
-                </Link>
-                <Link 
-                  to="/industries/retail" 
-                  className="block px-4 py-2 text-[#F5F5F5] hover:bg-[#2A1F3D] hover:text-[#4EC6C6] transition-colors duration-200"
-                  style={{ fontFamily: 'Roboto' }}
-                  onClick={() => setActiveDropdown(null)}
-                >
-                  Retail & E-Commerce
-                </Link>
-                <Link 
-                  to="/industries/tech" 
-                  className="block px-4 py-2 text-[#F5F5F5] hover:bg-[#2A1F3D] hover:text-[#4EC6C6] transition-colors duration-200"
-                  style={{ fontFamily: 'Roboto' }}
-                  onClick={() => setActiveDropdown(null)}
-                >
-                  IT & Tech Services
-                </Link>
-                <Link 
-                  to="/industries/data-analytics" 
-                  className="block px-4 py-2 text-[#F5F5F5] hover:bg-[#2A1F3D] hover:text-[#4EC6C6] transition-colors duration-200"
-                  style={{ fontFamily: 'Roboto' }}
-                  onClick={() => setActiveDropdown(null)}
-                >
-                  Data & Analytics
-                </Link>
-              </div>
-            )}
-          </div>
-
-          {/* Solutions & Case Studies */}
-          <div className="relative ml-[24px]">
-            <button 
-              onClick={() => handleDropdownToggle('solutions')}
-              className={`inline-flex items-center justify-center px-[12px] py-[12px] rounded-full font-medium text-[16px] leading-[1.5em] transition-all duration-300 gap-[9.92px] ${
-                activeDropdown === 'solutions' 
-                  ? 'bg-[#F5F5F5] text-[#0F071D]' 
-                  : 'text-[#F5F5F5] hover:bg-[#F5F5F5] hover:text-[#0F071D]'
-              }`}
-              style={{ fontFamily: 'Roboto' }}
-            >
-              Solutions & Case Studies
-              <div
-                className={`transform transition-transform duration-200 ${
-                  activeDropdown === 'solutions' ? 'rotate-180' : 'rotate-0'
-                }`}
-              >
-                <ChevronDown size={12} />
-              </div>
-            </button>
-            
-            {/* Solutions Dropdown */}
-            {activeDropdown === 'solutions' && (
-              <div className="absolute top-full left-0 mt-2 w-[240px] bg-[#1B1328] rounded-lg shadow-lg border border-[#2A1F3D] py-2 z-50">
-                <Link 
-                  to="/solutions/catalog" 
-                  className="block px-4 py-2 text-[#F5F5F5] hover:bg-[#2A1F3D] hover:text-[#4EC6C6] transition-colors duration-200"
-                  style={{ fontFamily: 'Roboto' }}
-                  onClick={() => setActiveDropdown(null)}
-                >
-                  Solutions Catalog
-                </Link>
-                <Link 
-                  to="/solutions/case-studies" 
-                  className="block px-4 py-2 text-[#F5F5F5] hover:bg-[#2A1F3D] hover:text-[#4EC6C6] transition-colors duration-200"
-                  style={{ fontFamily: 'Roboto' }}
-                  onClick={() => setActiveDropdown(null)}
-                >
-                  Case Studies
-                </Link>
-                <Link 
-                  to="/solutions/success-stories" 
-                  className="block px-4 py-2 text-[#F5F5F5] hover:bg-[#2A1F3D] hover:text-[#4EC6C6] transition-colors duration-200"
-                  style={{ fontFamily: 'Roboto' }}
-                  onClick={() => setActiveDropdown(null)}
-                >
-                  Success Stories
-                </Link>
-              </div>
-            )}
+              Solutions Hub
+            </Link>
           </div>
 
           {/* About us */}

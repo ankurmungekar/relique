@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import { ChevronLeft, ChevronRight } from '../ui/icons/ChevronIcons';
+import Button from '../ui/Button';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -81,16 +82,16 @@ const CoreExpertiseSection: React.FC = () => {
               <span className='font-medium'>Core Expertise</span>
             </h2>
             <div className='text-[#B0B0B0] font-normal text-[16px] leading-[1.5em] mb-[36px]'>Comprehensive consulting solutions designed to accelerate your growth across global markets.</div>
-            <a
+            <Button
               href="#view-all"
-              className="inline-flex items-center justify-center px-[20px] py-[12px] bg-[#7B4EFF] text-[#F5F5F5] font-medium text-[16px] leading-[1.5em] rounded-full hover:bg-[#6A42E6] transition-all duration-300"
+              variant="primary"
+              className="w-[183px]"
               style={{
-                fontFamily: 'Roboto',
-                letterSpacing: '-1.25%'
+                paddingRight: '21.39px'
               }}
             >
               View All
-            </a>
+            </Button>
           </div>
 
           {/* Right Section - Carousel and Navigation */}

@@ -1,48 +1,47 @@
 import React from 'react';
+import Button from '../ui/Button';
 
 const AboutSection: React.FC = () => {
   return (
-    <section className="bg-[#0F071D] py-[120px]">
+    <section className="py-[120px] bg-[#0F071D]">
       <div className="max-w-[1440px] mx-auto px-[120px]">
-        <div className="grid grid-cols-2 gap-[46px] items-start">
-          {/* Left Image */}
-          <div className="relative w-[564px] h-[464px]">
+        <div className="flex justify-between items-start gap-[118px]">
+          {/* Left Side - Image */}
+          <div className="flex-shrink-0">
             <img 
-              src="/images/about.png"
-              alt="About Relique Consultants"
-              className="w-full h-full object-cover rounded-[16px]"
+              src="/images/about.png" 
+              alt="About Relique Consultants" 
+              className="w-[635px] h-[400px] object-cover rounded-[16px]"
             />
           </div>
 
-          {/* Right Content */}
-          <div style={{ marginLeft: '46px' }}>
+          {/* Right Side - Content */}
+          <div className="flex-1 max-w-[635px]">
             <h2 
-              className="text-[#F5F5F5] font-medium text-[40px] leading-[1.35em] mb-[28px] w-[365px]"
+              className="text-[#F5F5F5] font-medium text-[48px] leading-[1.125em] mb-[32px]"
               style={{ fontFamily: 'Roboto' }}
             >
-              About
-              <br />
-              Relique Consultants
+              About us<br />
+              Who We Are
             </h2>
             
             <p 
-              className="text-[#B0B0B0] font-normal text-[16px] leading-[1.75em] mb-[52px] w-[590px]"
+              className="text-[#B0B0B0] font-normal text-[16px] leading-[1.75em] mb-[48px]"
               style={{ fontFamily: 'Roboto' }}
             >
-              We are a consulting and liaising company focused on delivering clarity and results across IT strategy, digital transformation, regulatory approvals, and stakeholder coordination.
+              We are a consulting and liaising company focused on delivering clarity and results across IT strategy, digital transformation, regulatory approvals, and stakeholder coordination. With a team of domain experts, we act as your extended arm in navigating complexity — from compliance to innovation.
             </p>
-
-            <a
+            
+            <Button
               href="#know-more"
-              className="inline-flex items-center justify-center w-[183px] px-[20px] py-[12px] bg-[#4EC6C6] text-[#0F071D] font-medium text-[16px] leading-[1.5em] rounded-full hover:bg-[#42B8B8] transition-all duration-300"
+              variant="primary"
+              className="w-[183px]"
               style={{
-                fontFamily: 'Roboto',
-                letterSpacing: '-1.25%',
                 paddingRight: '21.39px'
               }}
             >
               Know more
-            </a>
+            </Button>
           </div>
         </div>
       </div>
