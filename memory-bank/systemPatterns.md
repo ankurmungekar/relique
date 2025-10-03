@@ -17,11 +17,14 @@ const Layout: React.FC = () => {
   );
 };
 
-// Enhanced Navbar with dropdowns and active states
+// Enhanced Navbar with hover-based dropdowns and active states
 const Navbar: React.FC = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const location = useLocation();
-  // Click-outside handling, route change detection, active state management
+  // Hover-based dropdown handling, route change detection, active state management
+  // Focus states removed for cleaner appearance
+  // Services dropdown order: Go-to-Market Strategy, Startup Advisory, BFSI & IT Advisory, 
+  //                          AI Innovations, Project Excellence, Business Growth & Retention
 };
 ```
 
@@ -91,20 +94,38 @@ style={{ fontFamily: 'Roboto' }}
 
 ## State Management Patterns
 
-### Dropdown Management
+### Dropdown Management (Hover-Based)
 ```typescript
 const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
-// Click-outside handling
+// Hover-based dropdown with seamless interaction
+const handleDropdownOpen = (dropdownName: string) => {
+  setActiveDropdown(dropdownName);
+};
+
+const handleDropdownClose = () => {
+  setActiveDropdown(null);
+};
+
+// Wrapper div bridges gap between trigger and menu
+<div 
+  onMouseEnter={() => handleDropdownOpen('services')}
+  onMouseLeave={handleDropdownClose}
+>
+  <button>Services</button>
+  {activeDropdown === 'services' && (
+    <div className="absolute top-full left-0 pt-[4px]">
+      <div className="dropdown-menu">
+        {/* Menu items */}
+      </div>
+    </div>
+  )}
+</div>
+
+// Route change handling
 useEffect(() => {
-  const handleClickOutside = (event: MouseEvent) => {
-    if (navRef.current && !navRef.current.contains(event.target as Node)) {
-      setActiveDropdown(null);
-    }
-  };
-  document.addEventListener('mousedown', handleClickOutside);
-  return () => document.removeEventListener('mousedown', handleClickOutside);
-}, []);
+  setActiveDropdown(null);
+}, [location.pathname]);
 ```
 
 ### Carousel State Management
@@ -146,8 +167,47 @@ const isActivePage = (path: string) => {
   return location.pathname === path;
 };
 
-// Apply active styles conditionally
-className={`${isActivePage('/') ? 'bg-[#4EC6C6] text-[#0F071D]' : 'text-[#F5F5F5]'}`}
+// Apply active styles conditionally (color-only, no background)
+className={`outline-none focus:outline-none ${
+  isActivePage('/') 
+    ? 'text-[#4EC6C6]' 
+    : 'text-[#F5F5F5] hover:text-[#4EC6C6]'
+}`}
+```
+
+## Navigation UI/UX Patterns
+
+### Services Dropdown Menu Order
+```typescript
+// Consistent ordering across all pages
+const servicesOrder = [
+  { path: '/services/go-to-market-strategy', label: 'Go-to-Market Strategy' },
+  { path: '/services/startup-advisory', label: 'Startup Advisory' },
+  { path: '/services/bfsi-it-advisory', label: 'BFSI & IT Advisory' },
+  { path: '/services/ai-innovations', label: 'AI Innovations' },
+  { path: '/services/project-execution', label: 'Project Excellence' },
+  { path: '/services/business-growth', label: 'Business Growth & Retention' },
+];
+```
+
+### Focus State Management
+```typescript
+// Remove default browser focus outlines for cleaner appearance
+// All interactive elements use: outline-none focus:outline-none
+<Link className="outline-none focus:outline-none" />
+<button className="outline-none focus:outline-none" />
+```
+
+### Hover Bridge Pattern (Prevents Dropdown Flicker)
+```typescript
+// Wrapper div with padding creates seamless hover area
+<div className="absolute top-full left-0 pt-[4px]">
+  <div className="bg-[#08040F] rounded-[16px]">
+    {/* Dropdown content */}
+  </div>
+</div>
+// The pt-[4px] padding prevents dropdown from closing when mouse 
+// moves from trigger to menu through the gap
 ```
 
 ## Performance Patterns
@@ -159,8 +219,14 @@ className={`${isActivePage('/') ? 'bg-[#4EC6C6] text-[#0F071D]' : 'text-[#F5F5F5
   @apply transition-all duration-300;
 }
 
-.hover-effect {
-  @apply hover:bg-[#F5F5F5] hover:text-[#0F071D];
+/* Navbar hover effects (color-only, no background) */
+.nav-hover-effect {
+  @apply hover:text-[#4EC6C6] outline-none focus:outline-none;
+}
+
+/* Dropdown menu item hover */
+.dropdown-hover {
+  @apply hover:bg-[rgba(123,78,255,0.1)] transition-all duration-200;
 }
 ```
 
