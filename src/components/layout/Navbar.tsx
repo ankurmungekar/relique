@@ -127,7 +127,7 @@ const Navbar: React.FC = () => {
           {/* Solutions Hub */}
           <div className="ml-[24px]">
             <Link 
-              to="/services"
+              to="/solutions"
               className={`inline-flex items-center justify-center px-[12px] py-[12px] rounded-full font-medium text-[16px] leading-[1.5em] transition-all duration-300 outline-none focus:outline-none ${
                 isActivePage('/solutions') 
                   ? 'text-[#4EC6C6]' 

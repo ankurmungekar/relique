@@ -5,6 +5,7 @@ import {
   HomePage, 
   AboutPage, 
   ContactPage,
+  SolutionsHubPage,
   GoToMarketStrategyPage,
   StartupAdvisoryPage,
   ProjectExecutionPage,
@@ -21,6 +22,7 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<HomePage />} />
             <Route path="about" element={<AboutPage />} />
+            <Route path="solutions" element={<SolutionsHubPage />} />
             {/* Services routes */}
             <Route path="services" element={<Navigate to="/services/go-to-market-strategy" replace />} />
             <Route path="services/go-to-market-strategy" element={<GoToMarketStrategyPage />} />

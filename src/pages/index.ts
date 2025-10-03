@@ -2,6 +2,7 @@
 export { default as HomePage } from './HomePage';
 export { default as AboutPage } from './AboutPage';
 export { default as ContactPage } from './ContactPage';
+export { default as SolutionsHubPage } from './SolutionsHubPage';
 
 // Service pages
 export { default as GoToMarketStrategyPage } from './services/GoToMarketStrategyPage';
