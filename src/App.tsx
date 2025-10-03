@@ -1,7 +1,17 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { Layout } from './components/layout';
-import { HomePage, AboutPage, ServicesPage, ContactPage } from './pages';
+import { 
+  HomePage, 
+  AboutPage, 
+  ContactPage,
+  GoToMarketStrategyPage,
+  StartupAdvisoryPage,
+  ProjectExecutionPage,
+  BusinessGrowthPage,
+  BFSIAdvisoryPage,
+  AIInnovationsPage
+} from './pages';
 
 function App() {
   return (
@@ -11,7 +21,14 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<HomePage />} />
             <Route path="about" element={<AboutPage />} />
-            <Route path="services" element={<ServicesPage />} />
+            {/* Services routes */}
+            <Route path="services" element={<Navigate to="/services/go-to-market-strategy" replace />} />
+            <Route path="services/go-to-market-strategy" element={<GoToMarketStrategyPage />} />
+            <Route path="services/startup-advisory" element={<StartupAdvisoryPage />} />
+            <Route path="services/project-execution" element={<ProjectExecutionPage />} />
+            <Route path="services/business-growth" element={<BusinessGrowthPage />} />
+            <Route path="services/bfsi-it-advisory" element={<BFSIAdvisoryPage />} />
+            <Route path="services/ai-innovations" element={<AIInnovationsPage />} />
             <Route path="contact" element={<ContactPage />} />
           </Route>
         </Routes>

@@ -65,19 +65,68 @@ const Navbar: React.FC = () => {
             </Link>
           </div>
 
-          {/* Services */}
-          <div className="ml-[24px]">
-            <Link 
-              to="/services"
-              className={`inline-flex items-center justify-center px-[12px] py-[12px] rounded-full font-medium text-[16px] leading-[1.5em] transition-all duration-300 ${
-                isActivePage('/services') 
+          {/* Services Dropdown */}
+          <div className="ml-[24px] relative">
+            <button 
+              onClick={() => handleDropdownToggle('services')}
+              className={`inline-flex items-center justify-center gap-[9.63px] px-[12px] py-[12px] rounded-full font-medium text-[16px] leading-[1.5em] transition-all duration-300 ${
+                location.pathname.startsWith('/services') 
                   ? 'bg-[#4EC6C6] text-[#0F071D]' 
                   : 'text-[#F5F5F5] hover:bg-[#F5F5F5] hover:text-[#0F071D]'
               }`}
               style={{ fontFamily: 'Roboto' }}
             >
               Services
-            </Link>
+              <ChevronDown className={`w-[12px] h-[12px] transition-transform duration-300 ${activeDropdown === 'services' ? 'rotate-180' : ''}`} />
+            </button>
+            
+            {/* Services Dropdown Menu */}
+            {activeDropdown === 'services' && (
+              <div className="absolute top-[calc(100%+4px)] left-0 bg-[#08040F] rounded-[16px] border border-[rgba(123,78,255,0.5)] shadow-[0_0_8px_2px_rgba(123,78,255,0.2)] py-[8px] min-w-[285px] z-50">
+                <Link
+                  to="/services/go-to-market-strategy"
+                  className="block px-[12px] py-[12px] text-[#F5F5F5] font-normal text-[14px] leading-[1.71em] hover:bg-[rgba(123,78,255,0.1)] transition-all duration-200"
+                  style={{ fontFamily: 'Roboto' }}
+                >
+                  Go-to-Market Strategy
+                </Link>
+                <Link
+                  to="/services/project-execution"
+                  className="block px-[12px] py-[12px] text-[#F5F5F5] font-normal text-[14px] leading-[1.71em] hover:bg-[rgba(123,78,255,0.1)] transition-all duration-200"
+                  style={{ fontFamily: 'Roboto' }}
+                >
+                  Project Execution and Customer Success
+                </Link>
+                <Link
+                  to="/services/business-growth"
+                  className="block px-[12px] py-[12px] text-[#F5F5F5] font-normal text-[14px] leading-[1.71em] hover:bg-[rgba(123,78,255,0.1)] transition-all duration-200"
+                  style={{ fontFamily: 'Roboto' }}
+                >
+                  Business Growth & Retention
+                </Link>
+                <Link
+                  to="/services/bfsi-it-advisory"
+                  className="block px-[12px] py-[12px] text-[#F5F5F5] font-normal text-[14px] leading-[1.71em] hover:bg-[rgba(123,78,255,0.1)] transition-all duration-200"
+                  style={{ fontFamily: 'Roboto' }}
+                >
+                  BFSI & IT Advisory
+                </Link>
+                <Link
+                  to="/services/ai-innovations"
+                  className="block px-[12px] py-[12px] text-[#F5F5F5] font-normal text-[14px] leading-[1.71em] hover:bg-[rgba(123,78,255,0.1)] transition-all duration-200"
+                  style={{ fontFamily: 'Roboto' }}
+                >
+                  AI Innovations
+                </Link>
+                <Link
+                  to="/services/startup-advisory"
+                  className="block px-[12px] py-[12px] text-[#F5F5F5] font-normal text-[14px] leading-[1.71em] hover:bg-[rgba(123,78,255,0.1)] transition-all duration-200"
+                  style={{ fontFamily: 'Roboto' }}
+                >
+                  Startup Advisory
+                </Link>
+              </div>
+            )}
           </div>
 
           {/* Solutions Hub */}
