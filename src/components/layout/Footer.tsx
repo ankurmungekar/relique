@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook, Instagram } from '../ui/icons/ChevronIcons';
+import { Mail, Phone, MapPin, Linkedin, Twitter, Youtube, Instagram } from '../ui/icons/ChevronIcons';
 
 const Footer: React.FC = () => {
   return (
@@ -9,10 +9,10 @@ const Footer: React.FC = () => {
       
       <div className="max-w-[1440px] mx-auto px-[120px] pt-[40px] pb-[31px]">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-4 gap-[60px] mb-[25px]">
+        <div className="grid grid-cols-4 gap-[60px] mb-[30px]">
           {/* Company Info */}
           <div>
-            <div className="mb-[32px]">
+            <div className="mb-[15px]">
               <img 
                 src="/images/relique-logo-white.png" 
                 alt="Relique Consultants" 
@@ -33,197 +33,175 @@ const Footer: React.FC = () => {
             >
               Your trusted partner for Go-To-Market strategies, digital transformation, and business growth.
             </p>
+          </div>
 
-            {/* Contact Info */}
-            <div className="space-y-[11px]">
-              <div className="flex items-center gap-[12px]">
-                <Mail size={16} className="text-[#4EC6C6]" />
-                <a 
-                  href="mailto:hello@reliqueconsultants.com"
-                  className="text-[#B0B0B0] font-normal text-[14px] leading-[1.43em] hover:text-[#4EC6C6] transition-colors duration-300"
-                  style={{ fontFamily: 'Roboto' }}
-                >
-                  hello@reliqueconsultants.com
-                </a>
-              </div>
-              
-              <div className="flex items-center gap-[12px]">
-                <Phone size={16} className="text-[#4EC6C6]" />
-                <a 
-                  href="tel:+1234567890"
-                  className="text-[#B0B0B0] font-normal text-[14px] leading-[1.43em] hover:text-[#4EC6C6] transition-colors duration-300"
-                  style={{ fontFamily: 'Roboto' }}
-                >
-                  +1 (234) 567-890
-                </a>
-              </div>
-              
-              <div className="flex items-start gap-[12px]">
-                <MapPin size={16} className="text-[#4EC6C6] mt-[2px]" />
-                <span 
-                  className="text-[#B0B0B0] font-normal text-[14px] leading-[1.43em]"
-                  style={{ fontFamily: 'Roboto' }}
-                >
-                  123 Business Ave, Suite 100<br />
-                  New York, NY 10001
-                </span>
-              </div>
+          {/* Quick Links */}
+          <div>
+            <h4 
+              className="text-[#F5F5F5] font-medium text-[16px] leading-[1.25em] mb-[10px]"
+              style={{ fontFamily: 'Roboto' }}
+            >
+              Quick Links
+            </h4>
+            <div className="space-y-0">
+              <a 
+                href="/"
+                className="block text-[#B0B0B0] font-normal text-[14px] leading-[2.14em] hover:text-[#4EC6C6] transition-colors duration-300"
+                style={{ fontFamily: 'Roboto' }}
+              >
+                Home
+              </a>
+              <a 
+                href="/services"
+                className="block text-[#B0B0B0] font-normal text-[14px] leading-[2.14em] hover:text-[#4EC6C6] transition-colors duration-300"
+                style={{ fontFamily: 'Roboto' }}
+              >
+                Services
+              </a>
+              <a 
+                href="/solutions"
+                className="block text-[#B0B0B0] font-normal text-[14px] leading-[2.14em] hover:text-[#4EC6C6] transition-colors duration-300"
+                style={{ fontFamily: 'Roboto' }}
+              >
+                Solutions Hub
+              </a>
+              <a 
+                href="/about"
+                className="block text-[#B0B0B0] font-normal text-[14px] leading-[2.14em] hover:text-[#4EC6C6] transition-colors duration-300"
+                style={{ fontFamily: 'Roboto' }}
+              >
+                About Us
+              </a>
+              <a 
+                href="/contact"
+                className="block text-[#B0B0B0] font-normal text-[14px] leading-[2.14em] hover:text-[#4EC6C6] transition-colors duration-300"
+                style={{ fontFamily: 'Roboto' }}
+              >
+                Contact
+              </a>
             </div>
           </div>
 
           {/* Services */}
           <div>
             <h4 
-              className="text-[#F5F5F5] font-medium text-[16px] leading-[1.25em] mb-[24px]"
+              className="text-[#F5F5F5] font-medium text-[16px] leading-[1.25em] mb-[10px]"
               style={{ fontFamily: 'Roboto' }}
             >
               Services
             </h4>
-            <div className="space-y-[16px]">
+            <div className="space-y-0">
               <a 
-                href="#go-to-market"
-                className="block text-[#B0B0B0] font-normal text-[14px] leading-[1.43em] hover:text-[#4EC6C6] transition-colors duration-300"
+                href="/services/go-to-market-strategy"
+                className="block text-[#B0B0B0] font-normal text-[14px] leading-[2.14em] hover:text-[#4EC6C6] transition-colors duration-300"
                 style={{ fontFamily: 'Roboto' }}
               >
                 Go-to-Market Strategy
               </a>
               <a 
-                href="#project-excellence"
-                className="block text-[#B0B0B0] font-normal text-[14px] leading-[1.43em] hover:text-[#4EC6C6] transition-colors duration-300"
+                href="/services/project-execution"
+                className="block text-[#B0B0B0] font-normal text-[14px] leading-[2.14em] hover:text-[#4EC6C6] transition-colors duration-300"
                 style={{ fontFamily: 'Roboto' }}
               >
-                Project Excellence
+                Project Execution & Customer Success
               </a>
               <a 
-                href="#business-growth"
-                className="block text-[#B0B0B0] font-normal text-[14px] leading-[1.43em] hover:text-[#4EC6C6] transition-colors duration-300"
+                href="/services/business-growth"
+                className="block text-[#B0B0B0] font-normal text-[14px] leading-[2.14em] hover:text-[#4EC6C6] transition-colors duration-300"
                 style={{ fontFamily: 'Roboto' }}
               >
                 Business Growth & Retention
               </a>
               <a 
-                href="#ai-innovations"
-                className="block text-[#B0B0B0] font-normal text-[14px] leading-[1.43em] hover:text-[#4EC6C6] transition-colors duration-300"
+                href="/services/bfsi-it-advisory"
+                className="block text-[#B0B0B0] font-normal text-[14px] leading-[2.14em] hover:text-[#4EC6C6] transition-colors duration-300"
+                style={{ fontFamily: 'Roboto' }}
+              >
+                BFSI & IT Advisory
+              </a>
+              <a 
+                href="/services/ai-innovations"
+                className="block text-[#B0B0B0] font-normal text-[14px] leading-[2.14em] hover:text-[#4EC6C6] transition-colors duration-300"
                 style={{ fontFamily: 'Roboto' }}
               >
                 AI Innovations
               </a>
-            </div>
-          </div>
-
-          {/* Industries */}
-          <div>
-            <h4 
-              className="text-[#F5F5F5] font-medium text-[16px] leading-[1.25em] mb-[24px]"
-              style={{ fontFamily: 'Roboto' }}
-            >
-              Industries
-            </h4>
-            <div className="space-y-[16px]">
               <a 
-                href="#bfsi"
-                className="block text-[#B0B0B0] font-normal text-[14px] leading-[1.43em] hover:text-[#4EC6C6] transition-colors duration-300"
+                href="/services/startup-advisory"
+                className="block text-[#B0B0B0] font-normal text-[14px] leading-[2.14em] hover:text-[#4EC6C6] transition-colors duration-300"
                 style={{ fontFamily: 'Roboto' }}
               >
-                BFSI
-              </a>
-              <a 
-                href="#it-tech"
-                className="block text-[#B0B0B0] font-normal text-[14px] leading-[1.43em] hover:text-[#4EC6C6] transition-colors duration-300"
-                style={{ fontFamily: 'Roboto' }}
-              >
-                IT & Tech Services
-              </a>
-              <a 
-                href="#retail"
-                className="block text-[#B0B0B0] font-normal text-[14px] leading-[1.43em] hover:text-[#4EC6C6] transition-colors duration-300"
-                style={{ fontFamily: 'Roboto' }}
-              >
-                Retail & E-Commerce
-              </a>
-              <a 
-                href="#data-analytics"
-                className="block text-[#B0B0B0] font-normal text-[14px] leading-[1.43em] hover:text-[#4EC6C6] transition-colors duration-300"
-                style={{ fontFamily: 'Roboto' }}
-              >
-                Data & Analytics
+                Startup Advisory
               </a>
             </div>
           </div>
 
-          {/* Company */}
+          {/* Contact Info & Social Media */}
           <div>
-            <h4 
-              className="text-[#F5F5F5] font-medium text-[16px] leading-[1.25em] mb-[24px]"
-              style={{ fontFamily: 'Roboto' }}
-            >
-              Company
-            </h4>
-            <div className="space-y-[16px]">
-              <a 
-                href="#about"
-                className="block text-[#B0B0B0] font-normal text-[14px] leading-[1.43em] hover:text-[#4EC6C6] transition-colors duration-300"
-                style={{ fontFamily: 'Roboto' }}
-              >
-                About Us
-              </a>
-              <a 
-                href="#careers"
-                className="block text-[#B0B0B0] font-normal text-[14px] leading-[1.43em] hover:text-[#4EC6C6] transition-colors duration-300"
-                style={{ fontFamily: 'Roboto' }}
-              >
-                Careers
-              </a>
-              <a 
-                href="#contact"
-                className="block text-[#B0B0B0] font-normal text-[14px] leading-[1.43em] hover:text-[#4EC6C6] transition-colors duration-300"
-                style={{ fontFamily: 'Roboto' }}
-              >
-                Contact
-              </a>
-              <a 
-                href="#blog"
-                className="block text-[#B0B0B0] font-normal text-[14px] leading-[1.43em] hover:text-[#4EC6C6] transition-colors duration-300"
-                style={{ fontFamily: 'Roboto' }}
-              >
-                Blog
-              </a>
-            </div>
-
-            {/* Social Media */}
-            <div className="mt-[32px]">
-              <h5 
-                className="text-[#F5F5F5] font-medium text-[14px] leading-[1.43em] mb-[16px]"
-                style={{ fontFamily: 'Roboto' }}
-              >
-                Follow Us
-              </h5>
-              <div className="flex items-center gap-[16px]">
-                <a 
-                  href="#linkedin"
-                  className="w-[32px] h-[32px] rounded-full bg-[#2E2E3E] flex items-center justify-center hover:bg-[#4EC6C6] transition-colors duration-300"
+            {/* Contact Info */}
+            <div className="space-y-[11px] mb-[19px]">
+              <div className="flex items-start gap-[12px]">
+                <MapPin size={16} className="text-[#FFFFFF] mt-[2px]" />
+                <span 
+                  className="text-[#F5F5F5] font-normal text-[14px] leading-[1.43em]"
+                  style={{ fontFamily: 'Roboto' }}
                 >
-                  <Linkedin size={16} className="text-[#F5F5F5]" />
-                </a>
+                  Locate us at: SHAMS, UAE.
+                </span>
+              </div>
+              
+              <div className="flex items-center gap-[12px]">
+                <Mail size={15} className="text-[#FFFFFF]" />
                 <a 
-                  href="#twitter"
-                  className="w-[32px] h-[32px] rounded-full bg-[#2E2E3E] flex items-center justify-center hover:bg-[#4EC6C6] transition-colors duration-300"
+                  href="mailto:reachus@reliqueconsultants.com"
+                  className="text-[#F5F5F5] font-normal text-[14px] leading-[1.43em] hover:text-[#4EC6C6] transition-colors duration-300"
+                  style={{ fontFamily: 'Roboto' }}
                 >
-                  <Twitter size={16} className="text-[#F5F5F5]" />
-                </a>
-                <a 
-                  href="#facebook"
-                  className="w-[32px] h-[32px] rounded-full bg-[#2E2E3E] flex items-center justify-center hover:bg-[#4EC6C6] transition-colors duration-300"
-                >
-                  <Facebook size={16} className="text-[#F5F5F5]" />
-                </a>
-                <a 
-                  href="#instagram"
-                  className="w-[32px] h-[32px] rounded-full bg-[#2E2E3E] flex items-center justify-center hover:bg-[#4EC6C6] transition-colors duration-300"
-                >
-                  <Instagram size={16} className="text-[#F5F5F5]" />
+                  reachus@reliqueconsultants.com
                 </a>
               </div>
+              
+              <div className="flex items-center gap-[12px]">
+                <Phone size={16} className="text-[#FFFFFF]" />
+                <a 
+                  href="tel:+91XXXXXXXXXX"
+                  className="text-[#F5F5F5] font-normal text-[14px] leading-[1.43em] hover:text-[#4EC6C6] transition-colors duration-300"
+                  style={{ fontFamily: 'Roboto' }}
+                >
+                  +91-XXXXXXXXXX
+                </a>
+              </div>
+            </div>
+
+            {/* Divider Line */}
+            <div className="w-full h-[1px] mb-[19px] border-t border-dashed border-white/20"></div>
+
+            {/* Social Media */}
+            <div className="flex items-center gap-[12px]">
+              <a 
+                href="#linkedin"
+                className="w-[40px] h-[40px] rounded-full border border-white/[0.13] flex items-center justify-center hover:bg-[#4EC6C6] transition-colors duration-300"
+              >
+                <Linkedin size={16} className="text-[#F5F5F5]" />
+              </a>
+              <a 
+                href="#instagram"
+                className="w-[40px] h-[40px] rounded-full border border-white/[0.13] flex items-center justify-center hover:bg-[#4EC6C6] transition-colors duration-300"
+              >
+                <Instagram size={16} className="text-[#F5F5F5]" />
+              </a>
+              <a 
+                href="#youtube"
+                className="w-[40px] h-[40px] rounded-full border border-white/[0.13] flex items-center justify-center hover:bg-[#4EC6C6] transition-colors duration-300"
+              >
+                <Youtube size={16} className="text-[#F5F5F5]" />
+              </a>
+              <a 
+                href="#twitter"
+                className="w-[40px] h-[40px] rounded-full border border-white/[0.13] flex items-center justify-center hover:bg-[#4EC6C6] transition-colors duration-300"
+              >
+                <Twitter size={16} className="text-[#F5F5F5]" />
+              </a>
             </div>
           </div>
         </div>
