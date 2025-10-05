@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Button from '../components/ui/Button';
 
 const ContactPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -16,7 +17,7 @@ const ContactPage: React.FC = () => {
     console.log('Form submitted:', formData);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -87,7 +88,7 @@ const ContactPage: React.FC = () => {
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      placeholder="John Doe"
+                      placeholder="Name"
                       className="w-full px-[14px] py-[12px] bg-[rgba(255,255,255,0.05)] border-none rounded-[4px] text-[#F5F5F5] placeholder-[#F5F5F5] font-medium text-[14px] leading-[1.43em] focus:outline-none focus:ring-1 focus:ring-[#4EC6C6] transition-all duration-300"
                       style={{ fontFamily: 'Roboto' }}
                     />
@@ -106,7 +107,7 @@ const ContactPage: React.FC = () => {
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        placeholder="Johnd@abc.com"
+                        placeholder="Email"
                         className="w-full px-[14px] py-[12px] bg-[rgba(255,255,255,0.05)] border-none rounded-[4px] text-[#F5F5F5] placeholder-[#F5F5F5] font-medium text-[14px] leading-[1.43em] focus:outline-none focus:ring-1 focus:ring-[#4EC6C6] transition-all duration-300"
                         style={{ fontFamily: 'Roboto' }}
                       />
@@ -132,7 +133,7 @@ const ContactPage: React.FC = () => {
                       name="contactNumber"
                       value={formData.contactNumber}
                       onChange={handleChange}
-                      placeholder="+91-XXXXXXXXXX"
+                      placeholder="Contact Number"
                       className="w-full px-[14px] py-[12px] bg-[rgba(255,255,255,0.05)] border-none rounded-[4px] text-[#F5F5F5] placeholder-[#B0B0B0] font-normal text-[14px] leading-[1.43em] focus:outline-none focus:ring-1 focus:ring-[#4EC6C6] transition-all duration-300"
                       style={{ fontFamily: 'Roboto' }}
                     />
@@ -146,15 +147,17 @@ const ContactPage: React.FC = () => {
                       Subject
                     </label>
                     <div className="relative">
-                      <input
-                        type="text"
+                      <select
                         name="subject"
                         value={formData.subject}
                         onChange={handleChange}
-                        placeholder="Subject"
-                        className="w-full px-[14px] py-[12px] bg-[rgba(255,255,255,0.05)] border-none rounded-[4px] text-[#B0B0B0] placeholder-[#B0B0B0] font-normal text-[14px] leading-[1.43em] focus:outline-none focus:ring-1 focus:ring-[#4EC6C6] transition-all duration-300"
+                        className="w-full px-[14px] py-[12px] bg-[rgba(255,255,255,0.05)] border-none rounded-[4px] text-[#B0B0B0] font-normal text-[14px] leading-[1.43em] focus:outline-none focus:ring-1 focus:ring-[#4EC6C6] transition-all duration-300 appearance-none cursor-pointer"
                         style={{ fontFamily: 'Roboto' }}
-                      />
+                      >
+                        <option value="looking-for-solution" className="bg-[#0F071D] text-[#F5F5F5]">Are you looking for a solution.</option>
+                        <option value="partnering" className="bg-[#0F071D] text-[#F5F5F5]">Looking for partnering with us.</option>
+                        <option value="query" className="bg-[#0F071D] text-[#F5F5F5]">You have a query for us.</option>
+                      </select>
                       <div className="absolute right-[14px] top-1/2 transform -translate-y-1/2 pointer-events-none">
                         <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                           <path d="M2.89 2.89L6 6L9.11 2.89L10 3.78L6 7.78L2 3.78L2.89 2.89Z" fill="#F5F5F5" stroke="#F5F5F5" strokeWidth="0.5"/>
@@ -181,13 +184,11 @@ const ContactPage: React.FC = () => {
                     />
                   </div>
                   
-                  <button
-                    type="submit"
-                    className="w-full px-[20px] py-[12px] bg-[#4EC6C6] text-[#0F071D] font-medium text-[16px] leading-[1.5em] rounded-full hover:bg-[#3DB5B5] transition-all duration-300 shadow-lg hover:shadow-xl"
-                    style={{ fontFamily: 'Roboto', letterSpacing: '-1.25%' }}
-                  >
-                    Get In Touch
-                  </button>
+                  <div className="flex justify-end">
+                    <Button type="submit" variant="primary">
+                      Get In Touch
+                    </Button>
+                  </div>
                 </form>
               </div>
             </div>
