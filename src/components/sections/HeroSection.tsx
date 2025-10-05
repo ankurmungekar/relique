@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, EffectFade } from 'swiper/modules';
+import { Pagination, EffectFade, Autoplay } from 'swiper/modules';
 import Button from '../ui/Button';
 
 // Import Swiper styles
@@ -28,9 +28,9 @@ const HeroSection: React.FC = () => {
         title: "Bridging the gap,\nBuilding the growth",
         subtitle: "Your trusted partner in Go-To-Market strategies, digital transformation, and business growth across global markets.",
         buttonText: "Explore Solutions",
-        buttonColor: "#4EC6C6",
-        titleColor: "#FFFFFF",
-        subtitleColor: "#FFFFFF",
+        buttonColor: "#7B4EFF",
+        titleColor: "#0F071D",
+        subtitleColor: "#0F071D",
         backgroundImages: ["/images/hero-variant1-bg.jpg"]
       },
       {
@@ -49,8 +49,8 @@ const HeroSection: React.FC = () => {
         subtitle: "Building trust-driven alliances that deliver real impact.",
         buttonText: "Explore Solutions",
         buttonColor: "#4EC6C6",
-        titleColor: "#000000",
-        subtitleColor: "#000000",
+        titleColor: "#FFFFFF",
+        subtitleColor: "#FFFFFF",
         backgroundImages: ["/images/hero-variant3-bg.jpg"]
       }
     ];
@@ -60,7 +60,7 @@ const HeroSection: React.FC = () => {
       <div className="max-w-[1440px] mx-auto px-[36px]">
         <div className="relative w-full h-[712px] rounded-[16px] overflow-hidden">
             <Swiper
-            modules={[Pagination, EffectFade]}
+            modules={[Pagination, EffectFade, Autoplay]}
             spaceBetween={0}
             slidesPerView={1}
             effect="fade"
@@ -68,6 +68,11 @@ const HeroSection: React.FC = () => {
               crossFade: true
             }}
             loop={true}
+            autoplay={{
+              delay: 4000,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: false
+            }}
             pagination={{
                clickable: true,
                bulletClass: 'hero-pagination-bullet',
@@ -98,15 +103,19 @@ const HeroSection: React.FC = () => {
                   <div className="relative z-10 w-full h-full flex flex-col items-center justify-start pt-[50px] px-4 sm:px-8 lg:px-12">
                     {/* Main Heading */}
                     <h1 
-                      className="font-medium text-[28px] sm:text-[36px] lg:text-[48px] leading-[1.125em] mb-[20px] sm:mb-[24px] lg:mb-[27px] max-w-[300px] sm:max-w-[360px] lg:max-w-[440px] text-center"
+                      className="font-regular text-[28px] sm:text-[36px] lg:text-[48px] leading-[1.125em] mb-[20px] sm:mb-[24px] lg:mb-[27px] max-w-[300px] sm:max-w-[360px] lg:max-w-[440px] text-center"
                       style={{
                         textShadow: '0px 6px 6px rgba(0, 0, 0, 0.1)',
                         fontFamily: 'Roboto',
-                        color: slide.titleColor,
-                        whiteSpace: 'pre-line'
+                        color: slide.titleColor
                       }}
                     >
-                      {slide.title}
+                      {slide.title.split('\n').map((line, i) => (
+                        <React.Fragment key={i}>
+                          {i === 1 ? <strong className="font-black">{line}</strong> : line}
+                          {i < slide.title.split('\n').length - 1 && <br />}
+                        </React.Fragment>
+                      ))}
                     </h1>
 
                     {/* Subtitle */}
@@ -123,7 +132,7 @@ const HeroSection: React.FC = () => {
 
                     {/* CTA Button */}
                     <Button
-                      href="#explore-solutions"
+                      to="/services/go-to-market-strategy"
                       variant="primary"
                       className="hover:scale-105 hover:shadow-lg"
                       style={{
@@ -158,18 +167,19 @@ const HeroSection: React.FC = () => {
           border: 1px solid #FFFFFF;
           background: transparent;
           opacity: 1;
-          margin: 0 3px;
+          margin: 0 2px;
           cursor: pointer;
           transition: all 0.3s ease;
+          position: relative;
         }
         
         .hero-pagination-bullet:hover {
-          transform: scale(1.2);
+          transform: scale(1.1);
         }
         
         .hero-pagination-bullet-active {
-          background: #FFFFFF;
-          transform: scale(1.1);
+          background: transparent;
+          border: 1px solid #FFFFFF;
         }
         
         .hero-pagination-bullet-active::after {

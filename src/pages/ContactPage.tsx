@@ -25,7 +25,7 @@ const ContactPage: React.FC = () => {
   };
 
   return (
-    <div className="ContactPage mt-[88px]">
+    <div className="ContactPage mt-[88px] mb-[120px]">
       {/* Hero Banner Section */}
       <section className="relative bg-[#0F071D] h-[300px] overflow-hidden">
         {/* Background Image Layer */}

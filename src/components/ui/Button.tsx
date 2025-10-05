@@ -30,6 +30,7 @@ const Button: React.FC<ButtonProps> = ({
     rounded-[25px]
     transition-all duration-200
     cursor-pointer
+    focus:outline-none
     ${className}
   `.trim().replace(/\s+/g, ' ');
 

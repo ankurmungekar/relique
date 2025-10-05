@@ -19,6 +19,8 @@ const CoreExpertiseSection: React.FC = () => {
   const swiperRef = useRef<any>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [totalSlides, setTotalSlides] = useState(4);
+  const [isBeginning, setIsBeginning] = useState(true);
+  const [isEnd, setIsEnd] = useState(false);
   
   const expertiseData: ExpertiseCard[] = [
     {
@@ -44,6 +46,18 @@ const CoreExpertiseSection: React.FC = () => {
       title: 'AI Innovations',
       description: 'Leverage AI-powered solutions for automation, analytics, and transformation.',
       image: '/images/hero-variant3-bg.jpg'
+    },
+    {
+      id: '5',
+      title: 'AI Innovations 2',
+      description: 'Leverage AI-powered solutions for automation, analytics, and transformation.',
+      image: '/images/hero-variant3-bg.jpg'
+    },
+    {
+      id: '6',
+      title: 'AI Innovations 3',
+      description: 'Leverage AI-powered solutions for automation, analytics, and transformation.',
+      image: '/images/hero-variant3-bg.jpg'
     }
   ];
 
@@ -64,30 +78,33 @@ const CoreExpertiseSection: React.FC = () => {
   // So we have 2 total positions (0 and 1), making maxSlideIndex = 1
   const slidesPerViewCount = 3; // Desktop shows 3 slides
   const maxSlideIndex = Math.max(0, totalSlides - slidesPerViewCount);
-  const progressPercentage = maxSlideIndex > 0 ? (currentSlide / maxSlideIndex) * 100 : 100;
+  // Force 100% when at the end to ensure last item visibility shows full progress
+  const progressPercentage = isEnd ? 100 : (maxSlideIndex > 0 ? (currentSlide / maxSlideIndex) * 100 : 100);
 
   return (
-    <section className="bg-[#0F071D] py-[120px]">
+    <section className="bg-[#0F071D] my-[150px]">
       <div className="max-w-[1440px] mx-auto px-[120px]">
         {/* Main Content Row */}
         <div className="flex items-start gap-[67px] overflow-hidden">
           {/* Left Section - Title and Button */}
           <div className="flex-shrink-0 w-[386px]">
             <h2 
-              className="text-[#F5F5F5] font-medium text-[48px] leading-[1.125em] mb-[36px] max-w-[319px]"
+              className="text-[#F5F5F5] font-regular text-[48px] leading-[1.125em] mb-[24px] max-w-[319px]"
               style={{ fontFamily: 'Roboto' }}
             >
               Our
               <br />
-              <span className='font-medium'>Core Expertise</span>
+              <span className='font-black'>Core Expertise</span>
             </h2>
             <div className='text-[#B0B0B0] font-normal text-[16px] leading-[1.5em] mb-[36px]'>Comprehensive consulting solutions designed to accelerate your growth across global markets.</div>
             <Button
-              href="#view-all"
+              to="/services/go-to-market-strategy"
               variant="primary"
               className="w-[183px]"
               style={{
-                paddingRight: '21.39px'
+                paddingRight: '21.39px',
+                backgroundColor: '#7B4EFF',
+                color: '#F5F5F5'
               }}
             >
               View All
@@ -108,9 +125,13 @@ const CoreExpertiseSection: React.FC = () => {
                 onSwiper={(swiper: any) => {
                   swiperRef.current = swiper;
                   setTotalSlides(expertiseData.length);
+                  setIsBeginning(swiper.isBeginning);
+                  setIsEnd(swiper.isEnd);
                 }}
                 onSlideChange={(swiper: any) => {
                   setCurrentSlide(swiper.activeIndex);
+                  setIsBeginning(swiper.isBeginning);
+                  setIsEnd(swiper.isEnd);
                 }}
                 breakpoints={{
                   320: {
@@ -166,30 +187,36 @@ const CoreExpertiseSection: React.FC = () => {
             {/* Navigation and Progress Section */}
             <div className="flex items-center justify-between">
               {/* Navigation Buttons */}
-              <div className="flex items-center gap-[20px]">
+              <div className="flex items-center gap-[20px] mr-[30px]">
                 <button
                   onClick={handlePrevSlide}
-                  className="w-[52px] h-[52px] rounded-full bg-[#2E2E3E] flex items-center justify-center hover:bg-[#4EC6C6] transition-all duration-300"
+                  disabled={isBeginning}
+                  className={`w-[52px] h-[52px] rounded-full bg-[#2E2E3E] flex items-center justify-center transition-all duration-300 focus:outline-none ${
+                    isBeginning ? 'opacity-50 cursor-not-allowed' : 'hover:bg-[#4EC6C6] cursor-pointer'
+                  }`}
                 >
                   <ChevronLeft size={24} className="text-[#F5F5F5]" />
                 </button>
 
                 <button
                   onClick={handleNextSlide}
-                  className="w-[52px] h-[52px] rounded-full bg-[#4EC6C6] flex items-center justify-center hover:bg-[#42B8B8] transition-all duration-300"
+                  disabled={isEnd}
+                  className={`w-[52px] h-[52px] rounded-full bg-[#4EC6C6] flex items-center justify-center transition-all duration-300 focus:outline-none ${
+                    isEnd ? 'opacity-50 cursor-not-allowed' : 'hover:bg-[#42B8B8] cursor-pointer'
+                  }`}
                 >
                   <ChevronRight size={24} className="text-[#0F071D]" />
                 </button>
               </div>
 
               {/* Progress Lines */}
-              <div className="flex items-center relative">
+              <div className="flex items-center relative flex-1">
                 {/* Background line */}
-                <div className="w-[635px] h-[1px] bg-[#2E2E3E]"></div>
+                <div className="w-full h-[1px] bg-[#2E2E3E]"></div>
                 {/* Progress line */}
                 <div 
                   className="absolute left-0 h-[3px] bg-[#4EC6C6] transition-all duration-300"
-                  style={{ width: `${Math.min(214, (214 * progressPercentage) / 100)}px` }}
+                  style={{ width: `${progressPercentage}%` }}
                 ></div>
               </div>
             </div>

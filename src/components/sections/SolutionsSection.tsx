@@ -151,17 +151,17 @@ const SolutionsSection: React.FC = () => {
   }, [currentIndex, isDragging]);
 
   return (
-    <section className="bg-[#0F071D] py-[120px]">
+    <section className="bg-[#0F071D] mb-[120px]">
       <div className="max-w-[1440px] mx-auto px-[120px]">
         {/* Section Header */}
-        <div className="mb-[70px] flex justify-between items-start">
+        <div className="mb-[30px] flex justify-between items-center">
           {/* Left side - Title and Description */}
           <div className="max-w-[504px]">
             <h2 
-              className="text-[#F5F5F5] font-medium text-[40px] leading-[1.35em] mb-[16px]"
+              className="text-[#F5F5F5] font-regular text-[40px] leading-[1.35em] mb-[16px]"
               style={{ fontFamily: 'Roboto' }}
             >
-              Solutions That Drive Growth
+              Solutions <span className='font-black'>That Drive Growth</span>
             </h2>
             
             <p 
@@ -174,7 +174,7 @@ const SolutionsSection: React.FC = () => {
 
           {/* Right side - Button */}
           <Button
-            href="#view-all-services"
+            to="/services/go-to-market-strategy"
             variant="primary"
             className="w-[183px]"
             style={{
