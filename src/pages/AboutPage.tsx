@@ -5,7 +5,7 @@ const AboutPage: React.FC = () => {
   return (
     <div className="AboutPage bg-[#0F071D] min-h-screen pt-[88px]">
       {/* Hero Banner Section */}
-      <section className="py-[60px]">
+      <section className="pt-[60px]">
         <div className="max-w-[1440px] mx-auto px-[120px]">
           <div className="w-full h-[300px] rounded-[16px] overflow-hidden">
             <img 
@@ -17,45 +17,107 @@ const AboutPage: React.FC = () => {
         </div>
       </section>
 
+      {/* Title Section */}
+      <section className="pt-[60px] pb-[24px]">
+        <div className="max-w-[1440px] mx-auto px-[120px]">
+          <h1 
+            className="text-[#F5F5F5] font-black text-[40px] leading-[1.35em] text-center mb-[24px]"
+            style={{ fontFamily: 'Roboto' }}
+          >
+            About Us
+          </h1>
+          <p 
+            className="text-[#B0B0B0] font-normal text-[16px] leading-[1.75em] text-center max-w-[980px] mx-auto mb-[48px]"
+            style={{ fontFamily: 'Roboto' }}
+          >
+            At Relique, collaboration is at the core of what we do: it should be a strategic advantage. We bring businesses together through technology, delivering solutions that align with real market needs and create measurable impact. We specialize in helping start-ups and mid-sized organizations bridge technology gaps, connect with their customers, and scale confidently in a digital-first world. By combining innovation, partnerships, and deep industry expertise, we design solutions that empower our clients to grow faster, smarter, and stronger.
+          </p>
+          
+          <div className="flex justify-center">
+            <Button to="/contact" variant="primary">
+              Work With Us
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* Main Content Section */}
       <section className="py-[60px]">
         <div className="max-w-[1440px] mx-auto px-[120px]">
-          <div className="flex justify-between items-start gap-[118px]">
+          <div className="flex justify-between items-center gap-[118px]">
             {/* Left Content */}
             <div className="flex-1 max-w-[635px]">
-              <h1 
-                className="text-[#F5F5F5] font-medium text-[48px] leading-[1.125em] mb-[32px]"
+              <h2 
+                className="text-[#F5F5F5] font-black text-[40px] leading-[1.35em] mb-[10px]"
                 style={{ fontFamily: 'Roboto' }}
               >
-                About us<br />
                 Who We Are
-              </h1>
+              </h2>
               
               <p 
-                className="text-[#B0B0B0] font-normal text-[16px] leading-[1.75em] mb-[48px]"
+                className="text-[#B0B0B0] font-normal text-[16px] leading-[1.75em] mb-[24px]"
                 style={{ fontFamily: 'Roboto' }}
               >
-                At Relique Consultants, we specialize in IT strategy, digital transformation, and stakeholder coordination. Our mission is to bridge the gap between technology and business objectives, ensuring seamless integration and optimal performance across all organizational levels.
+                We are a team of passionate consultants, technologists, and problem-solvers committed to unlocking the potential of every business we partner with. At Relique, collaboration is at the core of what we do:
               </p>
-              
-              <Button to="/contact" variant="primary">
-                Work With Us
-              </Button>
+
+              {/* Bullet Points with Arrows */}
+              <div className="space-y-[0px]">
+                <div className="flex items-center gap-[18px]">
+                  <div className="flex-shrink-0 w-[12px] h-[12px]">
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M0.75 0.14L0.75 11.86L11.25 6L0.75 0.14Z" fill="#7B4EFF"/>
+                    </svg>
+                  </div>
+                  <p 
+                    className="text-[#F5F5F5] font-medium text-[16px] leading-[2.5em]"
+                    style={{ fontFamily: 'Roboto' }}
+                  >
+                    We listen first to understand your challenges.
+                  </p>
+                </div>
+                <div className="flex items-center gap-[18px]">
+                  <div className="flex-shrink-0 w-[12px] h-[12px]">
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M0.75 0.14L0.75 11.86L11.25 6L0.75 0.14Z" fill="#7B4EFF"/>
+                    </svg>
+                  </div>
+                  <p 
+                    className="text-[#F5F5F5] font-medium text-[16px] leading-[2.5em]"
+                    style={{ fontFamily: 'Roboto' }}
+                  >
+                    We curate solutions that fit your goals, not just trends.
+                  </p>
+                </div>
+                <div className="flex items-center gap-[18px]">
+                  <div className="flex-shrink-0 w-[12px] h-[12px]">
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M0.75 0.14L0.75 11.86L11.25 6L0.75 0.14Z" fill="#7B4EFF"/>
+                    </svg>
+                  </div>
+                  <p 
+                    className="text-[#F5F5F5] font-medium text-[16px] leading-[2.5em]"
+                    style={{ fontFamily: 'Roboto' }}
+                  >
+                    We enable growth through the right mix of technology, strategy, and execution.
+                  </p>
+                </div>
+              </div>
             </div>
 
             {/* Right Vision Card */}
             <div className="flex-shrink-0">
               <div 
-                className="relative rounded-[16px] border border-[rgba(123,78,255,0.5)] shadow-[0px_0px_8px_2px_rgba(123,78,255,0.2)] w-[447px] h-[340px]"
+                className="relative rounded-[16px] border border-[rgba(123,78,255,0.5)] shadow-[0px_0px_8px_2px_rgba(123,78,255,0.2)] w-[447px] p-[40px]"
               >
                 {/* Vision Icon */}
-                <div className="absolute left-[40px] top-[42px] w-[100px] h-[100px] flex items-center justify-center">
-                  <img src="/images/icons/our-vision.svg" alt="Our Vision" />
+                <div className="w-[103.47px] h-[103.47px] mb-[24px]">
+                  <img src="/images/icons/our-vision.svg" alt="Our Vision" className="w-full h-full" />
                 </div>
                 
                 {/* Vision Title */}
                 <h3 
-                  className="absolute left-[40px] top-[146px] w-[150px] h-[40px] text-[#F5F5F5] font-medium text-[24px] leading-[1.67em]"
+                  className="text-[#F5F5F5] font-medium text-[32px] leading-[1.69em] mb-[16px]"
                   style={{ fontFamily: 'Roboto' }}
                 >
                   Our Vision
@@ -63,10 +125,10 @@ const AboutPage: React.FC = () => {
                 
                 {/* Vision Text */}
                 <p 
-                  className="absolute left-[40px] top-[202px] w-[366px] h-[96px] text-[#F5F5F5] font-normal text-[16px] leading-[1.5em]"
+                  className="text-[#F5F5F5] font-normal text-[16px] leading-[1.75em]"
                   style={{ fontFamily: 'Roboto' }}
                 >
-                  To be the leading consultancy that transforms businesses through innovative technology solutions and strategic insights.
+                  To be the indispensable strategic partner that empowers businesses to harness technology, driving unprecedented growth and lasting competitive advantage
                 </p>
               </div>
             </div>
@@ -75,34 +137,29 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* Core Values Section */}
-      <section className="py-[120px]">
+      <section className="py-[60px] mb-[60px]">
         <div className="max-w-[1440px] mx-auto px-[120px]">
-          <div className="flex items-center gap-[80px]">
-            {/* Left Side - Text Content */}
-            <div className="flex-1">
-              <h2 
-                className="text-[#F5F5F5] font-medium text-[40px] leading-[1.35em] mb-[32px]"
-                style={{ fontFamily: 'Roboto' }}
-              >
-                Our<br />
-                Core Values
-              </h2>
-              <p 
-                className="text-[#B0B0B0] font-normal text-[16px] leading-[1.75em] max-w-[904px] mb-[48px]"
-                style={{ fontFamily: 'Roboto' }}
-              >
-                Guiding principles that define how we work and deliver results.
-              </p>
-            </div>
+          {/* Title */}
+          <h2 
+            className="text-[#F5F5F5] font-medium text-[40px] leading-[1.35em] text-center mb-[10px]"
+            style={{ fontFamily: 'Roboto' }}
+          >
+            Our Core Values
+          </h2>
+          <p 
+            className="text-[#B0B0B0] font-normal text-[16px] leading-[1.75em] text-center max-w-[904px] mx-auto mb-[48px]"
+            style={{ fontFamily: 'Roboto' }}
+          >
+            Guiding principles that define how we work and deliver results.
+          </p>
 
-            {/* Right Side - Core Values Image */}
-            <div className="flex-shrink-0">
-              <img 
-                src="/images/core-values.png" 
-                alt="Core Values Illustration" 
-                className="w-[860px] h-auto object-contain"
-              />
-            </div>
+          {/* Core Values Image */}
+          <div className="flex justify-center">
+            <img 
+              src="/images/core-values.png" 
+              alt="Core Values Illustration" 
+              className="h-auto object-contain"
+            />
           </div>
         </div>
       </section>
