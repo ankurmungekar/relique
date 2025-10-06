@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import Button from '../components/ui/Button';
 
 const ContactPage: React.FC = () => {
@@ -270,48 +269,56 @@ const ContactPage: React.FC = () => {
                 
                 <div className="flex gap-[12px]">
                   {/* LinkedIn */}
-                  <a 
-                    href="#" 
-                    className="w-[40px] h-[40px] rounded-full border border-[rgba(255,255,255,0.13)] flex items-center justify-center hover:bg-[rgba(255,255,255,0.1)] transition-all duration-300"
+                  <button 
+                    type="button"
+                    onClick={() => window.open('https://linkedin.com/company/relique-consultants', '_blank')}
+                    className="w-[40px] h-[40px] rounded-full border border-[rgba(255,255,255,0.13)] flex items-center justify-center hover:bg-[rgba(255,255,255,0.1)] transition-all duration-300 focus:outline-none"
+                    aria-label="LinkedIn"
                   >
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                       <path d="M0 5H3.5V16H0V5Z" fill="white"/>
                       <path d="M0 0H3.5V3.5H0V0Z" fill="white"/>
                       <path d="M5.5 5H9V6.5C9 6.5 10 5 12 5C14 5 15.5 6 15.5 9V16H12V9.5C12 8.5 11.5 7.5 10 7.5C8.5 7.5 8.5 8.5 8.5 9.5V16H5.5V5Z" fill="white"/>
                     </svg>
-                  </a>
+                  </button>
 
                   {/* Twitter/X */}
-                  <a 
-                    href="#" 
-                    className="w-[40px] h-[40px] rounded-full border border-[rgba(255,255,255,0.13)] flex items-center justify-center hover:bg-[rgba(255,255,255,0.1)] transition-all duration-300"
+                  <button 
+                    type="button"
+                    onClick={() => window.open('https://twitter.com/reliqueconsults', '_blank')}
+                    className="w-[40px] h-[40px] rounded-full border border-[rgba(255,255,255,0.13)] flex items-center justify-center hover:bg-[rgba(255,255,255,0.1)] transition-all duration-300 focus:outline-none"
+                    aria-label="Twitter"
                   >
                     <svg width="22" height="16" viewBox="0 0 22 16" fill="none">
                       <path d="M21.46 1.89C20.69 2.22 19.86 2.44 18.99 2.54C19.88 2.02 20.56 1.18 20.88 0.18C20.05 0.67 19.13 1.01 18.16 1.2C17.37 0.36 16.26 -0.14 15.04 -0.14C12.68 -0.14 10.77 1.77 10.77 4.13C10.77 4.46 10.81 4.78 10.88 5.09C7.12 4.91 3.78 3.23 1.54 0.65C1.17 1.29 0.96 2.02 0.96 2.8C0.96 4.28 1.71 5.59 2.86 6.37C2.16 6.35 1.51 6.16 0.93 5.85V5.9C0.93 7.97 2.4 9.69 4.35 10.08C4 10.17 3.63 10.22 3.26 10.22C3 10.22 2.74 10.19 2.49 10.14C3.01 11.84 4.58 13.08 6.45 13.11C4.99 14.26 3.17 14.94 1.18 14.94C0.84 14.94 0.5 14.92 0.17 14.88C2.06 16.1 4.31 16.81 6.73 16.81C15.03 16.81 19.56 10.29 19.56 4.62C19.56 4.43 19.56 4.25 19.55 4.07C20.39 3.48 21.12 2.74 21.7 1.89H21.46Z" fill="white"/>
                     </svg>
-                  </a>
+                  </button>
 
                   {/* Facebook */}
-                  <a 
-                    href="#" 
-                    className="w-[40px] h-[40px] rounded-full border border-[rgba(255,255,255,0.13)] flex items-center justify-center hover:bg-[rgba(255,255,255,0.1)] transition-all duration-300"
+                  <button 
+                    type="button"
+                    onClick={() => window.open('https://facebook.com/reliqueconsultants', '_blank')}
+                    className="w-[40px] h-[40px] rounded-full border border-[rgba(255,255,255,0.13)] flex items-center justify-center hover:bg-[rgba(255,255,255,0.1)] transition-all duration-300 focus:outline-none"
+                    aria-label="Facebook"
                   >
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                       <path d="M16 8C16 3.6 12.4 0 8 0C3.6 0 0 3.6 0 8C0 12 2.9 15.3 6.7 15.9V10.3H4.7V8H6.7V6.2C6.7 4.2 7.9 3.1 9.7 3.1C10.6 3.1 11.5 3.3 11.5 3.3V5.3H10.5C9.5 5.3 9.2 5.9 9.2 6.5V8H11.4L11 10.3H9.2V16C13.1 15.4 16 12 16 8Z" fill="white"/>
                     </svg>
-                  </a>
+                  </button>
 
                   {/* Instagram */}
-                  <a 
-                    href="#" 
-                    className="w-[40px] h-[40px] rounded-full border border-[rgba(255,255,255,0.13)] flex items-center justify-center hover:bg-[rgba(255,255,255,0.1)] transition-all duration-300"
+                  <button 
+                    type="button"
+                    onClick={() => window.open('https://instagram.com/reliqueconsultants', '_blank')}
+                    className="w-[40px] h-[40px] rounded-full border border-[rgba(255,255,255,0.13)] flex items-center justify-center hover:bg-[rgba(255,255,255,0.1)] transition-all duration-300 focus:outline-none"
+                    aria-label="Instagram"
                   >
                     <svg width="19" height="16" viewBox="0 0 19 16" fill="none">
                       <path d="M9.5 1.44C12.02 1.44 12.33 1.45 13.35 1.5C14.28 1.54 14.79 1.7 15.13 1.83C15.58 2 15.91 2.22 16.26 2.57C16.61 2.92 16.83 3.25 17 3.7C17.13 4.04 17.29 4.55 17.33 5.48C17.38 6.5 17.39 6.81 17.39 9.33C17.39 11.85 17.38 12.16 17.33 13.18C17.29 14.11 17.13 14.62 17 14.96C16.83 15.41 16.61 15.74 16.26 16.09C15.91 16.44 15.58 16.66 15.13 16.83C14.79 16.96 14.28 17.12 13.35 17.16C12.33 17.21 12.02 17.22 9.5 17.22C6.98 17.22 6.67 17.21 5.65 17.16C4.72 17.12 4.21 16.96 3.87 16.83C3.42 16.66 3.09 16.44 2.74 16.09C2.39 15.74 2.17 15.41 2 14.96C1.87 14.62 1.71 14.11 1.67 13.18C1.62 12.16 1.61 11.85 1.61 9.33C1.61 6.81 1.62 6.5 1.67 5.48C1.71 4.55 1.87 4.04 2 3.7C2.17 3.25 2.39 2.92 2.74 2.57C3.09 2.22 3.42 2 3.87 1.83C4.21 1.7 4.72 1.54 5.65 1.5C6.67 1.45 6.98 1.44 9.5 1.44ZM9.5 0C6.93 0 6.6 0.01 5.57 0.06C4.54 0.11 3.83 0.28 3.21 0.53C2.57 0.78 2.02 1.12 1.47 1.67C0.92 2.22 0.58 2.77 0.33 3.41C0.08 4.03 -0.09 4.74 -0.14 5.77C-0.19 6.8 -0.2 7.13 -0.2 9.7C-0.2 12.27 -0.19 12.6 -0.14 13.63C-0.09 14.66 0.08 15.37 0.33 15.99C0.58 16.63 0.92 17.18 1.47 17.73C2.02 18.28 2.57 18.62 3.21 18.87C3.83 19.12 4.54 19.29 5.57 19.34C6.6 19.39 6.93 19.4 9.5 19.4C12.07 19.4 12.4 19.39 13.43 19.34C14.46 19.29 15.17 19.12 15.79 18.87C16.43 18.62 16.98 18.28 17.53 17.73C18.08 17.18 18.42 16.63 18.67 15.99C18.92 15.37 19.09 14.66 19.14 13.63C19.19 12.6 19.2 12.27 19.2 9.7C19.2 7.13 19.19 6.8 19.14 5.77C19.09 4.74 18.92 4.03 18.67 3.41C18.42 2.77 18.08 2.22 17.53 1.67C16.98 1.12 16.43 0.78 15.79 0.53C15.17 0.28 14.46 0.11 13.43 0.06C12.4 0.01 12.07 0 9.5 0Z" fill="white"/>
                       <path d="M9.5 4.65C6.82 4.65 4.65 6.82 4.65 9.5C4.65 12.18 6.82 14.35 9.5 14.35C12.18 14.35 14.35 12.18 14.35 9.5C14.35 6.82 12.18 4.65 9.5 4.65ZM9.5 12.67C7.75 12.67 6.33 11.25 6.33 9.5C6.33 7.75 7.75 6.33 9.5 6.33C11.25 6.33 12.67 7.75 12.67 9.5C12.67 11.25 11.25 12.67 9.5 12.67Z" fill="white"/>
                       <circle cx="14.5594" cy="4.44063" r="1.125" fill="white"/>
                     </svg>
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>

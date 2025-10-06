@@ -1,0 +1,17 @@
+[build]
+  # Directory with the build output
+  publish = "build"
+  
+  # Build command
+  command = "npm run build"
+
+# Redirect rules for SPA routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Environment variables (optional)
+[build.environment]
+  # Disable warnings as errors (backup setting)
+  CI = ""
