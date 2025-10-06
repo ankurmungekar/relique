@@ -27,37 +27,37 @@ const CoreExpertiseSection: React.FC = () => {
       id: '1',
       title: 'Go-to-Market Strategy',
       description: 'Launch and scale successfully with region-specific strategies and insights.',
-      image: '/images/business-team-meeting.webp'
+      image: '/images/go-to-marketplace.png'
     },
     {
       id: '2',
-      title: 'Project Excellence',
-      description: 'Seamless delivery, localized engagement, and measurable outcomes.',
-      image: '/images/hero-variant1-bg.jpg'
+      title: 'Startup Advisory',
+      description: 'Empowering startups with strategic guidance and scalable growth frameworks',
+      image: '/images/startup-advisory.png'
     },
     {
       id: '3',
-      title: 'Business Growth & Retention',
-      description: 'Build loyalty and retention frameworks that turn customers into advocates.',
-      image: '/images/hero-variant2-bg.jpg'
+      title: 'BFSI & IT Advisory',
+      description: 'Driving transformation through regulatory expertise and digital innovation.',
+      image: '/images/bfsi-it-advisory.png'
     },
     {
       id: '4',
       title: 'AI Innovations',
       description: 'Leverage AI-powered solutions for automation, analytics, and transformation.',
-      image: '/images/hero-variant3-bg.jpg'
+      image: '/images/ai-innovations.png'
     },
     {
       id: '5',
-      title: 'AI Innovations 2',
-      description: 'Leverage AI-powered solutions for automation, analytics, and transformation.',
-      image: '/images/hero-variant3-bg.jpg'
+      title: 'Project Excellence',
+      description: 'Seamless delivery, localized engagement, and measurable outcomes.',
+      image: '/images/project-excellence.png'
     },
     {
       id: '6',
-      title: 'AI Innovations 3',
-      description: 'Leverage AI-powered solutions for automation, analytics, and transformation.',
-      image: '/images/hero-variant3-bg.jpg'
+      title: 'Business Growth & Retention',
+      description: 'Build loyalty and retention frameworks that turn customers into advocates.',
+      image: '/images/business-growth.png'
     }
   ];
 
@@ -154,7 +154,7 @@ const CoreExpertiseSection: React.FC = () => {
                   <SwiperSlide key={card.id}>
                     <div className="group cursor-pointer w-[220px] flex-shrink-0 mx-auto">
                       {/* Card Image */}
-                      <div className="w-[220px] h-[220px] bg-[#D9D9D9] rounded-[16px] overflow-hidden mb-[24px] relative mx-auto flex-shrink-0">
+                      <div className="w-[220px] h-[220px] overflow-hidden mb-[24px] relative mx-auto flex-shrink-0">
                         <img 
                           src={card.image}
                           alt={card.title}
