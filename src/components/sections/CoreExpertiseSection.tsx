@@ -152,19 +152,19 @@ const CoreExpertiseSection: React.FC = () => {
               >
                 {expertiseData.map((card, index) => (
                   <SwiperSlide key={card.id}>
-                    <div className="group cursor-pointer w-[220px] flex-shrink-0 mx-auto">
+                    <div className="group flex-shrink-0 mx-auto">
                       {/* Card Image */}
-                      <div className="w-[220px] h-[220px] overflow-hidden mb-[24px] relative mx-auto flex-shrink-0">
+                      <div className="overflow-hidden mb-[24px] relative mx-auto flex-shrink-0 rounded-[16px]">
                         <img 
                           src={card.image}
                           alt={card.title}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          className="object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       </div>
                       
                       {/* Card Content */}
-                      <div className="text-left w-[220px] mx-auto">
+                      <div className="text-left mx-auto">
                         <h3 
                           className="text-[#F5F5F5] font-medium text-[16px] leading-[1.25em] mb-[8px]"
                           style={{ fontFamily: 'Roboto' }}

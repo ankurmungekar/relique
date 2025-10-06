@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { Layout } from './components/layout';
+import { Layout, ScrollToTop } from './components/layout';
 import { 
   HomePage, 
   AboutPage, 
@@ -18,6 +18,7 @@ function App() {
   return (
     <div className="App">
       <Router>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<HomePage />} />

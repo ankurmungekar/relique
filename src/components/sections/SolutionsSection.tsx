@@ -1,5 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import Button from '../ui/Button';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 interface SolutionCard {
   id: string;
@@ -12,12 +19,6 @@ interface SolutionCard {
 }
 
 const SolutionsSection: React.FC = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isDragging, setIsDragging] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
-  const carouselRef = useRef<HTMLDivElement>(null);
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   const solutionsData: SolutionCard[] = [
     {
@@ -38,15 +39,15 @@ const SolutionsSection: React.FC = () => {
     },
     {
       id: '3',
-      title: 'Retail & E-Commerce',
-      description: 'Enabling smarter retail with AI-driven pricing, loyalty programs, and seamless marketplace integration.',
-      image: '/images/icons/cart.svg',
+      title: 'Cross-Industry/Core Technologies',
+      description: 'Driving innovation with AI, cloud, and automation to accelerate transformation across sectors.',
+      image: '/images/icons/bulb.svg',
       bgColor: '#5E9BDB',
       iconColor: '#FFFFFF'
     },
     {
       id: '4',
-      title: 'Data & Analytics',
+      title: 'Data Warehousing & Analytics',
       description: 'Transforming data into actionable insights with BI dashboards, data lakes, and real-time analytics.',
       image: '/images/icons/data.svg',
       bgColor: '#54B6CD',
@@ -54,101 +55,21 @@ const SolutionsSection: React.FC = () => {
     },
     {
       id: '5',
-      title: 'Startup Advisory',
-      description: 'Transforming data into actionable insights with BI dashboards, data lakes, and real-time analytics.',
+      title: 'Market Research & Customer Intelligence',
+      description: 'Delivering data-driven insights and customer analysis for smarter business decisions.',
       image: '/images/icons/data.svg',
-      bgColor: '#54B6CD',
+      bgColor: '#7B4EFF',
       iconColor: '#FFFFFF'
-    }
+    },
+    {
+      id: '6',
+      title: 'Retail & E-Commerce',
+      description: 'Enabling smarter retail with AI-driven pricing, loyalty programs, and seamless marketplace integration.',
+      image: '/images/icons/cart.svg',
+      bgColor: '#6D75ED',
+      iconColor: '#FFFFFF'
+    },
   ];
-
-  // Auto-slide functionality
-  useEffect(() => {
-    if (!isDragging) {
-      intervalRef.current = setInterval(() => {
-        setCurrentIndex((prevIndex) => 
-          prevIndex === solutionsData.length - 1 ? 0 : prevIndex + 1
-        );
-      }, 4000);
-    }
-
-    return () => {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-      }
-    };
-  }, [isDragging, solutionsData.length]);
-
-  // Handle mouse drag start
-  const handleMouseDown = (e: React.MouseEvent) => {
-    setIsDragging(true);
-    setStartX(e.pageX - (carouselRef.current?.offsetLeft || 0));
-    setScrollLeft(carouselRef.current?.scrollLeft || 0);
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-    }
-  };
-
-  // Handle mouse drag
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging) return;
-    e.preventDefault();
-    const x = e.pageX - (carouselRef.current?.offsetLeft || 0);
-    const walk = (x - startX) * 2;
-    if (carouselRef.current) {
-      carouselRef.current.scrollLeft = scrollLeft - walk;
-    }
-  };
-
-  // Handle mouse drag end
-  const handleMouseUp = () => {
-    setIsDragging(false);
-    // Snap to nearest card
-    if (carouselRef.current) {
-      const cardWidth = 320; // 300px width + 20px gap
-      const newIndex = Math.round(carouselRef.current.scrollLeft / cardWidth);
-      setCurrentIndex(Math.min(Math.max(newIndex, 0), solutionsData.length - 1));
-    }
-  };
-
-  // Handle touch events for mobile
-  const handleTouchStart = (e: React.TouchEvent) => {
-    setIsDragging(true);
-    setStartX(e.touches[0].pageX - (carouselRef.current?.offsetLeft || 0));
-    setScrollLeft(carouselRef.current?.scrollLeft || 0);
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-    }
-  };
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    if (!isDragging) return;
-    const x = e.touches[0].pageX - (carouselRef.current?.offsetLeft || 0);
-    const walk = (x - startX) * 2;
-    if (carouselRef.current) {
-      carouselRef.current.scrollLeft = scrollLeft - walk;
-    }
-  };
-
-  const handleTouchEnd = () => {
-    setIsDragging(false);
-    if (carouselRef.current) {
-      const cardWidth = 320;
-      const newIndex = Math.round(carouselRef.current.scrollLeft / cardWidth);
-      setCurrentIndex(Math.min(Math.max(newIndex, 0), solutionsData.length - 1));
-    }
-  };
-
-  // Update carousel position when currentIndex changes
-  useEffect(() => {
-    if (carouselRef.current && !isDragging) {
-      const cardWidth = 320;
-      carouselRef.current.scrollTo({
-        left: currentIndex * cardWidth,
-        behavior: 'smooth'
-      });
-    }
-  }, [currentIndex, isDragging]);
 
   return (
     <section className="bg-[#0F071D] mb-[60px] md:mb-[90px] lg:mb-[120px]">
@@ -189,34 +110,31 @@ const SolutionsSection: React.FC = () => {
 
         {/* Solutions Carousel */}
         <div className="relative pt-[8px] pb-[8px]">
-          <div 
-            ref={carouselRef}
-            className="overflow-x-auto overflow-y-visible scrollbar-hide cursor-grab active:cursor-grabbing"
-            onMouseDown={handleMouseDown}
-            onMouseMove={handleMouseMove}
-            onMouseUp={handleMouseUp}
-            onMouseLeave={handleMouseUp}
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
-            style={{ 
-              scrollBehavior: isDragging ? 'auto' : 'smooth',
-              userSelect: 'none'
+          <Swiper
+            modules={[Autoplay, Navigation, Pagination]}
+            spaceBetween={20}
+            slidesPerView="auto"
+            loop={true}
+            autoplay={{
+              delay: 4000,
+              disableOnInteraction: false,
             }}
+            speed={600}
+            grabCursor={true}
+            className="solutions-swiper"
           >
-            <div className="flex gap-[16px] md:gap-[20px] min-w-max py-[8px]">
-              {solutionsData.map((solution) => (
-                <div
-                  key={solution.id}
-                  className="group cursor-pointer flex-shrink-0 w-[260px] sm:w-[280px] lg:w-[300px] text-center"
-                >
+            {solutionsData.map((solution) => (
+              <SwiperSlide
+                key={solution.id}
+                className="!w-[260px] sm:!w-[280px] lg:!w-[300px]"
+              >
+                <div className="group cursor-pointer text-center py-[8px]">
                   <div 
-                    className="rounded-[12px] md:rounded-[16px] h-[240px] sm:h-[252px] lg:h-[264px] p-[24px] sm:p-[28px] lg:p-[30px] flex flex-col items-center justify-center relative overflow-hidden hover:transform hover:-translate-y-2 transition-transform duration-300"
+                    className="rounded-[12px] md:rounded-[16px] h-[240px] sm:h-[252px] lg:h-[264px] p-[20px] sm:p-[28px] lg:p-[20px] flex flex-col items-center justify-center relative overflow-hidden hover:transform hover:-translate-y-2 transition-transform duration-300"
                     style={{ backgroundColor: solution.bgColor }}
                   >
                     {/* Icon Circle */}
-                    <div className="w-[70px] h-[70px] lg:w-[80px] lg:h-[80px] bg-[#0F071D] rounded-full flex items-center justify-center mb-[20px] lg:mb-[24px]">
-                      {/* SVG icons would go here based on the solution type */}
+                    <div className="w-[70px] h-[70px] bg-[#0F071D] rounded-full flex items-center justify-center mb-[20px] lg:mb-[24px]">
                       <div className="w-[32px] h-[32px] lg:w-[36px] lg:h-[36px] rounded">
                         <img 
                           src={solution.image}
@@ -247,9 +165,9 @@ const SolutionsSection: React.FC = () => {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </div>
     </section>
