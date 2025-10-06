@@ -17,14 +17,28 @@ const Layout: React.FC = () => {
   );
 };
 
-// Enhanced Navbar with hover-based dropdowns and active states
+// Enhanced Navbar with hover-based dropdowns, active states, and mobile menu
 const Navbar: React.FC = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
   // Hover-based dropdown handling, route change detection, active state management
+  // Mobile hamburger menu with animated icon
   // Focus states removed for cleaner appearance
   // Services dropdown order: Go-to-Market Strategy, Startup Advisory, BFSI & IT Advisory, 
   //                          AI Innovations, Project Excellence, Business Growth & Retention
+};
+
+// ServiceLayout - Reusable layout for service pages
+interface ServiceLayoutProps {
+  title: string;
+  description: string;
+  children: React.ReactNode;
+}
+const ServiceLayout: React.FC<ServiceLayoutProps> = ({ title, description, children }) => {
+  // Consistent service page structure with hero banner
+  // Responsive padding and spacing
+  // Breadcrumb navigation
 };
 ```
 
@@ -32,12 +46,23 @@ const Navbar: React.FC = () => {
 ```typescript
 // Motion-free section components with Figma-based styling
 const HeroSection: React.FC = () => {
-  // Auto-sliding hero with manual navigation
+  // Swiper-based hero slider with autoplay
+  // 4-second intervals, pause on hover
+  // Manual pagination controls
+  // Responsive heights and text sizes
+};
+
+const CoreExpertiseSection: React.FC = () => {
+  // Swiper carousel with manual navigation
+  // Progress bar showing percentage completion
+  // Disabled button states at carousel boundaries
+  // Responsive card layouts and stacking
 };
 
 const SolutionsSection: React.FC = () => {
   // Auto-sliding carousel with drag functionality
   // 4-second intervals, smooth transitions
+  // Responsive card dimensions and grid
 };
 ```
 
@@ -54,6 +79,34 @@ const HomePage: React.FC = () => {
     </div>
   );
 };
+
+const AboutPage: React.FC = () => {
+  // Hero banner, company story, mission/vision, core values
+  // Fully responsive with stacked layouts on mobile
+};
+
+const ContactPage: React.FC = () => {
+  // Contact form with validation
+  // Company details and location
+  // Responsive form layout and grid
+};
+
+const SolutionsHubPage: React.FC = () => {
+  // All 6 solutions displayed in responsive grid
+  // Cards with icons, titles, descriptions, and CTAs
+};
+
+// Service Pages using ServiceLayout
+const GoToMarketStrategyPage: React.FC = () => {
+  // ServiceLayout wrapper with custom content
+  // Responsive cards and grid layouts
+};
+// Similar pattern for:
+// - StartupAdvisoryPage
+// - BFSIAdvisoryPage
+// - AIInnovationsPage
+// - ProjectExecutionPage
+// - BusinessGrowthPage
 ```
 
 ## Styling Patterns
@@ -76,19 +129,73 @@ style={{ fontFamily: 'Roboto' }}
 
 ### Responsive Design Patterns
 ```css
-/* Desktop-first approach */
+/* Mobile-first responsive approach */
 .container {
-  @apply max-w-[1440px] mx-auto px-[120px];
+  @apply max-w-[1440px] mx-auto px-[16px] sm:px-[24px] md:px-[36px] lg:px-[120px];
 }
 
 /* Consistent spacing */
 .section-spacing {
-  @apply py-[120px];
+  @apply py-[60px] md:py-[90px] lg:py-[120px];
 }
 
 /* Component spacing */
 .component-gap {
-  @apply gap-[24px];
+  @apply gap-[16px] md:gap-[20px] lg:gap-[24px];
+}
+
+/* Responsive breakpoints strategy */
+/* sm: 640px  - Small devices (large phones) */
+/* md: 768px  - Medium devices (tablets) */
+/* lg: 1024px - Large devices (desktops) */
+
+/* Responsive grid patterns */
+.grid-responsive-2 {
+  @apply grid-cols-1 md:grid-cols-2;
+}
+
+.grid-responsive-3 {
+  @apply grid-cols-1 md:grid-cols-2 lg:grid-cols-3;
+}
+
+.grid-responsive-4 {
+  @apply grid-cols-1 sm:grid-cols-2 lg:grid-cols-4;
+}
+
+/* Responsive text sizes */
+.heading-1-responsive {
+  @apply text-[28px] sm:text-[36px] md:text-[42px] lg:text-[48px];
+}
+
+.heading-2-responsive {
+  @apply text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px];
+}
+
+.body-text-responsive {
+  @apply text-[14px] md:text-[16px];
+}
+
+/* Responsive flex layouts */
+.flex-stack-mobile {
+  @apply flex-col lg:flex-row;
+}
+
+/* Mobile hamburger menu pattern */
+.hamburger-icon {
+  @apply flex lg:hidden flex-col gap-[6px] w-[28px] h-[24px];
+}
+
+.hamburger-line {
+  @apply w-full h-[3px] bg-[#F5F5F5] rounded-full transition-all duration-300;
+}
+
+/* Mobile menu slide animation */
+.mobile-menu {
+  @apply max-h-0 overflow-hidden transition-all duration-300 ease-in-out;
+}
+
+.mobile-menu-open {
+  @apply max-h-screen;
 }
 ```
 
@@ -126,6 +233,39 @@ const handleDropdownClose = () => {
 useEffect(() => {
   setActiveDropdown(null);
 }, [location.pathname]);
+```
+
+### Mobile Menu Management
+```typescript
+const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+// Toggle mobile menu
+const toggleMobileMenu = () => {
+  setMobileMenuOpen(!mobileMenuOpen);
+};
+
+// Close mobile menu on route change
+useEffect(() => {
+  setMobileMenuOpen(false);
+  setActiveDropdown(null);
+}, [location.pathname]);
+
+// Animated hamburger icon
+<button 
+  onClick={toggleMobileMenu}
+  className="lg:hidden flex flex-col gap-[6px] w-[28px] h-[24px]"
+>
+  <span className={`hamburger-line ${mobileMenuOpen ? 'rotate-45 translate-y-[9px]' : ''}`} />
+  <span className={`hamburger-line ${mobileMenuOpen ? 'opacity-0' : ''}`} />
+  <span className={`hamburger-line ${mobileMenuOpen ? '-rotate-45 -translate-y-[9px]' : ''}`} />
+</button>
+
+// Slide-down mobile menu
+<div className={`lg:hidden transition-all duration-300 ease-in-out overflow-hidden ${
+  mobileMenuOpen ? 'max-h-screen' : 'max-h-0'
+}`}>
+  {/* Mobile navigation items */}
+</div>
 ```
 
 ### Carousel State Management
