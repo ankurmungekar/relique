@@ -82,25 +82,25 @@ const CoreExpertiseSection: React.FC = () => {
   const progressPercentage = isEnd ? 100 : (maxSlideIndex > 0 ? (currentSlide / maxSlideIndex) * 100 : 100);
 
   return (
-    <section className="bg-[#0F071D] my-[150px]">
-      <div className="max-w-[1440px] mx-auto px-[120px]">
+    <section className="bg-[#0F071D] my-[60px] md:my-[100px] lg:my-[150px]">
+      <div className="max-w-[1440px] mx-auto px-[16px] sm:px-[24px] md:px-[36px] lg:px-[120px]">
         {/* Main Content Row */}
-        <div className="flex items-start gap-[67px] overflow-hidden">
+        <div className="flex flex-col lg:flex-row items-start gap-[32px] md:gap-[48px] lg:gap-[67px] overflow-hidden">
           {/* Left Section - Title and Button */}
-          <div className="flex-shrink-0 w-[386px]">
+          <div className="flex-shrink-0 w-full lg:w-[386px]">
             <h2 
-              className="text-[#F5F5F5] font-regular text-[48px] leading-[1.125em] mb-[24px] max-w-[319px]"
+              className="text-[#F5F5F5] font-regular text-[32px] sm:text-[40px] lg:text-[48px] leading-[1.125em] mb-[16px] md:mb-[24px] max-w-full lg:max-w-[319px]"
               style={{ fontFamily: 'Roboto' }}
             >
               Our
               <br />
               <span className='font-black'>Core Expertise</span>
             </h2>
-            <div className='text-[#B0B0B0] font-normal text-[16px] leading-[1.5em] mb-[36px]'>Comprehensive consulting solutions designed to accelerate your growth across global markets.</div>
+            <div className='text-[#B0B0B0] font-normal text-[14px] md:text-[16px] leading-[1.5em] mb-[24px] md:mb-[36px]'>Comprehensive consulting solutions designed to accelerate your growth across global markets.</div>
             <Button
               to="/services/go-to-market-strategy"
               variant="primary"
-              className="w-[183px]"
+              className="w-full sm:w-[183px]"
               style={{
                 paddingRight: '21.39px',
                 backgroundColor: '#7B4EFF',
@@ -187,7 +187,7 @@ const CoreExpertiseSection: React.FC = () => {
             {/* Navigation and Progress Section */}
             <div className="flex items-center justify-between">
               {/* Navigation Buttons */}
-              <div className="flex items-center gap-[20px] mr-[30px]">
+              <div className="hidden lg:flex items-center gap-[20px] mr-[30px]">
                 <button
                   onClick={handlePrevSlide}
                   disabled={isBeginning}
@@ -210,7 +210,7 @@ const CoreExpertiseSection: React.FC = () => {
               </div>
 
               {/* Progress Lines */}
-              <div className="flex items-center relative flex-1">
+              <div className="hidden lg:flex items-center relative flex-1">
                 {/* Background line */}
                 <div className="w-full h-[1px] bg-[#2E2E3E]"></div>
                 {/* Progress line */}

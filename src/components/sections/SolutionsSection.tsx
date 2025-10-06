@@ -151,21 +151,21 @@ const SolutionsSection: React.FC = () => {
   }, [currentIndex, isDragging]);
 
   return (
-    <section className="bg-[#0F071D] mb-[120px]">
-      <div className="max-w-[1440px] mx-auto px-[120px]">
+    <section className="bg-[#0F071D] mb-[60px] md:mb-[90px] lg:mb-[120px]">
+      <div className="max-w-[1440px] mx-auto px-[16px] sm:px-[24px] md:px-[36px] lg:px-[120px]">
         {/* Section Header */}
-        <div className="mb-[30px] flex justify-between items-center">
+        <div className="mb-[24px] md:mb-[30px] flex flex-col lg:flex-row justify-between items-start lg:items-center gap-[20px] lg:gap-[40px]">
           {/* Left side - Title and Description */}
-          <div className="max-w-[504px]">
+          <div className="max-w-full lg:max-w-[504px]">
             <h2 
-              className="text-[#F5F5F5] font-regular text-[40px] leading-[1.35em] mb-[16px]"
+              className="text-[#F5F5F5] font-regular text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] leading-[1.35em] mb-[12px] md:mb-[16px]"
               style={{ fontFamily: 'Roboto' }}
             >
               Solutions <span className='font-black'>That Drive Growth</span>
             </h2>
             
             <p 
-              className="text-[#B0B0B0] font-normal text-[16px] leading-[1.75em]"
+              className="text-[#B0B0B0] font-normal text-[14px] md:text-[16px] leading-[1.75em]"
               style={{ fontFamily: 'Roboto' }}
             >
               Explore industry-specific solutions and innovations powering transformation across sectors.
@@ -176,7 +176,7 @@ const SolutionsSection: React.FC = () => {
           <Button
             to="/services/go-to-market-strategy"
             variant="primary"
-            className="w-[183px]"
+            className="w-full sm:w-[183px]"
             style={{
               backgroundColor: '#7B4EFF',
               color: '#F5F5F5',
@@ -204,20 +204,20 @@ const SolutionsSection: React.FC = () => {
               userSelect: 'none'
             }}
           >
-            <div className="flex gap-[20px] min-w-max py-[8px]">
+            <div className="flex gap-[16px] md:gap-[20px] min-w-max py-[8px]">
               {solutionsData.map((solution) => (
                 <div
                   key={solution.id}
-                  className="group cursor-pointer flex-shrink-0 w-[300px] text-center"
+                  className="group cursor-pointer flex-shrink-0 w-[260px] sm:w-[280px] lg:w-[300px] text-center"
                 >
                   <div 
-                    className="rounded-[16px] h-[264px] p-[30px] flex flex-col items-center justify-center relative overflow-hidden hover:transform hover:-translate-y-2 transition-transform duration-300"
+                    className="rounded-[12px] md:rounded-[16px] h-[240px] sm:h-[252px] lg:h-[264px] p-[24px] sm:p-[28px] lg:p-[30px] flex flex-col items-center justify-center relative overflow-hidden hover:transform hover:-translate-y-2 transition-transform duration-300"
                     style={{ backgroundColor: solution.bgColor }}
                   >
                     {/* Icon Circle */}
-                    <div className="w-[80px] h-[80px] bg-[#0F071D] rounded-full flex items-center justify-center mb-[24px]">
+                    <div className="w-[70px] h-[70px] lg:w-[80px] lg:h-[80px] bg-[#0F071D] rounded-full flex items-center justify-center mb-[20px] lg:mb-[24px]">
                       {/* SVG icons would go here based on the solution type */}
-                      <div className="w-[36px] h-[36px] rounded">
+                      <div className="w-[32px] h-[32px] lg:w-[36px] lg:h-[36px] rounded">
                         <img 
                           src={solution.image}
                           alt=""
@@ -230,13 +230,13 @@ const SolutionsSection: React.FC = () => {
                     {/* Content */}
                     <div className="relative z-10">
                       <h3 
-                        className="text-[#F5F5F5] font-medium text-[16px] leading-[1.25em] mb-[12px]"
+                        className="text-[#F5F5F5] font-medium text-[15px] lg:text-[16px] leading-[1.25em] mb-[10px] lg:mb-[12px]"
                         style={{ fontFamily: 'Roboto' }}
                       >
                         {solution.title}
                       </h3>
                       <p 
-                        className="text-[#F5F5F5] font-normal text-[14px] leading-[1.43em]"
+                        className="text-[#F5F5F5] font-normal text-[13px] lg:text-[14px] leading-[1.43em]"
                         style={{ fontFamily: 'Roboto' }}
                       >
                         {solution.description}

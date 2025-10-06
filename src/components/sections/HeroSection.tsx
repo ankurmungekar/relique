@@ -56,9 +56,9 @@ const HeroSection: React.FC = () => {
     ];
 
   return (
-    <section className="w-full pt-[88px] bg-[#0F071D]">
-      <div className="max-w-[1440px] mx-auto px-[36px]">
-        <div className="relative w-full h-[712px] rounded-[16px] overflow-hidden">
+    <section className="w-full pt-[60px] md:pt-[72px] lg:pt-[88px] bg-[#0F071D]">
+      <div className="max-w-[1440px] mx-auto px-[16px] sm:px-[24px] md:px-[36px]">
+        <div className="relative w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[712px] rounded-[8px] sm:rounded-[12px] md:rounded-[16px] overflow-hidden">
             <Swiper
             modules={[Pagination, EffectFade, Autoplay]}
             spaceBetween={0}
@@ -100,10 +100,10 @@ const HeroSection: React.FC = () => {
                   </div>
 
                   {/* Content Layer */}
-                  <div className="relative z-10 w-full h-full flex flex-col items-center justify-start pt-[50px] px-4 sm:px-8 lg:px-12">
+                  <div className="relative z-10 w-full h-full flex flex-col items-center justify-center lg:justify-start px-4 sm:px-8 lg:px-12 lg:pt-[50px]">
                     {/* Main Heading */}
                     <h1 
-                      className="font-regular text-[28px] sm:text-[36px] lg:text-[48px] leading-[1.125em] mb-[20px] sm:mb-[24px] lg:mb-[27px] max-w-[300px] sm:max-w-[360px] lg:max-w-[440px] text-center"
+                      className="font-regular text-[24px] sm:text-[32px] md:text-[40px] lg:text-[48px] leading-[1.125em] mb-[16px] sm:mb-[20px] md:mb-[24px] lg:mb-[27px] max-w-[280px] sm:max-w-[340px] md:max-w-[380px] lg:max-w-[440px] text-center"
                       style={{
                         textShadow: '0px 6px 6px rgba(0, 0, 0, 0.1)',
                         fontFamily: 'Roboto',
@@ -120,7 +120,7 @@ const HeroSection: React.FC = () => {
 
                     {/* Subtitle */}
                     <p 
-                      className="font-medium text-[16px] sm:text-[18px] lg:text-[22px] leading-[1.45em] mb-[24px] sm:mb-[28px] lg:mb-[29px] max-w-[280px] sm:max-w-[480px] lg:max-w-[623px] text-center"
+                      className="font-medium text-[14px] sm:text-[16px] md:text-[18px] lg:text-[22px] leading-[1.45em] mb-[20px] sm:mb-[24px] md:mb-[28px] lg:mb-[29px] max-w-[260px] sm:max-w-[400px] md:max-w-[520px] lg:max-w-[623px] text-center"
                       style={{
                         textShadow: '0px 6px 6px rgba(0, 0, 0, 0.1)',
                         fontFamily: 'Roboto',
@@ -134,7 +134,7 @@ const HeroSection: React.FC = () => {
                     <Button
                       to="/services/go-to-market-strategy"
                       variant="primary"
-                      className="hover:scale-105 hover:shadow-lg"
+                      className="hover:scale-105 hover:shadow-lg text-[14px] lg:text-[16px] min-w-[140px] lg:min-w-[180px] h-[40px] lg:h-[48px]"
                       style={{
                         backgroundColor: slide.buttonColor,
                         color: slide.buttonColor === "#4EC6C6" ? "#0F071D" : "#FFFFFF",
@@ -154,15 +154,23 @@ const HeroSection: React.FC = () => {
       {/* Custom Swiper Styles */}
       <style>{`
         .hero-swiper {
-          --swiper-pagination-bottom: 30px;
-          --swiper-pagination-bullet-width: 12px;
-          --swiper-pagination-bullet-height: 12px;
+          --swiper-pagination-bottom: 20px;
+          --swiper-pagination-bullet-width: 10px;
+          --swiper-pagination-bullet-height: 10px;
           --swiper-pagination-bullet-inactive-opacity: 1;
         }
         
+        @media (min-width: 768px) {
+          .hero-swiper {
+            --swiper-pagination-bottom: 30px;
+            --swiper-pagination-bullet-width: 12px;
+            --swiper-pagination-bullet-height: 12px;
+          }
+        }
+        
         .hero-pagination-bullet {
-          width: 12px;
-          height: 12px;
+          width: 10px;
+          height: 10px;
           border-radius: 50%;
           border: 1px solid #FFFFFF;
           background: transparent;
@@ -171,6 +179,13 @@ const HeroSection: React.FC = () => {
           cursor: pointer;
           transition: all 0.3s ease;
           position: relative;
+        }
+        
+        @media (min-width: 768px) {
+          .hero-pagination-bullet {
+            width: 12px;
+            height: 12px;
+          }
         }
         
         .hero-pagination-bullet:hover {
@@ -188,10 +203,17 @@ const HeroSection: React.FC = () => {
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
-          width: 6px;
-          height: 6px;
+          width: 4px;
+          height: 4px;
           background: #FFFFFF;
           border-radius: 50%;
+        }
+        
+        @media (min-width: 768px) {
+          .hero-pagination-bullet-active::after {
+            width: 6px;
+            height: 6px;
+          }
         }
         
         .hero-swiper .swiper-slide {

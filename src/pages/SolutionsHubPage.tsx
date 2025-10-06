@@ -90,9 +90,9 @@ const SolutionsHubPage: React.FC = () => {
   );
 
   return (
-    <div className="SolutionsHubPage bg-[#0F071D] min-h-screen mt-[88px]">
+    <div className="SolutionsHubPage bg-[#0F071D] min-h-screen mt-[60px] md:mt-[72px] lg:mt-[88px]">
       {/* Hero Banner Section */}
-      <section className="relative bg-[#0F071D] h-[300px] overflow-hidden">
+      <section className="relative bg-[#0F071D] h-[200px] sm:h-[240px] md:h-[280px] lg:h-[300px] overflow-hidden">
         {/* Background Image Layer */}
         <div 
           className="absolute inset-0 bg-cover bg-center"
@@ -102,10 +102,10 @@ const SolutionsHubPage: React.FC = () => {
         />
 
         {/* Banner Content */}
-        <div className="relative z-10 max-w-[1440px] mx-auto px-[120px] h-full flex flex-col items-center justify-center">
+        <div className="relative z-10 max-w-[1440px] mx-auto px-[16px] sm:px-[24px] md:px-[36px] lg:px-[120px] h-full flex flex-col items-center justify-center">
           {/* Solutions Catalog */}
           <h1 
-            className="text-[#F5F5F5] font-black text-[48px] leading-[1.33em] text-center mb-[14px]"
+            className="text-[#F5F5F5] font-black text-[28px] sm:text-[36px] md:text-[42px] lg:text-[48px] leading-[1.33em] text-center mb-[10px] md:mb-[14px]"
             style={{ 
               fontFamily: 'Roboto',
               textShadow: '0px 4px 4px rgba(0, 0, 0, 0.4)'
@@ -116,7 +116,7 @@ const SolutionsHubPage: React.FC = () => {
           
           {/* Description */}
           <p 
-            className="text-white font-normal text-[20px] leading-[1.6em] text-center max-w-[585px] mb-[27px]"
+            className="text-white font-normal text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] leading-[1.6em] text-center max-w-full sm:max-w-[480px] md:max-w-[560px] lg:max-w-[585px] mb-[20px] md:mb-[27px]"
             style={{ 
               fontFamily: 'Roboto',
               textShadow: '0px 4px 4px rgba(0, 0, 0, 0.4)'
@@ -128,7 +128,7 @@ const SolutionsHubPage: React.FC = () => {
           {/* Talk to Us Button */}
           <Link
             to="/contact"
-            className="inline-flex items-center justify-center px-[20px] py-[12px] bg-[#4EC6C6] text-[#0F071D] font-medium text-[16px] leading-[1.5em] rounded-full hover:bg-[#3DB5B5] transition-all duration-300 shadow-lg hover:shadow-xl outline-none focus:outline-none"
+            className="inline-flex items-center justify-center px-[20px] py-[12px] bg-[#4EC6C6] text-[#0F071D] font-medium text-[14px] md:text-[16px] leading-[1.5em] rounded-full hover:bg-[#3DB5B5] transition-all duration-300 shadow-lg hover:shadow-xl outline-none focus:outline-none"
             style={{ 
               fontFamily: 'Roboto', 
               letterSpacing: '-1.25%'
@@ -140,16 +140,16 @@ const SolutionsHubPage: React.FC = () => {
       </section>
 
       {/* Solutions Grid */}
-      <section className="py-[40px]">
-        <div className="max-w-[1440px] mx-auto px-[120px] mb-[60px]">
-          <div className="grid grid-cols-3 gap-[20px]">
+      <section className="py-[24px] md:py-[32px] lg:py-[40px]">
+        <div className="max-w-[1440px] mx-auto px-[16px] sm:px-[24px] md:px-[36px] lg:px-[120px] mb-[40px] md:mb-[52px] lg:mb-[60px]">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[16px] md:gap-[18px] lg:gap-[20px]">
             {solutionCards.map((card, index) => (
               <div
                 key={index}
-                className="bg-[#1B1328] rounded-[16px] overflow-hidden flex flex-col h-[480px]"
+                className="bg-[#1B1328] rounded-[12px] md:rounded-[16px] overflow-hidden flex flex-col h-[420px] sm:h-[450px] lg:h-[480px]"
               >
                 {/* Card Image */}
-                <div className="relative h-[195px] overflow-hidden rounded-t-[8px] m-[20px] mb-[0px]">
+                <div className="relative h-[160px] sm:h-[180px] lg:h-[195px] overflow-hidden rounded-t-[8px] m-[16px] md:m-[20px] mb-[0px]">
                   <img
                     src={card.image}
                     alt={card.title}
@@ -167,9 +167,9 @@ const SolutionsHubPage: React.FC = () => {
                     />
                   )}
                   {/* Title Overlay */}
-                  <div className="absolute top-[24px] left-[24px] z-10">
+                  <div className="absolute top-[16px] md:top-[20px] lg:top-[24px] left-[16px] md:left-[20px] lg:left-[24px] z-10">
                     <h3
-                      className="text-[#F5F5F5] font-medium text-[20px] leading-[1.2em] whitespace-pre-line"
+                      className="text-[#F5F5F5] font-medium text-[16px] md:text-[18px] lg:text-[20px] leading-[1.2em] whitespace-pre-line"
                       style={{ fontFamily: 'Roboto' }}
                     >
                       {card.title}
@@ -178,7 +178,7 @@ const SolutionsHubPage: React.FC = () => {
                 </div>
 
                 {/* Solutions List */}
-                <div className="flex-1 px-[20px] py-[20px] flex flex-col gap-[10px] overflow-y-auto">
+                <div className="flex-1 px-[16px] md:px-[20px] py-[16px] md:py-[20px] flex flex-col gap-[8px] md:gap-[10px] overflow-y-auto">
                   {card.solutions.map((solution, idx) => (
                     <div
                       key={idx}
@@ -188,7 +188,7 @@ const SolutionsHubPage: React.FC = () => {
                         {renderBulletIcon()}
                       </div>
                       <p
-                        className="text-[#B0B0B0] font-normal text-[14px] leading-[1.43em] flex-1"
+                        className="text-[#B0B0B0] font-normal text-[13px] md:text-[14px] leading-[1.43em] flex-1"
                         style={{ fontFamily: 'Roboto' }}
                       >
                         {solution.text}

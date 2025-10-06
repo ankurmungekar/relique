@@ -15,32 +15,32 @@ const GoToMarketStrategyPage: React.FC = () => {
       title="Go-to-Market Strategy"
       description="Partner in go to market strategy, specifically for the regions of GCC, APAC, US, Europe and Africa. Crafting high-impact GTM strategies that align products with the right markets, messaging, and momentum"
     >
-      <div className="space-y-[20px]">
+      <div className="space-y-[16px] md:space-y-[20px]">
         {/* Market Research & Regional Fit + Image */}
-        <div className="flex gap-[20px]">
+        <div className="flex flex-col lg:flex-row gap-[16px] md:gap-[20px]">
           {/* Image Card */}
-          <div className="w-[245px] h-[245px] flex-shrink-0 rounded-[16px] overflow-hidden bg-cover bg-center" 
+          <div className="w-full lg:w-[245px] h-[200px] md:h-[220px] lg:h-[245px] flex-shrink-0 rounded-[12px] md:rounded-[16px] overflow-hidden bg-cover bg-center" 
                style={{ backgroundImage: 'url(/images/services/market-research.png)' }}>
             <div className="w-full h-full bg-gradient-to-br from-purple-900/30 to-transparent" />
           </div>
 
           {/* Content Card */}
-          <div className="flex-1 rounded-[16px]">
-            <h3 className="text-[#F5F5F5] font-medium text-[20px] leading-[1.2em] mb-[14px]" style={{ fontFamily: 'Roboto' }}>
+          <div className="flex-1 rounded-[12px] md:rounded-[16px]">
+            <h3 className="text-[#F5F5F5] font-medium text-[18px] md:text-[20px] leading-[1.2em] mb-[12px] md:mb-[14px]" style={{ fontFamily: 'Roboto' }}>
               Market Research & Regional Fit
             </h3>
             
             <div className="space-y-[8px]">
               <div className="flex gap-[6px]">
                 <ArrowIcon />
-                <p className="text-[#F5F5F5] font-medium text-[16px] leading-[1.5em]" style={{ fontFamily: 'Roboto' }}>
+                <p className="text-[#F5F5F5] font-medium text-[14px] md:text-[16px] leading-[1.5em]" style={{ fontFamily: 'Roboto' }}>
                   Understand the target region's
                 </p>
               </div>
               
-              <div className="ml-[18px] flex gap-[40px]">
+              <div className="ml-[18px] flex flex-col md:flex-row gap-[8px] md:gap-[40px]">
                 {/* Left column - 3 items */}
-                <div className="w-1/2 space-y-[4px]">
+                <div className="w-full md:w-1/2 space-y-[4px]">
                   <div className="flex items-start gap-[6px]">
                     <BulletIcon />
                     <p className="text-[#B0B0B0] font-normal text-[14px] leading-[2.14em]" style={{ fontFamily: 'Roboto' }}>
@@ -62,7 +62,7 @@ const GoToMarketStrategyPage: React.FC = () => {
                 </div>
                 
                 {/* Right column - 2 items */}
-                <div className="w-1/2 space-y-[4px]">
+                <div className="w-full md:w-1/2 space-y-[4px]">
                   <div className="flex items-start gap-[6px]">
                     <BulletIcon />
                     <p className="text-[#B0B0B0] font-normal text-[14px] leading-[2.14em]" style={{ fontFamily: 'Roboto' }}>
@@ -78,9 +78,9 @@ const GoToMarketStrategyPage: React.FC = () => {
                 </div>
               </div>
 
-              <div className="flex gap-[6px] mt-[16px]">
+              <div className="flex gap-[6px] mt-[12px] md:mt-[16px]">
                 <ArrowIcon />
-                <p className="text-[#F5F5F5] font-medium text-[16px] leading-[1.5em]" style={{ fontFamily: 'Roboto' }}>
+                <p className="text-[#F5F5F5] font-medium text-[14px] md:text-[16px] leading-[1.5em]" style={{ fontFamily: 'Roboto' }}>
                   Evaluate product-market fit
                 </p>
               </div>
@@ -104,16 +104,16 @@ const GoToMarketStrategyPage: React.FC = () => {
         </div>
 
         {/* Ideal Customer Profile + Image */}
-        <div className="bg-[#1B1328] rounded-[16px] p-[40px] flex gap-[40px]">
+        <div className="bg-[#1B1328] rounded-[12px] md:rounded-[16px] p-[24px] md:p-[32px] lg:p-[40px] flex flex-col lg:flex-row gap-[24px] md:gap-[32px] lg:gap-[40px]">
           <div className="flex-1">
-            <h3 className="text-[#F5F5F5] font-medium text-[20px] leading-[1.2em] mb-[14px]" style={{ fontFamily: 'Roboto' }}>
+            <h3 className="text-[#F5F5F5] font-medium text-[18px] md:text-[20px] leading-[1.2em] mb-[12px] md:mb-[14px]" style={{ fontFamily: 'Roboto' }}>
               Ideal Customer Profile (ICP) & Segmentation
             </h3>
             
             <div className="space-y-[8px]">
               <div className="flex gap-[6px]">
                 <ArrowIcon />
-                <p className="text-[#F5F5F5] font-medium text-[16px] leading-[1.5em]" style={{ fontFamily: 'Roboto' }}>
+                <p className="text-[#F5F5F5] font-medium text-[14px] md:text-[16px] leading-[1.5em]" style={{ fontFamily: 'Roboto' }}>
                   Define who your ideal customers are in this region.
                 </p>
               </div>
@@ -127,9 +127,9 @@ const GoToMarketStrategyPage: React.FC = () => {
                 </div>
               </div>
 
-              <div className="flex gap-[6px] mt-[16px]">
+              <div className="flex gap-[6px] mt-[12px] md:mt-[16px]">
                 <ArrowIcon />
-                <p className="text-[#F5F5F5] font-medium text-[16px] leading-[1.5em]" style={{ fontFamily: 'Roboto' }}>
+                <p className="text-[#F5F5F5] font-medium text-[14px] md:text-[16px] leading-[1.5em]" style={{ fontFamily: 'Roboto' }}>
                   Product positioning based on
                 </p>
               </div>
@@ -164,24 +164,24 @@ const GoToMarketStrategyPage: React.FC = () => {
           </div>
 
           {/* Image */}
-          <div className="w-[347px] h-[245px] flex-shrink-0 rounded-[16px] overflow-hidden bg-cover bg-center" 
+          <div className="w-full lg:w-[347px] h-[200px] md:h-[220px] lg:h-[245px] flex-shrink-0 rounded-[12px] md:rounded-[16px] overflow-hidden bg-cover bg-center" 
                style={{ backgroundImage: 'url(/images/services/customer-profile.png)' }}>
             <div className="w-full h-full bg-gradient-to-br from-purple-900/30 to-transparent" />
           </div>
         </div>
 
         {/* Value Proposition & Messaging + Pricing Strategy */}
-        <div className="flex gap-[20px]">
+        <div className="flex flex-col md:flex-row gap-[16px] md:gap-[20px]">
           {/* Value Proposition & Messaging */}
-          <div className="flex-1 bg-[#1B1328] rounded-[16px] p-[40px]">
-            <h3 className="text-[#F5F5F5] font-medium text-[20px] leading-[1.2em] mb-[14px]" style={{ fontFamily: 'Roboto' }}>
+          <div className="flex-1 bg-[#1B1328] rounded-[12px] md:rounded-[16px] p-[24px] md:p-[32px] lg:p-[40px]">
+            <h3 className="text-[#F5F5F5] font-medium text-[18px] md:text-[20px] leading-[1.2em] mb-[12px] md:mb-[14px]" style={{ fontFamily: 'Roboto' }}>
               Value Proposition & Messaging
             </h3>
             
             <div className="space-y-[8px]">
               <div className="flex gap-[6px]">
                 <ArrowIcon />
-                <p className="text-[#F5F5F5] font-medium text-[16px] leading-[1.5em]" style={{ fontFamily: 'Roboto' }}>
+                <p className="text-[#F5F5F5] font-medium text-[14px] md:text-[16px] leading-[1.5em]" style={{ fontFamily: 'Roboto' }}>
                   Tailor your value proposition to regional needs and perceptions.
                 </p>
               </div>
@@ -196,9 +196,9 @@ const GoToMarketStrategyPage: React.FC = () => {
                 </div>
               </div>
 
-              <div className="flex gap-[6px] mt-[16px]">
+              <div className="flex gap-[6px] mt-[12px] md:mt-[16px]">
                 <ArrowIcon />
-                <p className="text-[#F5F5F5] font-medium text-[16px] leading-[1.5em]" style={{ fontFamily: 'Roboto' }}>
+                <p className="text-[#F5F5F5] font-medium text-[14px] md:text-[16px] leading-[1.5em]" style={{ fontFamily: 'Roboto' }}>
                   Build alliances with
                 </p>
               </div>
@@ -221,9 +221,9 @@ const GoToMarketStrategyPage: React.FC = () => {
           </div>
 
           {/* Pricing Strategy */}
-          <div className="flex-1 bg-[#1B1328] rounded-[16px] p-[40px]">
-            <div className="flex items-center gap-[16px] mb-[14px]">
-              <h3 className="text-[#F5F5F5] font-medium text-[20px] leading-[1.2em]" style={{ fontFamily: 'Roboto' }}>
+          <div className="flex-1 bg-[#1B1328] rounded-[12px] md:rounded-[16px] p-[24px] md:p-[32px] lg:p-[40px]">
+            <div className="flex items-center gap-[16px] mb-[12px] md:mb-[14px]">
+              <h3 className="text-[#F5F5F5] font-medium text-[18px] md:text-[20px] leading-[1.2em]" style={{ fontFamily: 'Roboto' }}>
               Distribution & Channel Strategy
               </h3>
             </div>
@@ -231,7 +231,7 @@ const GoToMarketStrategyPage: React.FC = () => {
             <div className="space-y-[8px]">
               <div className="flex gap-[6px]">
                 <ArrowIcon />
-                <p className="text-[#F5F5F5] font-medium text-[16px] leading-[1.5em]" style={{ fontFamily: 'Roboto' }}>
+                <p className="text-[#F5F5F5] font-medium text-[14px] md:text-[16px] leading-[1.5em]" style={{ fontFamily: 'Roboto' }}>
                   Build alliances with
                 </p>
               </div>
@@ -254,15 +254,15 @@ const GoToMarketStrategyPage: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-[#1B1328] rounded-[16px] px-[40px] py-[20px] flex items-center gap-[20px]">
-          <h3 className="w-[28%] text-[#F5F5F5] font-medium text-[20px] leading-[1.2em]" style={{ fontFamily: 'Roboto' }}>
+        <div className="bg-[#1B1328] rounded-[12px] md:rounded-[16px] px-[20px] md:px-[32px] lg:px-[40px] py-[16px] md:py-[20px] flex flex-col lg:flex-row items-start lg:items-center gap-[16px] lg:gap-[20px]">
+          <h3 className="w-full lg:w-[28%] text-[#F5F5F5] font-medium text-[18px] md:text-[20px] leading-[1.2em]" style={{ fontFamily: 'Roboto' }}>
             Pricing Strategy <br/>
-            <span className="font-normal text-[16px] leading-[1.43em]" style={{ fontFamily: 'Roboto' }}>Determine pricing based on</span>
+            <span className="font-normal text-[14px] md:text-[16px] leading-[1.43em]" style={{ fontFamily: 'Roboto' }}>Determine pricing based on</span>
           </h3>
           
-          <div className="h-[90px] w-[1px] bg-white/20 flex-shrink-0" />
+          <div className="hidden lg:block h-[90px] w-[1px] bg-white/20 flex-shrink-0" />
           
-          <div className="w-[72%] space-y-[4px]">
+          <div className="w-full lg:w-[72%] space-y-[4px]">
             <div className="flex gap-[6px]">
               <BulletIcon />
               <p className="text-[#B0B0B0] font-normal text-[14px] leading-[2.14em]" style={{ fontFamily: 'Roboto' }}>
@@ -285,10 +285,10 @@ const GoToMarketStrategyPage: React.FC = () => {
         </div>
 
         {/* Distribution & Channel Strategy + Sales Strategy */}
-        <div className="flex gap-[20px]">
+        <div className="flex flex-col md:flex-row gap-[16px] md:gap-[20px]">
           {/* Distribution */}
-          <div className="flex-1 bg-[#1B1328] rounded-[16px] p-[40px]">
-            <h3 className="text-[#F5F5F5] font-medium text-[20px] leading-[1.2em] mb-[14px]" style={{ fontFamily: 'Roboto' }}>
+          <div className="flex-1 bg-[#1B1328] rounded-[12px] md:rounded-[16px] p-[24px] md:p-[32px] lg:p-[40px]">
+            <h3 className="text-[#F5F5F5] font-medium text-[18px] md:text-[20px] leading-[1.2em] mb-[12px] md:mb-[14px]" style={{ fontFamily: 'Roboto' }}>
               Sales Strategy
             </h3>
             <div className="space-y-[8px]">
@@ -318,19 +318,19 @@ const GoToMarketStrategyPage: React.FC = () => {
               </div>
             </div>
             {/* Image */}
-            <div className="w-full h-[126px] rounded-[16px] overflow-hidden bg-cover bg-center mt-[24px]" 
+            <div className="w-full h-[100px] md:h-[120px] lg:h-[126px] rounded-[12px] md:rounded-[16px] overflow-hidden bg-cover bg-center mt-[20px] md:mt-[24px]" 
                  style={{ backgroundImage: 'url(/images/services/distribution.png)' }}>
               <div className="w-full h-full bg-gradient-to-br from-purple-900/30 to-transparent" />
             </div>
           </div>
 
           {/* Sales Strategy */}
-          <div className="flex-1 bg-[#1B1328] rounded-[16px] p-[40px]">
-          <div className="w-full h-[126px] rounded-[16px] overflow-hidden bg-cover bg-center mb-[24px]" 
+          <div className="flex-1 bg-[#1B1328] rounded-[12px] md:rounded-[16px] p-[24px] md:p-[32px] lg:p-[40px]">
+          <div className="w-full h-[100px] md:h-[120px] lg:h-[126px] rounded-[12px] md:rounded-[16px] overflow-hidden bg-cover bg-center mb-[20px] md:mb-[24px]" 
                  style={{ backgroundImage: 'url(/images/services/sales-strategy.png)' }}>
               <div className="w-full h-full bg-gradient-to-br from-purple-900/30 to-transparent" />
             </div>
-            <h3 className="text-[#F5F5F5] font-medium text-[20px] leading-[1.2em] mb-[14px]" style={{ fontFamily: 'Roboto' }}>
+            <h3 className="text-[#F5F5F5] font-medium text-[18px] md:text-[20px] leading-[1.2em] mb-[12px] md:mb-[14px]" style={{ fontFamily: 'Roboto' }}>
             Customer Support & Success
             </h3>
             <div className="space-y-[8px]">
@@ -353,14 +353,14 @@ const GoToMarketStrategyPage: React.FC = () => {
         </div>
 
         {/* KPIs & Success Metrics */}
-        <div className="bg-[#1B1328] rounded-[16px] px-[40px] py-[20px] flex items-center gap-[20px]">
-          <h3 className="w-[20%] text-[#F5F5F5] font-medium text-[20px] leading-[1.2em]" style={{ fontFamily: 'Roboto' }}>
+        <div className="bg-[#1B1328] rounded-[12px] md:rounded-[16px] px-[20px] md:px-[32px] lg:px-[40px] py-[16px] md:py-[20px] flex flex-col lg:flex-row items-start lg:items-center gap-[16px] lg:gap-[20px]">
+          <h3 className="w-full lg:w-[20%] text-[#F5F5F5] font-medium text-[18px] md:text-[20px] leading-[1.2em]" style={{ fontFamily: 'Roboto' }}>
             Compliance & Legal Readiness
           </h3>
           
-          <div className="h-[90px] w-[1px] bg-white/20 flex-shrink-0" />
+          <div className="hidden lg:block h-[90px] w-[1px] bg-white/20 flex-shrink-0" />
           
-          <div className="w-[80%] space-y-[4px]">
+          <div className="w-full lg:w-[80%] space-y-[4px]">
             <div className="flex gap-[6px]">
               <BulletIcon />
               <p className="text-[#B0B0B0] font-normal text-[14px] leading-[2.14em]" style={{ fontFamily: 'Roboto' }}>
@@ -383,30 +383,30 @@ const GoToMarketStrategyPage: React.FC = () => {
         </div>
 
         {/* Market Research & Regional Fit */}
-        <div className="flex gap-[20px]">
+        <div className="flex flex-col lg:flex-row gap-[16px] md:gap-[20px]">
           {/* Image Card */}
-          <div className="w-[245px] h-[245px] flex-shrink-0 rounded-[16px] overflow-hidden bg-cover bg-center" 
+          <div className="w-full lg:w-[245px] h-[200px] md:h-[220px] lg:h-[245px] flex-shrink-0 rounded-[12px] md:rounded-[16px] overflow-hidden bg-cover bg-center" 
                style={{ backgroundImage: 'url(/images/services/market-research.png)' }}>
             <div className="w-full h-full bg-gradient-to-br from-purple-900/30 to-transparent" />
           </div>
 
           {/* Content Card */}
-          <div className="flex-1 rounded-[16px]">
-            <h3 className="text-[#F5F5F5] font-medium text-[20px] leading-[1.2em] mb-[14px]" style={{ fontFamily: 'Roboto' }}>
+          <div className="flex-1 rounded-[12px] md:rounded-[16px]">
+            <h3 className="text-[#F5F5F5] font-medium text-[18px] md:text-[20px] leading-[1.2em] mb-[12px] md:mb-[14px]" style={{ fontFamily: 'Roboto' }}>
               KPIs & Success Metrics
             </h3>
             
             <div className="space-y-[8px]">
               <div className="flex gap-[6px]">
                 <ArrowIcon />
-                <p className="text-[#F5F5F5] font-medium text-[16px] leading-[1.5em]" style={{ fontFamily: 'Roboto' }}>
+                <p className="text-[#F5F5F5] font-medium text-[14px] md:text-[16px] leading-[1.5em]" style={{ fontFamily: 'Roboto' }}>
                 Track key performance indicators such as:
                 </p>
               </div>
               
-              <div className="ml-[18px] flex gap-[40px]">
+              <div className="ml-[18px] flex flex-col md:flex-row gap-[8px] md:gap-[40px]">
                 {/* Left column - 3 items */}
-                <div className="w-1/2 space-y-[4px]">
+                <div className="w-full md:w-1/2 space-y-[4px]">
                   <div className="flex items-start gap-[6px]">
                     <BulletIcon />
                     <p className="text-[#B0B0B0] font-normal text-[14px] leading-[2.14em]" style={{ fontFamily: 'Roboto' }}>
@@ -428,7 +428,7 @@ const GoToMarketStrategyPage: React.FC = () => {
                 </div>
                 
                 {/* Right column - 2 items */}
-                <div className="w-1/2 space-y-[4px]">
+                <div className="w-full md:w-1/2 space-y-[4px]">
                   <div className="flex items-start gap-[6px]">
                     <BulletIcon />
                     <p className="text-[#B0B0B0] font-normal text-[14px] leading-[2.14em]" style={{ fontFamily: 'Roboto' }}>

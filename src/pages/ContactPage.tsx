@@ -25,9 +25,9 @@ const ContactPage: React.FC = () => {
   };
 
   return (
-    <div className="ContactPage mt-[88px] mb-[120px]">
+    <div className="ContactPage mt-[60px] md:mt-[72px] lg:mt-[88px] mb-[60px] md:mb-[90px] lg:mb-[120px]">
       {/* Hero Banner Section */}
-      <section className="relative bg-[#0F071D] h-[300px] overflow-hidden">
+      <section className="relative bg-[#0F071D] h-[200px] sm:h-[240px] md:h-[280px] lg:h-[300px] overflow-hidden">
         {/* Background Image Layer */}
         <div 
           className="absolute inset-0 bg-cover bg-center"
@@ -36,10 +36,10 @@ const ContactPage: React.FC = () => {
           }}
         />
         {/* Banner Content */}
-        <div className="relative z-10 max-w-[1440px] mx-auto px-[120px] h-full flex flex-col items-center justify-center">
+        <div className="relative z-10 max-w-[1440px] mx-auto px-[16px] sm:px-[24px] md:px-[36px] lg:px-[120px] h-full flex flex-col items-center justify-center">
           {/* Solutions Catalog */}
           <h1 
-            className="text-[#F5F5F5] font-black text-[48px] leading-[1.33em] text-center mb-[14px]"
+            className="text-[#F5F5F5] font-black text-[28px] sm:text-[36px] md:text-[42px] lg:text-[48px] leading-[1.33em] text-center mb-[10px] md:mb-[14px]"
             style={{ 
               fontFamily: 'Roboto',
               textShadow: '0px 4px 4px rgba(0, 0, 0, 0.4)'
@@ -50,7 +50,7 @@ const ContactPage: React.FC = () => {
           
           {/* Description */}
           <p 
-            className="text-white font-normal text-[20px] leading-[1.6em] text-center max-w-[585px] mb-[27px]"
+            className="text-white font-normal text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] leading-[1.6em] text-center max-w-full sm:max-w-[480px] md:max-w-[560px] lg:max-w-[585px] mb-[20px] md:mb-[27px]"
             style={{ 
               fontFamily: 'Roboto',
               textShadow: '0px 4px 4px rgba(0, 0, 0, 0.4)'
@@ -63,19 +63,19 @@ const ContactPage: React.FC = () => {
 
       {/* Main Content Section */}
       <section className="bg-[#0F071D] relative">
-        <div className="max-w-[1440px] mx-auto px-[120px]">
-          <div className="grid grid-cols-1 lg:grid-cols-[488px_1fr] gap-[102px] relative">
+        <div className="max-w-[1440px] mx-auto px-[16px] sm:px-[24px] md:px-[36px] lg:px-[120px]">
+          <div className="grid grid-cols-1 lg:grid-cols-[488px_1fr] gap-[40px] md:gap-[60px] lg:gap-[102px] relative">
             {/* Contact Form - Left Column */}
-            <div className="relative z-10 mt-[-65px]">
-              <div className="bg-[#0F071D] border border-[rgba(123,78,255,0.5)] rounded-[16px] p-[40px] shadow-[0_0_8px_2px_rgba(123,78,255,0.2)]">
+            <div className="relative z-10 mt-[-40px] sm:mt-[-50px] lg:mt-[-65px]">
+              <div className="bg-[#0F071D] border border-[rgba(123,78,255,0.5)] rounded-[12px] md:rounded-[16px] p-[24px] md:p-[32px] lg:p-[40px] shadow-[0_0_8px_2px_rgba(123,78,255,0.2)]">
                 <h2 
-                  className="text-[#F5F5F5] font-black text-[28px] leading-[1.43em] mb-[40px]"
+                  className="text-[#F5F5F5] font-black text-[22px] md:text-[26px] lg:text-[28px] leading-[1.43em] mb-[24px] md:mb-[32px] lg:mb-[40px]"
                   style={{ fontFamily: 'Roboto' }}
                 >
                   Let's do great work together
                 </h2>
                 
-                <form onSubmit={handleSubmit} className="space-y-[24px]">
+                <form onSubmit={handleSubmit} className="space-y-[20px] md:space-y-[24px]">
                   <div>
                     <label 
                       className="text-[#F5F5F5] font-normal text-[16px] leading-[1.25em] block mb-[8px]"

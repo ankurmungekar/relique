@@ -7,17 +7,17 @@ const StartupAdvisoryPage: React.FC = () => {
       title="Startup Advisory"
       description="We partner with early-stage and growth-stage startups to help them navigate uncertainty, build scalable foundations, and accelerate time-to-market. From idea validation to driving new sales and revenue opportunities, our Startup Advisory services provide strategic insights and hands-on execution support"
     >
-      <div className="space-y-[20px]">
+      <div className="space-y-[16px] md:space-y-[20px]">
         {/* Grid of Cards */}
-        <div className="grid grid-cols-3 gap-[20px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[16px] md:gap-[20px]">
           {/* Business Model Validation */}
-          <div className="bg-[#1B1328] rounded-[16px] p-[28px] flex flex-col items-center text-center">
-            <div className="w-[40px] h-[40px] mb-[20px] flex items-center justify-center">
+          <div className="bg-[#1B1328] rounded-[12px] md:rounded-[16px] p-[24px] md:p-[28px] flex flex-col items-center text-center">
+            <div className="w-[36px] h-[36px] md:w-[40px] md:h-[40px] mb-[16px] md:mb-[20px] flex items-center justify-center">
               {/* Search Icon */}
-              <img src="/images/icons/search.svg" alt="Business Model Validation" className="w-[40px] h-[40px]" />
+              <img src="/images/icons/search.svg" alt="Business Model Validation" className="w-full h-full" />
             </div>
             <h3 
-              className="text-[#F5F5F5] font-medium text-[20px] leading-[1.2em] mb-[8px]"
+              className="text-[#F5F5F5] font-medium text-[18px] md:text-[20px] leading-[1.2em] mb-[8px]"
               style={{ fontFamily: 'Roboto' }}
             >
               Business Model Validation
@@ -31,13 +31,13 @@ const StartupAdvisoryPage: React.FC = () => {
           </div>
 
           {/* Product-Market Fit */}
-          <div className="bg-[#1B1328] rounded-[16px] p-[28px] flex flex-col items-center text-center">
-            <div className="w-[40px] h-[40px] mb-[20px] flex items-center justify-center">
+          <div className="bg-[#1B1328] rounded-[12px] md:rounded-[16px] p-[24px] md:p-[28px] flex flex-col items-center text-center">
+            <div className="w-[36px] h-[36px] md:w-[40px] md:h-[40px] mb-[16px] md:mb-[20px] flex items-center justify-center">
               {/* Target Icon */}
-              <img src="/images/icons/target.svg" alt="Product-Market Fit" className="w-[40px] h-[40px]" />
+              <img src="/images/icons/target.svg" alt="Product-Market Fit" className="w-full h-full" />
             </div>
             <h3 
-              className="text-[#F5F5F5] font-medium text-[20px] leading-[1.2em] mb-[8px]"
+              className="text-[#F5F5F5] font-medium text-[18px] md:text-[20px] leading-[1.2em] mb-[8px]"
               style={{ fontFamily: 'Roboto' }}
             >
               Product-Market Fit
@@ -51,13 +51,13 @@ const StartupAdvisoryPage: React.FC = () => {
           </div>
 
           {/* Go-to-Market Planning */}
-          <div className="bg-[#1B1328] rounded-[16px] p-[28px] flex flex-col items-center text-center">
-            <div className="w-[40px] h-[40px] mb-[20px] flex items-center justify-center">
+          <div className="bg-[#1B1328] rounded-[12px] md:rounded-[16px] p-[24px] md:p-[28px] flex flex-col items-center text-center">
+            <div className="w-[36px] h-[36px] md:w-[40px] md:h-[40px] mb-[16px] md:mb-[20px] flex items-center justify-center">
               {/* User Flow Icon */}
-              <img src="/images/icons/user-flow.svg" alt="Go-to-Market Planning" className="w-[40px] h-[40px]" />
+              <img src="/images/icons/user-flow.svg" alt="Go-to-Market Planning" className="w-full h-full" />
             </div>
             <h3 
-              className="text-[#F5F5F5] font-medium text-[20px] leading-[1.2em] mb-[8px]"
+              className="text-[#F5F5F5] font-medium text-[18px] md:text-[20px] leading-[1.2em] mb-[8px]"
               style={{ fontFamily: 'Roboto' }}
             >
               Go-to-Market Planning
@@ -71,13 +71,13 @@ const StartupAdvisoryPage: React.FC = () => {
           </div>
 
           {/* Fundraising & Investor Readiness */}
-          <div className="bg-[#1B1328] rounded-[16px] p-[28px] flex flex-col items-center text-center">
-            <div className="w-[40px] h-[40px] mb-[20px] flex items-center justify-center">
+          <div className="bg-[#1B1328] rounded-[12px] md:rounded-[16px] p-[24px] md:p-[28px] flex flex-col items-center text-center">
+            <div className="w-[36px] h-[36px] md:w-[40px] md:h-[40px] mb-[16px] md:mb-[20px] flex items-center justify-center">
               {/* Coins Icon */}
-              <img src="/images/icons/coins.svg" alt="Fundraising & Investor Readiness" className="w-[40px] h-[40px]" />
+              <img src="/images/icons/coins.svg" alt="Fundraising & Investor Readiness" className="w-full h-full" />
             </div>
             <h3 
-              className="text-[#F5F5F5] font-medium text-[20px] leading-[1.2em] mb-[8px]"
+              className="text-[#F5F5F5] font-medium text-[18px] md:text-[20px] leading-[1.2em] mb-[8px]"
               style={{ fontFamily: 'Roboto' }}
             >
               Fundraising & Investor Readiness
@@ -91,13 +91,13 @@ const StartupAdvisoryPage: React.FC = () => {
           </div>
 
           {/* Scaling Operations */}
-          <div className="bg-[#1B1328] rounded-[16px] p-[28px] flex flex-col items-center text-center">
-            <div className="w-[30px] h-[30px] mb-[20px] flex items-center justify-center">
+          <div className="bg-[#1B1328] rounded-[12px] md:rounded-[16px] p-[24px] md:p-[28px] flex flex-col items-center text-center">
+            <div className="w-[36px] h-[36px] md:w-[40px] md:h-[40px] mb-[16px] md:mb-[20px] flex items-center justify-center">
               {/* Layers Icon */}
-              <img src="/images/icons/layers.svg" alt="Scaling Operations" className="w-[40px] h-[40px]" />
+              <img src="/images/icons/layers.svg" alt="Scaling Operations" className="w-full h-full" />
             </div>
             <h3 
-              className="text-[#F5F5F5] font-medium text-[20px] leading-[1.2em] mb-[8px]"
+              className="text-[#F5F5F5] font-medium text-[18px] md:text-[20px] leading-[1.2em] mb-[8px]"
               style={{ fontFamily: 'Roboto' }}
             >
               Scaling Operations
@@ -111,13 +111,13 @@ const StartupAdvisoryPage: React.FC = () => {
           </div>
 
           {/* Governance & Compliance */}
-          <div className="bg-[#1B1328] rounded-[16px] p-[28px] flex flex-col items-center text-center">
-            <div className="w-[32px] h-[32px] mb-[20px] flex items-center justify-center">
+          <div className="bg-[#1B1328] rounded-[12px] md:rounded-[16px] p-[24px] md:p-[28px] flex flex-col items-center text-center">
+            <div className="w-[36px] h-[36px] md:w-[40px] md:h-[40px] mb-[16px] md:mb-[20px] flex items-center justify-center">
               {/* Scale/Balance Icon */}
-              <img src="/images/icons/scale.svg" alt="Governance & Compliance" className="w-[40px] h-[40px]" />
+              <img src="/images/icons/scale.svg" alt="Governance & Compliance" className="w-full h-full" />
             </div>
             <h3 
-              className="text-[#F5F5F5] font-medium text-[20px] leading-[1.2em] mb-[8px]"
+              className="text-[#F5F5F5] font-medium text-[18px] md:text-[20px] leading-[1.2em] mb-[8px]"
               style={{ fontFamily: 'Roboto' }}
             >
               Governance & Compliance

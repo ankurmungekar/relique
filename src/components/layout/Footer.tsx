@@ -7,9 +7,9 @@ const Footer: React.FC = () => {
       {/* Top Border Line */}
       <div className="w-full h-[1px] bg-white opacity-20"></div>
       
-      <div className="max-w-[1440px] mx-auto px-[120px] pt-[40px] pb-[31px]">
+      <div className="max-w-[1440px] mx-auto px-[16px] sm:px-[24px] md:px-[36px] lg:px-[120px] pt-[32px] md:pt-[40px] pb-[24px] md:pb-[31px]">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-4 gap-[60px] mb-[30px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[32px] md:gap-[48px] lg:gap-[60px] mb-[24px] md:mb-[30px]">
           {/* Company Info */}
           <div>
             <div className="mb-[15px]">
@@ -207,19 +207,19 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="pt-[31px] border-t border-white/20">
-          <div className="flex items-center justify-between">
+        <div className="pt-[24px] md:pt-[31px] border-t border-white/20">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-[16px] sm:gap-[24px]">
             <p 
-              className="text-[#B0B0B0] font-normal text-[14px] leading-[2.14em]"
+              className="text-[#B0B0B0] font-normal text-[12px] md:text-[14px] leading-[2.14em] text-center sm:text-left"
               style={{ fontFamily: 'Roboto' }}
             >
               © 2025 Relique Consultants. All Rights Reserved.
             </p>
             
-            <div className="flex items-center gap-[40px]">
+            <div className="flex items-center gap-[24px] md:gap-[40px]">
               <a 
                 href="#privacy"
-                className="text-[#B0B0B0] font-normal text-[14px] leading-[2.14em] hover:text-[#4EC6C6] transition-colors duration-300"
+                className="text-[#B0B0B0] font-normal text-[12px] md:text-[14px] leading-[2.14em] hover:text-[#4EC6C6] transition-colors duration-300"
                 style={{ fontFamily: 'Roboto' }}
               >
                 Privacy Policy
@@ -227,7 +227,7 @@ const Footer: React.FC = () => {
               
               <a 
                 href="#terms"
-                className="text-[#B0B0B0] font-normal text-[14px] leading-[2.14em] hover:text-[#4EC6C6] transition-colors duration-300"
+                className="text-[#B0B0B0] font-normal text-[12px] md:text-[14px] leading-[2.14em] hover:text-[#4EC6C6] transition-colors duration-300"
                 style={{ fontFamily: 'Roboto' }}
               >
                 Terms of Service
