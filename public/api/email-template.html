@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form Submission</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+        }
+        .header {
+            background: linear-gradient(135deg, #7B4EFF 0%, #4EC6C6 100%);
+            padding: 40px 30px;
+            text-align: center;
+        }
+        .logo {
+            font-size: 32px;
+            font-weight: 900;
+            color: #ffffff;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+        .tagline {
+            color: #ffffff;
+            font-size: 14px;
+            margin: 8px 0 0 0;
+            opacity: 0.95;
+        }
+        .content {
+            padding: 40px 30px;
+            background-color: #ffffff;
+        }
+        .title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #0F071D;
+            margin: 0 0 10px 0;
+        }
+        .subtitle {
+            font-size: 14px;
+            color: #666666;
+            margin: 0 0 30px 0;
+        }
+        .info-section {
+            background-color: #f9f9f9;
+            border-left: 4px solid #7B4EFF;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+        .info-row {
+            margin-bottom: 16px;
+        }
+        .info-row:last-child {
+            margin-bottom: 0;
+        }
+        .info-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #7B4EFF;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+        .info-value {
+            font-size: 16px;
+            color: #0F071D;
+            line-height: 1.6;
+            word-wrap: break-word;
+        }
+        .message-box {
+            background-color: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 4px;
+        }
+        .message-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #7B4EFF;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+        .message-content {
+            font-size: 15px;
+            color: #333333;
+            line-height: 1.7;
+            white-space: pre-wrap;
+        }
+        .divider {
+            height: 1px;
+            background-color: #e0e0e0;
+            margin: 30px 0;
+        }
+        .footer {
+            background-color: #0F071D;
+            padding: 30px;
+            text-align: center;
+            color: #ffffff;
+        }
+        .footer-text {
+            font-size: 13px;
+            color: #B0B0B0;
+            margin: 5px 0;
+            line-height: 1.6;
+        }
+        .footer-link {
+            color: #4EC6C6;
+            text-decoration: none;
+        }
+        .footer-link:hover {
+            text-decoration: underline;
+        }
+        .badge {
+            display: inline-block;
+            padding: 6px 12px;
+            background-color: #4EC6C6;
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 600;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+        @media only screen and (max-width: 600px) {
+            .content {
+                padding: 30px 20px;
+            }
+            .header {
+                padding: 30px 20px;
+            }
+            .footer {
+                padding: 25px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <!-- Header -->
+        <div class="header">
+            <h1 class="logo">RELIQUE</h1>
+            <p class="tagline">Consultants</p>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <div class="badge">NEW SUBMISSION</div>
+            <h2 class="title">New Contact Form Submission</h2>
+            <p class="subtitle">Received on {{timestamp}}</p>
+
+            <!-- Contact Information -->
+            <div class="info-section">
+                <div class="info-row">
+                    <div class="info-label">Full Name</div>
+                    <div class="info-value">{{name}}</div>
+                </div>
+                
+                <div class="info-row">
+                    <div class="info-label">Email Address</div>
+                    <div class="info-value">
+                        <a href="mailto:{{email}}" style="color: #4EC6C6; text-decoration: none;">{{email}}</a>
+                    </div>
+                </div>
+                
+                <div class="info-row">
+                    <div class="info-label">Contact Number</div>
+                    <div class="info-value">
+                        <a href="tel:{{contactNumber}}" style="color: #4EC6C6; text-decoration: none;">{{contactNumber}}</a>
+                    </div>
+                </div>
+                
+                <div class="info-row">
+                    <div class="info-label">Inquiry Type</div>
+                    <div class="info-value">{{subject}}</div>
+                </div>
+            </div>
+
+            <!-- Message -->
+            <div class="message-box">
+                <div class="message-label">Message</div>
+                <div class="message-content">{{message}}</div>
+            </div>
+
+            <div class="divider"></div>
+
+            <p style="font-size: 13px; color: #666666; line-height: 1.6; margin: 0;">
+                <strong>Next Steps:</strong><br>
+                Please respond to this inquiry within 24-48 hours. You can reply directly to the customer's email: <a href="mailto:{{email}}" style="color: #4EC6C6;">{{email}}</a>
+            </p>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p class="footer-text">
+                <strong>Relique Consultants</strong><br>
+                SHAMS, UAE<br>
+                <a href="mailto:reachus@reliqueconsultants.com" class="footer-link">reachus@reliqueconsultants.com</a>
+            </p>
+            <p class="footer-text" style="margin-top: 15px; font-size: 11px; opacity: 0.7;">
+                This is an automated notification from your website contact form.<br>
+                Do not reply to this email directly.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

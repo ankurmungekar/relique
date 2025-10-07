@@ -1,0 +1,31 @@
+# Allow PHP files to be executed
+<FilesMatch "\.php$">
+    SetHandler application/x-httpd-php
+</FilesMatch>
+
+# CORS headers for production
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "POST, OPTIONS"
+    Header set Access-Control-Allow-Headers "Content-Type"
+</IfModule>
+
+# Disable directory listing
+Options -Indexes
+
+# Protect log and config files
+<FilesMatch "\.(log|config\.php)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Protect sensitive config files
+<Files "smtp-config.php">
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files "sendgrid-config.php">
+    Order allow,deny
+    Deny from all
+</Files>

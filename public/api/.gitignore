@@ -1,0 +1,10 @@
+# Ignore sensitive configuration
+sendgrid-config.php
+smtp-config.php
+
+# Ignore log files
+*.log
+
+# Keep example/template files
+!*.example
+!*.sample

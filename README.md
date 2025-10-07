@@ -1,46 +1,107 @@
-# Getting Started with Create React App
+# Relique Consultants Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Corporate website for Relique Consultants with contact form functionality.
 
-## Available Scripts
+## 🚀 Quick Start
 
-In the project directory, you can run:
+### Development
+```bash
+npm install
+npm start
+```
+
+Visit: http://localhost:3000
+
+### Production Build
+```bash
+npm run build
+```
+
+Upload the `build` folder to your hosting server.
+
+## 📁 Project Structure
+
+```
+Relique/
+├── src/                    # React source code
+│   ├── pages/             # Page components (Home, About, Contact, etc.)
+│   ├── components/        # Reusable components
+│   └── assets/           # Images and static assets
+├── public/
+│   ├── api/              # PHP backend for contact form
+│   └── images/           # Public images
+├── build/                # Production build (generated)
+└── docs/                 # Documentation
+```
+
+## ✨ Features
+
+- 🎨 Modern, responsive design
+- 📧 Working contact form with email notifications
+- 🔒 Secure form submission with SMTP
+- 📱 Mobile-friendly
+- ⚡ Fast and optimized
+
+## 📧 Contact Form
+
+The contact form uses PHP backend with Gmail SMTP to send emails.
+
+**Recipients:**
+- ankurmungekarstorage@gmail.com
+- reachus@reliqueconsultants.com
+
+**Setup Documentation:**
+- See `CONTACT_FORM_SETUP.md` for complete details
+- See `GMAIL_SMTP_SETUP.md` for Gmail configuration
+
+## 🛠️ Tech Stack
+
+- **Frontend:** React 19, TypeScript, TailwindCSS
+- **Routing:** React Router
+- **Backend:** PHP (contact form)
+- **Email:** Gmail SMTP
+- **Hosting:** Hostinger
+
+## 📚 Documentation
+
+- `CONTACT_FORM_SETUP.md` - Contact form documentation
+- `GMAIL_SMTP_SETUP.md` - Gmail SMTP setup guide
+- `DEPLOYMENT.md` - Deployment instructions
+- `public/api/README.md` - API documentation
+
+## 🚀 Deployment
+
+1. Build the project: `npm run build`
+2. Upload `build/` folder contents to your server
+3. Ensure `public/api/` folder is uploaded with PHP files
+4. Configure SMTP credentials in `public/api/smtp-config.php`
+5. Test the contact form
+
+See `DEPLOYMENT.md` for detailed instructions.
+
+## 📝 Available Scripts
 
 ### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Runs the app in development mode at http://localhost:3000
 
 ### `npm run build`
+Builds the app for production to the `build` folder
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### `npm test`
+Launches the test runner
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🔧 Configuration
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Contact Form
+Edit `public/api/smtp-config.php` to configure email settings.
 
-### `npm run eject`
+### Contact Recipients
+Edit `public/api/contact.php` (line ~105) to change recipient email addresses.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## 📄 License
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Private project for Relique Consultants.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+---
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Built with ❤️ for Relique Consultants**

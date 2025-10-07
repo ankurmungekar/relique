@@ -10,6 +10,7 @@ interface ButtonProps {
   className?: string;
   style?: React.CSSProperties;
   type?: 'button' | 'submit' | 'reset';
+  disabled?: boolean;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -20,7 +21,8 @@ const Button: React.FC<ButtonProps> = ({
   onClick,
   className = '',
   style = {},
-  type = 'button'
+  type = 'button',
+  disabled = false
 }) => {
   const baseClasses = `
     inline-flex items-center justify-center
@@ -29,8 +31,8 @@ const Button: React.FC<ButtonProps> = ({
     font-medium text-[16px] leading-[1.5em]
     rounded-[25px]
     transition-all duration-200
-    cursor-pointer
     focus:outline-none
+    ${disabled ? 'cursor-not-allowed' : 'cursor-pointer'}
     ${className}
   `.trim().replace(/\s+/g, ' ');
 
@@ -59,7 +61,7 @@ const Button: React.FC<ButtonProps> = ({
   }
 
   return (
-    <button type={type} onClick={onClick} className={finalClasses} style={finalStyle}>
+    <button type={type} onClick={onClick} className={finalClasses} style={finalStyle} disabled={disabled}>
       {children}
     </button>
   );

@@ -104,7 +104,7 @@ const SolutionsSection: React.FC = () => {
               paddingRight: '21.39px'
             }}
           >
-            View All Services
+            Know More
           </Button>
         </div>
 

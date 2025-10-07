@@ -6,21 +6,129 @@ const ContactPage: React.FC = () => {
     name: '',
     email: '',
     contactNumber: '',
-    subject: '',
+    subject: 'looking-for-solution',
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: 'success' | 'error' | null;
+    message: string;
+  }>({ type: null, message: '' });
+  const [fieldErrors, setFieldErrors] = useState<{
+    name?: string;
+    email?: string;
+  }>({});
+
+  const validateForm = () => {
+    const errors: { name?: string; email?: string } = {};
+
+    // Validate name
+    if (!formData.name.trim()) {
+      errors.name = 'Name is required';
+    }
+
+    // Validate email
+    if (!formData.email.trim()) {
+      errors.email = 'Email is required';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      errors.email = 'Please enter a valid email address';
+    }
+
+    setFieldErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
+    setSubmitStatus({ type: null, message: '' });
+    setFieldErrors({});
+
+    // Validate form
+    if (!validateForm()) {
+      setSubmitStatus({
+        type: 'error',
+        message: 'Please fix the errors below before submitting.',
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('/api/contact.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setSubmitStatus({
+          type: 'success',
+          message: data.message || 'Thank you for contacting us! We will get back to you soon.',
+        });
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          contactNumber: '',
+          subject: 'looking-for-solution',
+          message: ''
+        });
+      } else {
+        setSubmitStatus({
+          type: 'error',
+          message: data.message || 'Failed to send message. Please try again later.',
+        });
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitStatus({
+        type: 'error',
+        message: 'Network error. Please check your connection and try again.',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [name]: value
     });
+
+    // Real-time email validation
+    if (name === 'email' && value.trim()) {
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+        setFieldErrors({
+          ...fieldErrors,
+          email: 'Please enter a valid email address'
+        });
+      } else {
+        setFieldErrors({
+          ...fieldErrors,
+          email: undefined
+        });
+      }
+    } else if (name === 'email' && !value.trim()) {
+      // Clear email error if field is empty (required error will show on submit)
+      setFieldErrors({
+        ...fieldErrors,
+        email: undefined
+      });
+    } else if (fieldErrors[name as keyof typeof fieldErrors]) {
+      // Clear error for other fields when user starts typing
+      setFieldErrors({
+        ...fieldErrors,
+        [name]: undefined
+      });
+    }
   };
 
   return (
@@ -73,6 +181,26 @@ const ContactPage: React.FC = () => {
                 >
                   Let's do great work together
                 </h2>
+
+                {/* Status Messages */}
+                {submitStatus.type && (
+                  <div
+                    className={`p-[16px] rounded-[8px] mb-[24px] ${
+                      submitStatus.type === 'success'
+                        ? 'bg-[rgba(39,200,64,0.1)] border border-[#27C840]'
+                        : 'bg-[rgba(255,77,77,0.1)] border border-[#FF4D4D]'
+                    }`}
+                  >
+                    <p
+                      className={`text-[14px] leading-[1.5em] ${
+                        submitStatus.type === 'success' ? 'text-[#27C840]' : 'text-[#FF4D4D]'
+                      }`}
+                      style={{ fontFamily: 'Roboto' }}
+                    >
+                      {submitStatus.message}
+                    </p>
+                  </div>
+                )}
                 
                 <form onSubmit={handleSubmit} className="space-y-[20px] md:space-y-[24px]">
                   <div>
@@ -80,7 +208,7 @@ const ContactPage: React.FC = () => {
                       className="text-[#F5F5F5] font-normal text-[16px] leading-[1.25em] block mb-[8px]"
                       style={{ fontFamily: 'Roboto' }}
                     >
-                      Name
+                      Name <span className="text-[#FF4D4D]">*</span>
                     </label>
                     <input
                       type="text"
@@ -88,9 +216,22 @@ const ContactPage: React.FC = () => {
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="Name"
-                      className="w-full px-[14px] py-[12px] bg-[rgba(255,255,255,0.05)] border-none rounded-[4px] text-[#F5F5F5] placeholder-[#F5F5F5] font-medium text-[14px] leading-[1.43em] focus:outline-none focus:ring-1 focus:ring-[#4EC6C6] transition-all duration-300"
+                      disabled={isSubmitting}
+                      className={`w-full px-[14px] py-[12px] bg-[rgba(255,255,255,0.05)] rounded-[4px] text-[#F5F5F5] placeholder-[#B0B0B0] font-medium text-[14px] leading-[1.43em] focus:outline-none transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed ${
+                        fieldErrors.name 
+                          ? 'border-2 border-[#FF4D4D] focus:ring-2 focus:ring-[#FF4D4D]' 
+                          : 'border-none focus:ring-1 focus:ring-[#4EC6C6]'
+                      }`}
                       style={{ fontFamily: 'Roboto' }}
                     />
+                    {fieldErrors.name && (
+                      <p className="text-[#FF4D4D] text-[12px] mt-[6px] flex items-center gap-[4px]" style={{ fontFamily: 'Roboto' }}>
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                          <path d="M7 0C3.13 0 0 3.13 0 7C0 10.87 3.13 14 7 14C10.87 14 14 10.87 14 7C14 3.13 10.87 0 7 0ZM7.7 10.5H6.3V9.1H7.7V10.5ZM7.7 7.7H6.3V3.5H7.7V7.7Z" fill="#FF4D4D"/>
+                        </svg>
+                        {fieldErrors.name}
+                      </p>
+                    )}
                   </div>
                   
                   <div>
@@ -98,7 +239,7 @@ const ContactPage: React.FC = () => {
                       className="text-[#F5F5F5] font-normal text-[16px] leading-[1.25em] block mb-[8px]"
                       style={{ fontFamily: 'Roboto' }}
                     >
-                      Email
+                      Email <span className="text-[#FF4D4D]">*</span>
                     </label>
                     <div className="relative">
                       <input
@@ -107,10 +248,15 @@ const ContactPage: React.FC = () => {
                         value={formData.email}
                         onChange={handleChange}
                         placeholder="Email"
-                        className="w-full px-[14px] py-[12px] bg-[rgba(255,255,255,0.05)] border-none rounded-[4px] text-[#F5F5F5] placeholder-[#F5F5F5] font-medium text-[14px] leading-[1.43em] focus:outline-none focus:ring-1 focus:ring-[#4EC6C6] transition-all duration-300"
+                        disabled={isSubmitting}
+                        className={`w-full px-[14px] py-[12px] bg-[rgba(255,255,255,0.05)] rounded-[4px] text-[#F5F5F5] placeholder-[#B0B0B0] font-medium text-[14px] leading-[1.43em] focus:outline-none transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed ${
+                          fieldErrors.email 
+                            ? 'border-2 border-[#FF4D4D] focus:ring-2 focus:ring-[#FF4D4D]' 
+                            : 'border-none focus:ring-1 focus:ring-[#4EC6C6]'
+                        }`}
                         style={{ fontFamily: 'Roboto' }}
                       />
-                      {formData.email && formData.email.includes('@') && (
+                      {!fieldErrors.email && formData.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email) && (
                         <div className="absolute right-[14px] top-1/2 transform -translate-y-1/2">
                           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                             <path d="M10 0C4.48 0 0 4.48 0 10C0 15.52 4.48 20 10 20C15.52 20 20 15.52 20 10C20 4.48 15.52 0 10 0ZM8 15L3 10L4.41 8.59L8 12.17L15.59 4.58L17 6L8 15Z" fill="#27C840"/>
@@ -118,6 +264,14 @@ const ContactPage: React.FC = () => {
                         </div>
                       )}
                     </div>
+                    {fieldErrors.email && (
+                      <p className="text-[#FF4D4D] text-[12px] mt-[6px] flex items-center gap-[4px]" style={{ fontFamily: 'Roboto' }}>
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                          <path d="M7 0C3.13 0 0 3.13 0 7C0 10.87 3.13 14 7 14C10.87 14 14 10.87 14 7C14 3.13 10.87 0 7 0ZM7.7 10.5H6.3V9.1H7.7V10.5ZM7.7 7.7H6.3V3.5H7.7V7.7Z" fill="#FF4D4D"/>
+                        </svg>
+                        {fieldErrors.email}
+                      </p>
+                    )}
                   </div>
                   
                   <div>
@@ -133,7 +287,8 @@ const ContactPage: React.FC = () => {
                       value={formData.contactNumber}
                       onChange={handleChange}
                       placeholder="Contact Number"
-                      className="w-full px-[14px] py-[12px] bg-[rgba(255,255,255,0.05)] border-none rounded-[4px] text-[#F5F5F5] placeholder-[#B0B0B0] font-normal text-[14px] leading-[1.43em] focus:outline-none focus:ring-1 focus:ring-[#4EC6C6] transition-all duration-300"
+                      disabled={isSubmitting}
+                      className="w-full px-[14px] py-[12px] bg-[rgba(255,255,255,0.05)] border-none rounded-[4px] text-[#F5F5F5] placeholder-[#B0B0B0] font-normal text-[14px] leading-[1.43em] focus:outline-none focus:ring-1 focus:ring-[#4EC6C6] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                       style={{ fontFamily: 'Roboto' }}
                     />
                   </div>
@@ -150,7 +305,8 @@ const ContactPage: React.FC = () => {
                         name="subject"
                         value={formData.subject}
                         onChange={handleChange}
-                        className="w-full px-[14px] py-[12px] bg-[rgba(255,255,255,0.05)] border-none rounded-[4px] text-[#B0B0B0] font-normal text-[14px] leading-[1.43em] focus:outline-none focus:ring-1 focus:ring-[#4EC6C6] transition-all duration-300 appearance-none cursor-pointer"
+                        disabled={isSubmitting}
+                        className="w-full px-[14px] py-[12px] bg-[rgba(255,255,255,0.05)] border-none rounded-[4px] text-[#F5F5F5] font-normal text-[14px] leading-[1.43em] focus:outline-none focus:ring-1 focus:ring-[#4EC6C6] transition-all duration-300 appearance-none cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                         style={{ fontFamily: 'Roboto' }}
                       >
                         <option value="looking-for-solution" className="bg-[#0F071D] text-[#F5F5F5]">Are you looking for a solution.</option>
@@ -178,14 +334,25 @@ const ContactPage: React.FC = () => {
                       onChange={handleChange}
                       placeholder="Message"
                       rows={5}
-                      className="w-full px-[14px] py-[12px] bg-[rgba(255,255,255,0.05)] border-none rounded-[4px] text-[#B0B0B0] placeholder-[#B0B0B0] font-normal text-[14px] leading-[1.43em] focus:outline-none focus:ring-1 focus:ring-[#4EC6C6] transition-all duration-300 resize-none"
+                      disabled={isSubmitting}
+                      className="w-full px-[14px] py-[12px] bg-[rgba(255,255,255,0.05)] border-none rounded-[4px] text-[#F5F5F5] placeholder-[#B0B0B0] font-normal text-[14px] leading-[1.43em] focus:outline-none focus:ring-1 focus:ring-[#4EC6C6] transition-all duration-300 resize-none disabled:opacity-50 disabled:cursor-not-allowed"
                       style={{ fontFamily: 'Roboto' }}
                     />
                   </div>
                   
                   <div className="flex justify-end">
-                    <Button type="submit" variant="primary">
-                      Get In Touch
+                    <Button 
+                      type="submit" 
+                      variant="primary" 
+                      disabled={
+                        isSubmitting ||
+                        formData.name.trim() === '' ||
+                        formData.email.trim() === '' ||
+                        Boolean(fieldErrors.email) ||
+                        (formData.email.trim() !== '' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email))
+                      }
+                    >
+                      {isSubmitting ? 'Sending...' : 'Get In Touch'}
                     </Button>
                   </div>
                 </form>
