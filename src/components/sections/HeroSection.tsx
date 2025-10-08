@@ -22,6 +22,7 @@ interface HeroSlide {
 const HeroSection: React.FC = () => {
   const swiperRef = useRef<any>(null);
   const [imagesLoaded, setImagesLoaded] = useState(false);
+  const [swiperReady, setSwiperReady] = useState(false);
 
   const heroSlides: HeroSlide[] = [
     {
@@ -75,12 +76,17 @@ const HeroSection: React.FC = () => {
 
     Promise.all(preloadImages)
       .then(() => {
-        setImagesLoaded(true);
+        // Small delay to ensure DOM is ready
+        setTimeout(() => {
+          setImagesLoaded(true);
+        }, 50);
       })
       .catch(err => {
         console.error('Error preloading images:', err);
         // Still show the slider even if some images fail to load
-        setImagesLoaded(true);
+        setTimeout(() => {
+          setImagesLoaded(true);
+        }, 50);
       });
   }, []);
 
@@ -90,8 +96,8 @@ const HeroSection: React.FC = () => {
         <div className="relative w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[712px] rounded-[8px] sm:rounded-[12px] md:rounded-[16px] overflow-hidden">
           {!imagesLoaded ? (
             // Loading skeleton
-            <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900 animate-pulse flex items-center justify-center">
-              <div className="text-white/50 text-lg">Loading...</div>
+            <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
+              <div className="loader"></div>
             </div>
           ) : (
             <Swiper
@@ -119,11 +125,17 @@ const HeroSection: React.FC = () => {
                }
              }}
             speed={1000}
+            onInit={(swiper: any) => {
+              // Ensure we're on the real first slide (not a duplicate)
+              swiper.slideTo(0, 0);
+              setTimeout(() => {
+                setSwiperReady(true);
+              }, 100);
+            }}
             onSwiper={(swiper: any) => {
               swiperRef.current = swiper;
             }}
-            className="hero-swiper w-full h-full opacity-0 animate-fadeIn"
-            style={{ animationDelay: '100ms', animationFillMode: 'forwards' }}
+            className={`hero-swiper w-full h-full transition-opacity duration-500 ${swiperReady ? 'opacity-100' : 'opacity-0'}`}
           >
             {heroSlides.map((slide, index) => (
               <SwiperSlide key={slide.id}>
@@ -192,17 +204,19 @@ const HeroSection: React.FC = () => {
 
       {/* Custom Swiper Styles */}
       <style>{`
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-          }
-          to {
-            opacity: 1;
-          }
+        .loader {
+          width: 48px;
+          height: 48px;
+          border: 4px solid rgba(255, 255, 255, 0.1);
+          border-top-color: #4EC6C6;
+          border-radius: 50%;
+          animation: spin 1s linear infinite;
         }
         
-        .animate-fadeIn {
-          animation: fadeIn 0.5s ease-in;
+        @keyframes spin {
+          to {
+            transform: rotate(360deg);
+          }
         }
         
         .hero-swiper {
