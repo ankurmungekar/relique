@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Linkedin, Twitter, Youtube, Instagram } from '../ui/icons/ChevronIcons';
 
 const Footer: React.FC = () => {
@@ -44,41 +45,41 @@ const Footer: React.FC = () => {
               Quick Links
             </h4>
             <div className="space-y-0">
-              <a 
-                href="/"
-                className="block text-[#B0B0B0] font-normal text-[14px] leading-[2.14em] hover:text-[#4EC6C6] transition-colors duration-300"
+              <Link 
+                to="/"
+                className="block text-[#B0B0B0] font-normal text-[14px] leading-[2.14em] hover:text-[#4EC6C6] transition-colors duration-300 focus:outline-none"
                 style={{ fontFamily: 'Roboto' }}
               >
                 Home
-              </a>
-              <a 
-                href="/services"
-                className="block text-[#B0B0B0] font-normal text-[14px] leading-[2.14em] hover:text-[#4EC6C6] transition-colors duration-300"
+              </Link>
+              <Link 
+                to="/services"
+                className="block text-[#B0B0B0] font-normal text-[14px] leading-[2.14em] hover:text-[#4EC6C6] transition-colors duration-300 focus:outline-none"
                 style={{ fontFamily: 'Roboto' }}
               >
                 Services
-              </a>
-              <a 
-                href="/solutions"
-                className="block text-[#B0B0B0] font-normal text-[14px] leading-[2.14em] hover:text-[#4EC6C6] transition-colors duration-300"
+              </Link>
+              <Link 
+                to="/solutions"
+                className="block text-[#B0B0B0] font-normal text-[14px] leading-[2.14em] hover:text-[#4EC6C6] transition-colors duration-300 focus:outline-none"
                 style={{ fontFamily: 'Roboto' }}
               >
                 Solutions Hub
-              </a>
-              <a 
-                href="/about"
-                className="block text-[#B0B0B0] font-normal text-[14px] leading-[2.14em] hover:text-[#4EC6C6] transition-colors duration-300"
+              </Link>
+              <Link 
+                to="/about"
+                className="block text-[#B0B0B0] font-normal text-[14px] leading-[2.14em] hover:text-[#4EC6C6] transition-colors duration-300 focus:outline-none"
                 style={{ fontFamily: 'Roboto' }}
               >
                 About Us
-              </a>
-              <a 
-                href="/contact"
-                className="block text-[#B0B0B0] font-normal text-[14px] leading-[2.14em] hover:text-[#4EC6C6] transition-colors duration-300"
+              </Link>
+              <Link 
+                to="/contact"
+                className="block text-[#B0B0B0] font-normal text-[14px] leading-[2.14em] hover:text-[#4EC6C6] transition-colors duration-300 focus:outline-none"
                 style={{ fontFamily: 'Roboto' }}
               >
                 Contact
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -91,48 +92,48 @@ const Footer: React.FC = () => {
               Services
             </h4>
             <div className="space-y-0">
-              <a 
-                href="/services/go-to-market-strategy"
-                className="block text-[#B0B0B0] font-normal text-[14px] leading-[2.14em] hover:text-[#4EC6C6] transition-colors duration-300"
+              <Link 
+                to="/services/go-to-market-strategy"
+                className="block text-[#B0B0B0] font-normal text-[14px] leading-[2.14em] hover:text-[#4EC6C6] transition-colors duration-300 focus:outline-none"
                 style={{ fontFamily: 'Roboto' }}
               >
                 Go-to-Market Strategy
-              </a>
-              <a 
-                href="/services/project-execution"
-                className="block text-[#B0B0B0] font-normal text-[14px] leading-[2.14em] hover:text-[#4EC6C6] transition-colors duration-300"
+              </Link>
+              <Link 
+                to="/services/project-execution"
+                className="block text-[#B0B0B0] font-normal text-[14px] leading-[2.14em] hover:text-[#4EC6C6] transition-colors duration-300 focus:outline-none"
                 style={{ fontFamily: 'Roboto' }}
               >
                 Project Execution & Customer Success
-              </a>
-              <a 
-                href="/services/business-growth"
-                className="block text-[#B0B0B0] font-normal text-[14px] leading-[2.14em] hover:text-[#4EC6C6] transition-colors duration-300"
+              </Link>
+              <Link 
+                to="/services/business-growth"
+                className="block text-[#B0B0B0] font-normal text-[14px] leading-[2.14em] hover:text-[#4EC6C6] transition-colors duration-300 focus:outline-none"
                 style={{ fontFamily: 'Roboto' }}
               >
                 Business Growth & Retention
-              </a>
-              <a 
-                href="/services/bfsi-it-advisory"
-                className="block text-[#B0B0B0] font-normal text-[14px] leading-[2.14em] hover:text-[#4EC6C6] transition-colors duration-300"
+              </Link>
+              <Link 
+                to="/services/bfsi-it-advisory"
+                className="block text-[#B0B0B0] font-normal text-[14px] leading-[2.14em] hover:text-[#4EC6C6] transition-colors duration-300 focus:outline-none"
                 style={{ fontFamily: 'Roboto' }}
               >
                 BFSI & IT Advisory
-              </a>
-              <a 
-                href="/services/ai-innovations"
-                className="block text-[#B0B0B0] font-normal text-[14px] leading-[2.14em] hover:text-[#4EC6C6] transition-colors duration-300"
+              </Link>
+              <Link 
+                to="/services/ai-innovations"
+                className="block text-[#B0B0B0] font-normal text-[14px] leading-[2.14em] hover:text-[#4EC6C6] transition-colors duration-300 focus:outline-none"
                 style={{ fontFamily: 'Roboto' }}
               >
                 AI Innovations
-              </a>
-              <a 
-                href="/services/startup-advisory"
-                className="block text-[#B0B0B0] font-normal text-[14px] leading-[2.14em] hover:text-[#4EC6C6] transition-colors duration-300"
+              </Link>
+              <Link 
+                to="/services/startup-advisory"
+                className="block text-[#B0B0B0] font-normal text-[14px] leading-[2.14em] hover:text-[#4EC6C6] transition-colors duration-300 focus:outline-none"
                 style={{ fontFamily: 'Roboto' }}
               >
                 Startup Advisory
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -164,11 +165,11 @@ const Footer: React.FC = () => {
               <div className="flex items-center gap-[12px]">
                 <Phone size={16} className="text-[#FFFFFF]" />
                 <a 
-                  href="tel:+91XXXXXXXXXX"
+                  href="tel:+971-54511819"
                   className="text-[#F5F5F5] font-normal text-[14px] leading-[1.43em] hover:text-[#4EC6C6] transition-colors duration-300"
                   style={{ fontFamily: 'Roboto' }}
                 >
-                  +91-XXXXXXXXXX
+                  +971-54511819
                 </a>
               </div>
             </div>
@@ -179,28 +180,16 @@ const Footer: React.FC = () => {
             {/* Social Media */}
             <div className="flex items-center gap-[12px]">
               <a 
-                href="#linkedin"
-                className="w-[40px] h-[40px] rounded-full border border-white/[0.13] flex items-center justify-center hover:bg-[#4EC6C6] transition-colors duration-300"
+                href="linkedin.com/in/relique-consultants-856035389" target="_blank"
+                className="cursor-pointer w-[40px] h-[40px] rounded-full border border-white/[0.13] flex items-center justify-center hover:bg-[#4EC6C6] transition-colors duration-300"
               >
                 <Linkedin size={16} className="text-[#F5F5F5]" />
               </a>
               <a 
-                href="#instagram"
-                className="w-[40px] h-[40px] rounded-full border border-white/[0.13] flex items-center justify-center hover:bg-[#4EC6C6] transition-colors duration-300"
+                href="https://www.instagram.com/reliqueconsultants/" target="_blank"
+                className="cursor-pointer w-[40px] h-[40px] rounded-full border border-white/[0.13] flex items-center justify-center hover:bg-[#4EC6C6] transition-colors duration-300"
               >
                 <Instagram size={16} className="text-[#F5F5F5]" />
-              </a>
-              <a 
-                href="#youtube"
-                className="w-[40px] h-[40px] rounded-full border border-white/[0.13] flex items-center justify-center hover:bg-[#4EC6C6] transition-colors duration-300"
-              >
-                <Youtube size={16} className="text-[#F5F5F5]" />
-              </a>
-              <a 
-                href="#twitter"
-                className="w-[40px] h-[40px] rounded-full border border-white/[0.13] flex items-center justify-center hover:bg-[#4EC6C6] transition-colors duration-300"
-              >
-                <Twitter size={16} className="text-[#F5F5F5]" />
               </a>
             </div>
           </div>

@@ -416,7 +416,7 @@ const ContactPage: React.FC = () => {
                       className="text-[#F5F5F5] font-normal text-[16px] leading-[1.88em]"
                       style={{ fontFamily: 'Roboto' }}
                     >
-                      +91-XXXXXXXXXX
+                      +971-54511819
                     </p>
                   </div>
                 </div>
@@ -438,8 +438,8 @@ const ContactPage: React.FC = () => {
                   {/* LinkedIn */}
                   <button 
                     type="button"
-                    onClick={() => window.open('https://linkedin.com/company/relique-consultants', '_blank')}
-                    className="w-[40px] h-[40px] rounded-full border border-[rgba(255,255,255,0.13)] flex items-center justify-center hover:bg-[rgba(255,255,255,0.1)] transition-all duration-300 focus:outline-none"
+                    onClick={() => window.open('https://www.linkedin.com/company/relique-consultants', '_blank')}
+                    className="cursor-pointer w-[40px] h-[40px] rounded-full border border-[rgba(255,255,255,0.13)] flex items-center justify-center hover:bg-[rgba(255,255,255,0.1)] transition-all duration-300 focus:outline-none"
                     aria-label="LinkedIn"
                   >
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -449,35 +449,11 @@ const ContactPage: React.FC = () => {
                     </svg>
                   </button>
 
-                  {/* Twitter/X */}
-                  <button 
-                    type="button"
-                    onClick={() => window.open('https://twitter.com/reliqueconsults', '_blank')}
-                    className="w-[40px] h-[40px] rounded-full border border-[rgba(255,255,255,0.13)] flex items-center justify-center hover:bg-[rgba(255,255,255,0.1)] transition-all duration-300 focus:outline-none"
-                    aria-label="Twitter"
-                  >
-                    <svg width="22" height="16" viewBox="0 0 22 16" fill="none">
-                      <path d="M21.46 1.89C20.69 2.22 19.86 2.44 18.99 2.54C19.88 2.02 20.56 1.18 20.88 0.18C20.05 0.67 19.13 1.01 18.16 1.2C17.37 0.36 16.26 -0.14 15.04 -0.14C12.68 -0.14 10.77 1.77 10.77 4.13C10.77 4.46 10.81 4.78 10.88 5.09C7.12 4.91 3.78 3.23 1.54 0.65C1.17 1.29 0.96 2.02 0.96 2.8C0.96 4.28 1.71 5.59 2.86 6.37C2.16 6.35 1.51 6.16 0.93 5.85V5.9C0.93 7.97 2.4 9.69 4.35 10.08C4 10.17 3.63 10.22 3.26 10.22C3 10.22 2.74 10.19 2.49 10.14C3.01 11.84 4.58 13.08 6.45 13.11C4.99 14.26 3.17 14.94 1.18 14.94C0.84 14.94 0.5 14.92 0.17 14.88C2.06 16.1 4.31 16.81 6.73 16.81C15.03 16.81 19.56 10.29 19.56 4.62C19.56 4.43 19.56 4.25 19.55 4.07C20.39 3.48 21.12 2.74 21.7 1.89H21.46Z" fill="white"/>
-                    </svg>
-                  </button>
-
-                  {/* Facebook */}
-                  <button 
-                    type="button"
-                    onClick={() => window.open('https://facebook.com/reliqueconsultants', '_blank')}
-                    className="w-[40px] h-[40px] rounded-full border border-[rgba(255,255,255,0.13)] flex items-center justify-center hover:bg-[rgba(255,255,255,0.1)] transition-all duration-300 focus:outline-none"
-                    aria-label="Facebook"
-                  >
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                      <path d="M16 8C16 3.6 12.4 0 8 0C3.6 0 0 3.6 0 8C0 12 2.9 15.3 6.7 15.9V10.3H4.7V8H6.7V6.2C6.7 4.2 7.9 3.1 9.7 3.1C10.6 3.1 11.5 3.3 11.5 3.3V5.3H10.5C9.5 5.3 9.2 5.9 9.2 6.5V8H11.4L11 10.3H9.2V16C13.1 15.4 16 12 16 8Z" fill="white"/>
-                    </svg>
-                  </button>
-
                   {/* Instagram */}
                   <button 
                     type="button"
                     onClick={() => window.open('https://instagram.com/reliqueconsultants', '_blank')}
-                    className="w-[40px] h-[40px] rounded-full border border-[rgba(255,255,255,0.13)] flex items-center justify-center hover:bg-[rgba(255,255,255,0.1)] transition-all duration-300 focus:outline-none"
+                    className="cursor-pointer w-[40px] h-[40px] rounded-full border border-[rgba(255,255,255,0.13)] flex items-center justify-center hover:bg-[rgba(255,255,255,0.1)] transition-all duration-300 focus:outline-none"
                     aria-label="Instagram"
                   >
                     <svg width="19" height="16" viewBox="0 0 19 16" fill="none">

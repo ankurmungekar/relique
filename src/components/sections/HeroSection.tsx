@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, EffectFade, Autoplay } from 'swiper/modules';
 import Button from '../ui/Button';
@@ -21,44 +21,79 @@ interface HeroSlide {
 
 const HeroSection: React.FC = () => {
   const swiperRef = useRef<any>(null);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
 
-      const heroSlides: HeroSlide[] = [
-      {
-        id: 1,
-        title: "Bridging the gap,\nBuilding the growth",
-        subtitle: "Your trusted partner in Go-To-Market strategies, digital transformation, and business growth across global markets.",
-        buttonText: "Explore Solutions",
-        buttonColor: "#7B4EFF",
-        titleColor: "#0F071D",
-        subtitleColor: "#0F071D",
-        backgroundImages: ["/images/hero-variant1-bg.jpg"]
-      },
-      {
-        id: 2,
-        title: "Your Catalyst for\nBusiness Excellence",
-        subtitle: "Accelerating success across industries with proven consulting solutions.",
-        buttonText: "Explore Solutions",
-        buttonColor: "#7B4EFF",
-        titleColor: "#FFFFFF",
-        subtitleColor: "#FFFFFF",
-        backgroundImages: ["/images/hero-variant2-bg.jpg"]
-      },
-      {
-        id: 3,
-        title: "Where Partnerships\nCreate Possibilities",
-        subtitle: "Building trust-driven alliances that deliver real impact.",
-        buttonText: "Explore Solutions",
-        buttonColor: "#4EC6C6",
-        titleColor: "#FFFFFF",
-        subtitleColor: "#FFFFFF",
-        backgroundImages: ["/images/hero-variant3-bg.jpg"]
-      }
-    ];
+  const heroSlides: HeroSlide[] = [
+    {
+      id: 1,
+      title: "Bridging the gap,\nBuilding the growth",
+      subtitle: "Your trusted partner in Go-To-Market strategies, digital transformation, and business growth across global markets.",
+      buttonText: "Explore Solutions",
+      buttonColor: "#7B4EFF",
+      titleColor: "#0F071D",
+      subtitleColor: "#0F071D",
+      backgroundImages: ["/images/hero-variant1-bg.jpg"]
+    },
+    {
+      id: 2,
+      title: "Your Catalyst for\nBusiness Excellence",
+      subtitle: "Accelerating success across industries with proven consulting solutions.",
+      buttonText: "Explore Solutions",
+      buttonColor: "#7B4EFF",
+      titleColor: "#FFFFFF",
+      subtitleColor: "#FFFFFF",
+      backgroundImages: ["/images/hero-variant2-bg.jpg"]
+    },
+    {
+      id: 3,
+      title: "Where Partnerships\nCreate Possibilities",
+      subtitle: "Building trust-driven alliances that deliver real impact.",
+      buttonText: "Explore Solutions",
+      buttonColor: "#4EC6C6",
+      titleColor: "#FFFFFF",
+      subtitleColor: "#FFFFFF",
+      backgroundImages: ["/images/hero-variant3-bg.jpg"]
+    }
+  ];
+
+  // Preload all images before showing the slider
+  useEffect(() => {
+    const imageUrls = heroSlides.flatMap(slide => slide.backgroundImages);
+    let loadedCount = 0;
+
+    const preloadImages = imageUrls.map(url => {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = () => {
+          loadedCount++;
+          resolve(url);
+        };
+        img.onerror = reject;
+        img.src = url;
+      });
+    });
+
+    Promise.all(preloadImages)
+      .then(() => {
+        setImagesLoaded(true);
+      })
+      .catch(err => {
+        console.error('Error preloading images:', err);
+        // Still show the slider even if some images fail to load
+        setImagesLoaded(true);
+      });
+  }, []);
 
   return (
     <section className="w-full pt-[60px] md:pt-[72px] lg:pt-[88px] bg-[#0F071D]">
       <div className="max-w-[1440px] mx-auto px-[16px] sm:px-[24px] md:px-[36px]">
         <div className="relative w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[712px] rounded-[8px] sm:rounded-[12px] md:rounded-[16px] overflow-hidden">
+          {!imagesLoaded ? (
+            // Loading skeleton
+            <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900 animate-pulse flex items-center justify-center">
+              <div className="text-white/50 text-lg">Loading...</div>
+            </div>
+          ) : (
             <Swiper
             modules={[Pagination, EffectFade, Autoplay]}
             spaceBetween={0}
@@ -68,10 +103,12 @@ const HeroSection: React.FC = () => {
               crossFade: true
             }}
             loop={true}
+            initialSlide={0}
             autoplay={{
               delay: 4000,
               disableOnInteraction: false,
-              pauseOnMouseEnter: false
+              pauseOnMouseEnter: false,
+              waitForTransition: true
             }}
             pagination={{
                clickable: true,
@@ -85,7 +122,8 @@ const HeroSection: React.FC = () => {
             onSwiper={(swiper: any) => {
               swiperRef.current = swiper;
             }}
-            className="hero-swiper w-full h-full"
+            className="hero-swiper w-full h-full opacity-0 animate-fadeIn"
+            style={{ animationDelay: '100ms', animationFillMode: 'forwards' }}
           >
             {heroSlides.map((slide, index) => (
               <SwiperSlide key={slide.id}>
@@ -148,11 +186,25 @@ const HeroSection: React.FC = () => {
               </SwiperSlide>
             ))}
           </Swiper>
+          )}
         </div>
       </div>
 
       {/* Custom Swiper Styles */}
       <style>{`
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+        
+        .animate-fadeIn {
+          animation: fadeIn 0.5s ease-in;
+        }
+        
         .hero-swiper {
           --swiper-pagination-bottom: 20px;
           --swiper-pagination-bullet-width: 10px;
