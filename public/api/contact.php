@@ -94,11 +94,11 @@ $contactNumber = htmlspecialchars(strip_tags($data['contactNumber']));
 $subject = htmlspecialchars(strip_tags($data['subject']));
 $message = htmlspecialchars(strip_tags($data['message']));
 
-// Map subject codes to readable text
+// Map subject codes to readable text (matching dropdown options)
 $subjectMap = [
-    'looking-for-solution' => 'Looking for a solution',
-    'partnering' => 'Interested in partnering',
-    'query' => 'General query'
+    'looking-for-solution' => 'Are you looking for a solution.',
+    'partnering' => 'Looking for partnering with us.',
+    'query' => 'You have a query for us.'
 ];
 $subjectText = $subjectMap[$subject] ?? $subject;
 
@@ -109,7 +109,7 @@ $recipients = [
 ];
 
 // Email subject
-$emailSubject = "New Contact Form Submission - Relique Consultants: $subjectText";
+$emailSubject = "New Contact Us Submission - Relique Consultants";
 
 // Load HTML email template
 $templatePath = __DIR__ . '/email-template.html';
