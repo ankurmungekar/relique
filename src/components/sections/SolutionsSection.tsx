@@ -69,6 +69,14 @@ const SolutionsSection: React.FC = () => {
       bgColor: '#6D75ED',
       iconColor: '#FFFFFF'
     },
+    {
+      id: '7',
+      title: 'Healthcare',
+      description: 'Enabling smarter healthcare with digital transformation, patient-centric solutions, and advanced data-driven insights',
+      image: '/images/icons/healthcare.svg',
+      bgColor: '#5E9BDB',
+      iconColor: '#FFFFFF'
+    },
   ];
 
   return (

@@ -64,10 +64,8 @@ const AboutPage: React.FC = () => {
               {/* Bullet Points with Arrows */}
               <div className="space-y-[0px]">
                 <div className="flex items-start gap-[14px] md:gap-[18px]">
-                  <div className="flex-shrink-0 w-[10px] h-[10px] md:w-[12px] md:h-[12px] mt-[8px] md:mt-[10px]">
-                    <svg width="100%" height="100%" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M0.75 0.14L0.75 11.86L11.25 6L0.75 0.14Z" fill="#7B4EFF"/>
-                    </svg>
+                  <div className="flex-shrink-0 w-[16px] h-[16px] md:w-[18px] md:h-[18px] mt-[8px] md:mt-[10px]">
+                    <img src="/images/icons/arrow-right.svg" alt="" className="w-full h-full" />
                   </div>
                   <p 
                     className="text-[#F5F5F5] font-medium text-[14px] md:text-[16px] leading-[2.5em]"
@@ -77,10 +75,8 @@ const AboutPage: React.FC = () => {
                   </p>
                 </div>
                 <div className="flex items-start gap-[14px] md:gap-[18px]">
-                  <div className="flex-shrink-0 w-[10px] h-[10px] md:w-[12px] md:h-[12px] mt-[8px] md:mt-[10px]">
-                    <svg width="100%" height="100%" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M0.75 0.14L0.75 11.86L11.25 6L0.75 0.14Z" fill="#7B4EFF"/>
-                    </svg>
+                  <div className="flex-shrink-0 w-[16px] h-[16px] md:w-[18px] md:h-[18px] mt-[8px] md:mt-[10px]">
+                    <img src="/images/icons/arrow-right.svg" alt="" className="w-full h-full" />
                   </div>
                   <p 
                     className="text-[#F5F5F5] font-medium text-[14px] md:text-[16px] leading-[2.5em]"
@@ -90,10 +86,8 @@ const AboutPage: React.FC = () => {
                   </p>
                 </div>
                 <div className="flex items-start gap-[14px] md:gap-[18px]">
-                  <div className="flex-shrink-0 w-[10px] h-[10px] md:w-[12px] md:h-[12px] mt-[8px] md:mt-[10px]">
-                    <svg width="100%" height="100%" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M0.75 0.14L0.75 11.86L11.25 6L0.75 0.14Z" fill="#7B4EFF"/>
-                    </svg>
+                  <div className="flex-shrink-0 w-[16px] h-[16px] md:w-[18px] md:h-[18px] mt-[8px] md:mt-[10px]">
+                    <img src="/images/icons/arrow-right.svg" alt="" className="w-full h-full" />
                   </div>
                   <p 
                     className="text-[#F5F5F5] font-medium text-[14px] md:text-[16px] leading-[2.5em]"

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Button from '../components/ui/Button';
 
 interface SolutionItem {
   text: string;
@@ -126,7 +126,19 @@ const SolutionsHubPage: React.FC = () => {
           </p>
 
           {/* Talk to Us Button */}
-          <Link
+          <Button
+            to="/contact"
+            variant="primary"
+            className="w-full sm:w-[183px]"
+            style={{
+              backgroundColor: '#4EC6C6',
+              color: '#F5F5F5',
+              paddingRight: '21.39px'
+            }}
+          >
+            Talk to Us
+          </Button>
+          {/* <Button
             to="/contact"
             className="inline-flex items-center justify-center px-[20px] py-[12px] bg-[#4EC6C6] text-[#0F071D] font-medium text-[14px] md:text-[16px] leading-[1.5em] rounded-full hover:bg-[#3DB5B5] transition-all duration-300 shadow-lg hover:shadow-xl outline-none focus:outline-none"
             style={{ 
@@ -135,7 +147,7 @@ const SolutionsHubPage: React.FC = () => {
             }}
           >
             Talk to Us
-          </Link>
+          </Button> */}
         </div>
       </section>
 
@@ -146,14 +158,14 @@ const SolutionsHubPage: React.FC = () => {
             {solutionCards.map((card, index) => (
               <div
                 key={index}
-                className="bg-[#1B1328] rounded-[12px] md:rounded-[16px] overflow-hidden flex flex-col h-[420px] sm:h-[450px] lg:h-[480px]"
+                className="bg-[#1B1328] rounded-[12px] md:rounded-[16px] overflow-hidden flex flex-col h-[420px] sm:h-[450px] lg:h-[550px]"
               >
                 {/* Card Image */}
-                <div className="relative h-[160px] sm:h-[180px] lg:h-[195px] overflow-hidden rounded-t-[8px] m-[16px] md:m-[20px] mb-[0px]">
+                <div className="relative h-[160px] sm:h-[180px] lg:h-[195px] overflow-hidden rounded-[8px] m-[16px] md:m-[20px] mb-[0px]">
                   <img
                     src={card.image}
                     alt={card.title}
-                    className="w-full h-full object-cover rounded-t-[8px]"
+                    className="w-full h-full object-cover rounded-[8px]"
                   />
                   {/* Gradient Overlay for some cards */}
                   {(index === 2 || index === 4) && (
