@@ -5,7 +5,7 @@ const StartupAdvisoryPage: React.FC = () => {
   return (
     <ServiceLayout
       title="Startup Advisory"
-      description="We partner with early-stage and growth-stage startups to help them navigate uncertainty, build scalable foundations, and accelerate time-to-market. From idea validation to driving new sales and revenue opportunities, our Startup Advisory services provide strategic insights and hands-on execution support"
+      description="We partner with early-stage and growth-stage startups to help them navigate uncertainty, build scalable foundations, and accelerate time-to-market. From idea validation to driving new sales and revenue opportunities, our Startup Advisory services provide strategic insights and hands-on execution support."
     >
       <div className="space-y-[16px] md:space-y-[20px]">
         {/* Grid of Cards */}

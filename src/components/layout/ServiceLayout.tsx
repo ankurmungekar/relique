@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-
+import Button from '../ui/Button';
 interface ServiceLayoutProps {
   children: React.ReactNode;
   title: string;
@@ -54,11 +54,11 @@ const ServiceLayout: React.FC<ServiceLayoutProps> = ({ children, title, descript
               textShadow: '0px 4px 4px rgba(0, 0, 0, 0.4)'
             }}
           >
-            Driving growth, innovation, and customer success across industries and regions
+            Driving growth, innovation, and customer success across <br/> industries and regions.
           </p>
 
           {/* Talk to Us Button */}
-          <Link
+          <Button
             to="/contact"
             className="inline-flex items-center justify-center px-[20px] py-[12px] bg-[#4EC6C6] text-[#0F071D] font-medium text-[14px] md:text-[16px] leading-[1.5em] rounded-full hover:bg-[#3DB5B5] transition-all duration-300 shadow-lg hover:shadow-xl"
             style={{ 
@@ -67,7 +67,7 @@ const ServiceLayout: React.FC<ServiceLayoutProps> = ({ children, title, descript
             }}
           >
             Talk to Us
-          </Link>
+          </Button>
         </div>
       </section>
 

@@ -26,7 +26,7 @@ const BusinessGrowthPage: React.FC = () => {
                 <div className="flex items-center gap-[6px]">
                   <ArrowIcon />
                   <p className="text-[#F5F5F5] font-medium text-[14px] md:text-[16px] leading-[2.5em]" style={{ fontFamily: 'Roboto' }}>
-                  New customer on boarding
+                  New Customer Onboarding
                   </p>
                 </div>
                 

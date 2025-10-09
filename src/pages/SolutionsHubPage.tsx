@@ -122,32 +122,20 @@ const SolutionsHubPage: React.FC = () => {
               textShadow: '0px 4px 4px rgba(0, 0, 0, 0.4)'
             }}
           >
-            Explore our partner-led products & offerings across industries
+            Explore our partner-led products & offerings across industries.
           </p>
 
           {/* Talk to Us Button */}
           <Button
             to="/contact"
-            variant="primary"
-            className="w-full sm:w-[183px]"
-            style={{
-              backgroundColor: '#4EC6C6',
-              color: '#F5F5F5',
-              paddingRight: '21.39px'
-            }}
-          >
-            Talk to Us
-          </Button>
-          {/* <Button
-            to="/contact"
-            className="inline-flex items-center justify-center px-[20px] py-[12px] bg-[#4EC6C6] text-[#0F071D] font-medium text-[14px] md:text-[16px] leading-[1.5em] rounded-full hover:bg-[#3DB5B5] transition-all duration-300 shadow-lg hover:shadow-xl outline-none focus:outline-none"
+            className="inline-flex items-center justify-center px-[20px] py-[12px] bg-[#4EC6C6] text-[#0F071D] font-medium text-[14px] md:text-[16px] leading-[1.5em] rounded-full hover:bg-[#3DB5B5] transition-all duration-300 shadow-lg hover:shadow-xl"
             style={{ 
               fontFamily: 'Roboto', 
               letterSpacing: '-1.25%'
             }}
           >
             Talk to Us
-          </Button> */}
+          </Button>
         </div>
       </section>
 

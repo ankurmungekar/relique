@@ -29,8 +29,8 @@ const AboutSection: React.FC = () => {
               className="text-[#B0B0B0] font-normal text-[14px] md:text-[16px] leading-[1.75em] mb-[32px] md:mb-[40px] lg:mb-[48px]"
               style={{ fontFamily: 'Roboto' }}
             >
-              we bring businesses together to compliment and deliver solutions that align with real market needs. <br /><br />
-              Our focus is on empowering start-ups and mid-sized organizations to connect with their desired customers while bridging technology gaps through the right strategies, tools, and partnerships. <br />
+              We bring businesses together to complement and deliver solutions that align with real market needs. <br /><br />
+              Our focus is on empowering startups and mid-sized organizations to connect with their desired customers while bridging technology gaps through the right strategies, tools, and partnerships. <br />
               We believe every business has the potential to scale, and with the right blend of innovation, collaboration, and technology, we help our clients unlock opportunities, accelerate growth, and stay competitive in a fast-changing world.
             </p>
             

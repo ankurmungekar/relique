@@ -163,7 +163,7 @@ const ContactPage: React.FC = () => {
               textShadow: '0px 4px 4px rgba(0, 0, 0, 0.4)'
             }}
           >
-            If you are looking for a solution or you have a solution or innovative idea for a business challenge , connect with us
+            If you are looking for a solution or you have a solution or innovative idea for a business challenge, connect with us.
           </p>
         </div>
       </section>
@@ -378,10 +378,10 @@ const ContactPage: React.FC = () => {
                   </div>
                   <div>
                     <p 
-                      className="text-[#F5F5F5] font-normal text-[14px] leading-[1.43em]"
+                      className="text-[#F5F5F5] font-normal text-[16px] leading-[1.43em]"
                       style={{ fontFamily: 'Roboto' }}
                     >
-                      Locate us at: SHAMS, UAE.
+                      Locate us at: SHAMS, UAE
                     </p>
                   </div>
                 </div>
@@ -399,7 +399,13 @@ const ContactPage: React.FC = () => {
                       className="text-[#F5F5F5] font-normal text-[16px] leading-[1.88em]"
                       style={{ fontFamily: 'Roboto' }}
                     >
-                      reachus@reliqueconsultants.com
+                      <a 
+                        href="mailto:reachus@reliqueconsultants.com"
+                        className="text-[#F5F5F5] font-normal text-[16px] leading-[1.43em] hover:text-[#4EC6C6] transition-colors duration-300"
+                        style={{ fontFamily: 'Roboto' }}
+                      >
+                        reachus@reliqueconsultants.com
+                      </a>
                     </p>
                   </div>
                 </div>
@@ -416,7 +422,13 @@ const ContactPage: React.FC = () => {
                       className="text-[#F5F5F5] font-normal text-[16px] leading-[1.88em]"
                       style={{ fontFamily: 'Roboto' }}
                     >
+                     <a 
+                      href="tel:+971-54511819"
+                      className="text-[#F5F5F5] font-normal text-[16px] leading-[1.43em] hover:text-[#4EC6C6] transition-colors duration-300"
+                      style={{ fontFamily: 'Roboto' }}
+                    >
                       +971-54511819
+                    </a>
                     </p>
                   </div>
                 </div>

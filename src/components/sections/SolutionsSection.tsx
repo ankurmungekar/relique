@@ -72,7 +72,7 @@ const SolutionsSection: React.FC = () => {
     {
       id: '7',
       title: 'Healthcare',
-      description: 'Enabling smarter healthcare with digital transformation, patient-centric solutions, and advanced data-driven insights',
+      description: 'Enabling smarter healthcare with digital transformation, patient-centric solutions, and advanced data-driven insights.',
       image: '/images/icons/healthcare.svg',
       bgColor: '#5E9BDB',
       iconColor: '#FFFFFF'
@@ -103,7 +103,7 @@ const SolutionsSection: React.FC = () => {
 
           {/* Right side - Button */}
           <Button
-            to="/services/go-to-market-strategy"
+            to="/solutions"
             variant="primary"
             className="w-full sm:w-[183px]"
             style={{

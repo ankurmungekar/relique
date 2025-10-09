@@ -7,6 +7,8 @@ interface ButtonProps {
   to?: string;
   href?: string;
   onClick?: () => void;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
   className?: string;
   style?: React.CSSProperties;
   type?: 'button' | 'submit' | 'reset';
@@ -19,6 +21,8 @@ const Button: React.FC<ButtonProps> = ({
   to,
   href,
   onClick,
+  onMouseEnter,
+  onMouseLeave,
   className = '',
   style = {},
   type = 'button',
@@ -46,7 +50,13 @@ const Button: React.FC<ButtonProps> = ({
 
   if (to) {
     return (
-      <Link to={to} className={finalClasses} style={finalStyle}>
+      <Link 
+        to={to} 
+        className={finalClasses} 
+        style={finalStyle}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+      >
         {children}
       </Link>
     );
@@ -54,14 +64,30 @@ const Button: React.FC<ButtonProps> = ({
 
   if (href) {
     return (
-      <a href={href} className={finalClasses} style={finalStyle} target="_blank" rel="noopener noreferrer">
+      <a 
+        href={href} 
+        className={finalClasses} 
+        style={finalStyle} 
+        target="_blank" 
+        rel="noopener noreferrer"
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+      >
         {children}
       </a>
     );
   }
 
   return (
-    <button type={type} onClick={onClick} className={finalClasses} style={finalStyle} disabled={disabled}>
+    <button 
+      type={type} 
+      onClick={onClick} 
+      className={finalClasses} 
+      style={finalStyle} 
+      disabled={disabled}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
       {children}
     </button>
   );

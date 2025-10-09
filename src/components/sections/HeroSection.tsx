@@ -13,6 +13,7 @@ interface HeroSlide {
   title: string;
   subtitle: string;
   buttonText: string;
+  buttonLink: string;
   buttonColor: string;
   titleColor: string;
   subtitleColor: string;
@@ -30,6 +31,7 @@ const HeroSection: React.FC = () => {
       title: "Bridging the gap,\nBuilding the growth",
       subtitle: "Your trusted partner in Go-To-Market strategies, digital transformation, and business growth across global markets.",
       buttonText: "Explore Solutions",
+      buttonLink: "solutions",
       buttonColor: "#7B4EFF",
       titleColor: "#0F071D",
       subtitleColor: "#0F071D",
@@ -40,6 +42,7 @@ const HeroSection: React.FC = () => {
       title: "Your Catalyst for\nBusiness Excellence",
       subtitle: "Accelerating success across industries with proven consulting solutions.",
       buttonText: "Explore Solutions",
+      buttonLink: "/solutions",
       buttonColor: "#7B4EFF",
       titleColor: "#FFFFFF",
       subtitleColor: "#FFFFFF",
@@ -50,6 +53,7 @@ const HeroSection: React.FC = () => {
       title: "Where Partnerships\nCreate Possibilities",
       subtitle: "Building trust-driven alliances that deliver real impact.",
       buttonText: "Explore Solutions",
+      buttonLink: "/solutions",
       buttonColor: "#4EC6C6",
       titleColor: "#FFFFFF",
       subtitleColor: "#FFFFFF",
@@ -182,13 +186,23 @@ const HeroSection: React.FC = () => {
 
                     {/* CTA Button */}
                     <Button
-                      to="/services/go-to-market-strategy"
+                      to={slide.buttonLink}
                       variant="primary"
                       className="hover:scale-105 hover:shadow-lg text-[14px] lg:text-[16px] min-w-[140px] lg:min-w-[180px] h-[40px] lg:h-[48px]"
                       style={{
                         backgroundColor: slide.buttonColor,
                         color: slide.buttonColor === "#4EC6C6" ? "#0F071D" : "#FFFFFF",
                         boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)'
+                      }}
+                      onMouseEnter={() => {
+                        if (swiperRef.current?.autoplay) {
+                          swiperRef.current.autoplay.stop();
+                        }
+                      }}
+                      onMouseLeave={() => {
+                        if (swiperRef.current?.autoplay) {
+                          swiperRef.current.autoplay.start();
+                        }
                       }}
                     >
                       {slide.buttonText}

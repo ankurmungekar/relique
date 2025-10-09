@@ -13,7 +13,7 @@ const GoToMarketStrategyPage: React.FC = () => {
   return (
     <ServiceLayout
       title="Go-to-Market Strategy"
-      description="Partner in go to market strategy, specifically for the regions of GCC, APAC, US, Europe and Africa. Crafting high-impact GTM strategies that align products with the right markets, messaging, and momentum"
+      description="Partner in Go-to-Market strategy, specifically for the regions of GCC, APAC, US, Europe and Africa. Crafting high-impact GTM strategies that align products with the right markets, messaging, and momentum."
     >
       <div className="space-y-[16px] md:space-y-[20px]">
         {/* Market Research & Regional Fit + Image */}
@@ -114,7 +114,7 @@ const GoToMarketStrategyPage: React.FC = () => {
               <div className="flex gap-[6px]">
                 <ArrowIcon />
                 <p className="text-[#F5F5F5] font-medium text-[14px] md:text-[16px] leading-[1.5em]" style={{ fontFamily: 'Roboto' }}>
-                  Define who your ideal customers are in this region.
+                  Define who your ideal customers are in this region
                 </p>
               </div>
               
@@ -182,7 +182,7 @@ const GoToMarketStrategyPage: React.FC = () => {
               <div className="flex gap-[6px]">
                 <ArrowIcon />
                 <p className="text-[#F5F5F5] font-medium text-[14px] md:text-[16px] leading-[1.5em]" style={{ fontFamily: 'Roboto' }}>
-                  Tailor your value proposition to regional needs and perceptions.
+                  Tailor your value proposition to regional needs and perceptions
                 </p>
               </div>
               
@@ -190,8 +190,8 @@ const GoToMarketStrategyPage: React.FC = () => {
                 <div className="flex gap-[6px]">
                   <BulletIcon />
                   <p className="text-[#B0B0B0] font-normal text-[14px] leading-[1.43em]" style={{ fontFamily: 'Roboto' }}>
-                    Adapt messaging to the local language, tone, and cultural preferences.<br />
-                    Ex: What's "fast & efficient" in one market might be "trusted & personalized" in another.
+                    Adapt messaging to the local language, tone, and cultural preferences<br />
+                    Ex: What's "fast & efficient" in one market might be "trusted & personalized" in another
                   </p>
                 </div>
               </div>
@@ -295,25 +295,25 @@ const GoToMarketStrategyPage: React.FC = () => {
               <div className="flex gap-[6px]">
                 <BulletIcon />
                 <p className="text-[#B0B0B0] font-normal text-[14px] leading-[1.43em]" style={{ fontFamily: 'Roboto' }}>
-                Build a local sales team or representative network.
+                Build a local sales team or representative network
                 </p>
               </div>
               <div className="flex gap-[6px]">
                 <BulletIcon />
                 <p className="text-[#B0B0B0] font-normal text-[14px] leading-[1.43em]" style={{ fontFamily: 'Roboto' }}>
-                Leverage inside sales or remote selling if high digital literacy.
+                Leverage inside sales or remote selling if high digital literacy
                 </p>
               </div>
               <div className="flex gap-[6px]">
                 <BulletIcon />
                 <p className="text-[#B0B0B0] font-normal text-[14px] leading-[1.43em]" style={{ fontFamily: 'Roboto' }}>
-                Equip the team with localized sales collateral.
+                Equip the team with localized sales collateral
                 </p>
               </div>
               <div className="flex gap-[6px]">
                 <BulletIcon />
                 <p className="text-[#B0B0B0] font-normal text-[14px] leading-[1.43em]" style={{ fontFamily: 'Roboto' }}>
-                Offer trial/demo or PoC for high-involvement B2B products.
+                Offer trial/demo or PoC for high-involvement B2B products
                 </p>
               </div>
             </div>
@@ -331,21 +331,19 @@ const GoToMarketStrategyPage: React.FC = () => {
               <div className="w-full h-full bg-gradient-to-br from-purple-900/30 to-transparent" />
             </div>
             <h3 className="text-[#F5F5F5] font-medium text-[18px] md:text-[20px] leading-[1.2em] mb-[12px] md:mb-[14px]" style={{ fontFamily: 'Roboto' }}>
-            Customer Support & Success
+              Customer Support & Success
             </h3>
             <div className="space-y-[8px]">
               <div className="flex gap-[6px]">
                 <BulletIcon />
                 <p className="text-[#B0B0B0] font-normal text-[14px] leading-[1.43em]" style={{ fontFamily: 'Roboto' }}>
-                Offer trial/demo or PoC for high-involvement B2B products.
-
-
+                  Offer trial/demo or PoC for high-involvement B2B products
                 </p>
               </div>
               <div className="flex gap-[6px]">
                 <BulletIcon />
                 <p className="text-[#B0B0B0] font-normal text-[14px] leading-[1.43em]" style={{ fontFamily: 'Roboto' }}>
-                Equip the team with localized sales collateral.
+                  Equip the team with localized sales collateral
                 </p>
               </div>
             </div>

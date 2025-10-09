@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, Linkedin, Twitter, Youtube, Instagram } from '../ui/icons/ChevronIcons';
+import { Mail, Phone, MapPin, Linkedin, Instagram } from '../ui/icons/ChevronIcons';
 
 const Footer: React.FC = () => {
   return (
@@ -14,11 +14,13 @@ const Footer: React.FC = () => {
           {/* Company Info */}
           <div>
             <div className="mb-[15px]">
-              <img 
-                src="/images/relique-logo-white.png" 
-                alt="Relique Consultants" 
-                className="w-[116px] h-[78px] object-contain mb-[16px]"
-              />
+              <Link to="/" className="block">
+                <img 
+                  src="/images/relique-logo-white.png" 
+                  alt="Relique Consultants" 
+                  className="w-[116px] h-[78px] object-contain mb-[16px]"
+                />
+              </Link>
             </div>
             
             <h3 
@@ -147,7 +149,7 @@ const Footer: React.FC = () => {
                   className="text-[#F5F5F5] font-normal text-[14px] leading-[1.43em]"
                   style={{ fontFamily: 'Roboto' }}
                 >
-                  Locate us at: SHAMS, UAE.
+                  Locate us at: SHAMS, UAE
                 </span>
               </div>
               
@@ -180,7 +182,7 @@ const Footer: React.FC = () => {
             {/* Social Media */}
             <div className="flex items-center gap-[12px]">
               <a 
-                href="linkedin.com/in/relique-consultants-856035389" target="_blank"
+                href="https://www.linkedin.com/in/relique-consultants-856035389" target="_blank"
                 className="cursor-pointer w-[40px] h-[40px] rounded-full border border-white/[0.13] flex items-center justify-center hover:bg-[#4EC6C6] transition-colors duration-300"
               >
                 <Linkedin size={16} className="text-[#F5F5F5]" />

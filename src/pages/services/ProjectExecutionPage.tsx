@@ -5,7 +5,7 @@ const ProjectExecutionPage: React.FC = () => {
   return (
     <ServiceLayout
       title="Project Execution and Customer Success"
-      description="Your Partner in Project execution, Customer success and value realization"
+      description="Your partner in project execution, customer success and value realization."
     >
       <div className="space-y-[16px] md:space-y-[20px]">
         {/* Grid of 8 cards in 2 columns */}

@@ -122,7 +122,7 @@ const AboutPage: React.FC = () => {
                   className="text-[#F5F5F5] font-normal text-[14px] md:text-[16px] leading-[1.75em]"
                   style={{ fontFamily: 'Roboto' }}
                 >
-                  To be the indispensable strategic partner that empowers businesses to harness technology, driving unprecedented growth and lasting competitive advantage
+                  To be the indispensable strategic partner that empowers businesses to harness technology, driving unprecedented growth and lasting competitive advantage.
                 </p>
               </div>
             </div>

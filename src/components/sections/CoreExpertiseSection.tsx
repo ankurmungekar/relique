@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import { ChevronLeft, ChevronRight } from '../ui/icons/ChevronIcons';
@@ -13,6 +14,7 @@ interface ExpertiseCard {
   title: string;
   description: string;
   image: string;
+  link: string;
 }
 
 const CoreExpertiseSection: React.FC = () => {
@@ -27,37 +29,43 @@ const CoreExpertiseSection: React.FC = () => {
       id: '1',
       title: 'Go-to-Market Strategy',
       description: 'Launch and scale successfully with region-specific strategies and insights.',
-      image: '/images/go-to-marketplace.png'
+      image: '/images/go-to-marketplace.png',
+      link: '/services/go-to-market-strategy'
     },
     {
       id: '2',
       title: 'Startup Advisory',
-      description: 'Empowering startups with strategic guidance and scalable growth frameworks',
-      image: '/images/startup-advisory.png'
+      description: 'Empowering startups with strategic guidance and scalable growth frameworks.',
+      image: '/images/startup-advisory.png',
+      link: '/services/startup-advisory'
     },
     {
       id: '3',
       title: 'BFSI & IT Advisory',
       description: 'Driving transformation through regulatory expertise and digital innovation.',
-      image: '/images/bfsi-it-advisory.png'
+      image: '/images/bfsi-it-advisory.png',
+      link: '/services/bfsi-it-advisory'
     },
     {
       id: '4',
       title: 'AI Innovations',
       description: 'Leverage AI-powered solutions for automation, analytics, and transformation.',
-      image: '/images/ai-innovations.png'
+      image: '/images/ai-innovations.png',
+      link: '/services/ai-innovations'
     },
     {
       id: '5',
       title: 'Project Excellence',
       description: 'Seamless delivery, localized engagement, and measurable outcomes.',
-      image: '/images/project-excellence.png'
+      image: '/images/project-excellence.png',
+      link: '/services/project-excellence'
     },
     {
       id: '6',
       title: 'Business Growth & Retention',
       description: 'Build loyalty and retention frameworks that turn customers into advocates.',
-      image: '/images/business-growth.png'
+      image: '/images/business-growth.png',
+      link: '/services/business-growth-retention'
     }
   ];
 
@@ -152,7 +160,7 @@ const CoreExpertiseSection: React.FC = () => {
               >
                 {expertiseData.map((card, index) => (
                   <SwiperSlide key={card.id}>
-                    <div className="group flex-shrink-0 mx-auto">
+                    <Link to={card.link} className="group flex-shrink-0 mx-auto block">
                       {/* Card Image */}
                       <div className="overflow-hidden mb-[24px] relative mx-auto flex-shrink-0 rounded-[16px]">
                         <img 
@@ -166,7 +174,7 @@ const CoreExpertiseSection: React.FC = () => {
                       {/* Card Content */}
                       <div className="text-left mx-auto">
                         <h3 
-                          className="text-[#F5F5F5] font-medium text-[16px] leading-[1.25em] mb-[8px]"
+                          className="text-[#F5F5F5] font-medium text-[16px] leading-[1.25em] mb-[8px] group-hover:text-[#4EC6C6] transition-colors duration-300"
                           style={{ fontFamily: 'Roboto' }}
                         >
                           {card.title}
@@ -178,7 +186,7 @@ const CoreExpertiseSection: React.FC = () => {
                           {card.description}
                         </p>
                       </div>
-                    </div>
+                    </Link>
                   </SwiperSlide>
                 ))}
               </Swiper>
