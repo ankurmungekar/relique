@@ -93,7 +93,7 @@ const CoreExpertiseSection: React.FC = () => {
     <section className="bg-[#0F071D] my-[60px] md:my-[100px] lg:my-[150px]">
       <div className="max-w-[1440px] mx-auto px-[16px] sm:px-[24px] md:px-[36px] lg:px-[120px]">
         {/* Main Content Row */}
-        <div className="flex flex-col lg:flex-row items-start gap-[32px] md:gap-[48px] lg:gap-[67px] overflow-hidden">
+        <div className="flex flex-col lg:flex-row items-start gap-[32px] md:gap-[48px] lg:gap-[67px]">
           {/* Left Section - Title and Button */}
           <div className="flex-shrink-0 w-full lg:w-[386px]">
             <h2 
@@ -120,9 +120,9 @@ const CoreExpertiseSection: React.FC = () => {
           </div>
 
           {/* Right Section - Carousel and Navigation */}
-          <div className="flex-1 min-w-0 overflow-hidden">
+          <div className="w-full lg:flex-1 lg:min-w-0">
             {/* Expertise Cards Carousel */}
-            <div className="relative mb-[24px] w-full overflow-hidden">
+            <div className="relative mb-[24px] w-full">
               <Swiper
                 modules={[Navigation]}
                 spaceBetween={30}
@@ -145,34 +145,37 @@ const CoreExpertiseSection: React.FC = () => {
                   320: {
                     slidesPerView: 1,
                     spaceBetween: 20,
+                    slidesPerGroup: 1,
                   },
                   768: {
                     slidesPerView: 2,
                     spaceBetween: 25,
+                    slidesPerGroup: 1,
                   },
                   1024: {
                     slidesPerView: 3,
                     spaceBetween: 30,
+                    slidesPerGroup: 1,
                   },
                 }}
                 className="expertise-swiper"
-                style={{ minHeight: '300px', overflow: 'hidden' }}
+                style={{ width: '100%' }}
               >
                 {expertiseData.map((card, index) => (
                   <SwiperSlide key={card.id}>
-                    <Link to={card.link} className="group flex-shrink-0 mx-auto block">
+                    <Link to={card.link} className="group block w-full h-full">
                       {/* Card Image */}
-                      <div className="overflow-hidden mb-[24px] relative mx-auto flex-shrink-0 rounded-[16px]">
+                      <div className="overflow-hidden mb-[24px] relative w-full rounded-[16px]">
                         <img 
                           src={card.image}
                           alt={card.title}
-                          className="object-cover group-hover:scale-105 transition-transform duration-500"
+                          className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       </div>
                       
                       {/* Card Content */}
-                      <div className="text-left mx-auto">
+                      <div className="text-left">
                         <h3 
                           className="text-[#F5F5F5] font-medium text-[16px] leading-[1.25em] mb-[8px] group-hover:text-[#4EC6C6] transition-colors duration-300"
                           style={{ fontFamily: 'Roboto' }}
@@ -235,11 +238,13 @@ const CoreExpertiseSection: React.FC = () => {
       {/* Custom Swiper Styles */}
       <style>{`
         .expertise-swiper {
+          width: 100%;
           padding-bottom: 20px;
         }
         
         .expertise-swiper .swiper-slide {
           height: auto;
+          display: flex;
         }
 
         .expertise-swiper .swiper-wrapper {
@@ -250,6 +255,13 @@ const CoreExpertiseSection: React.FC = () => {
         .expertise-swiper .swiper-button-next,
         .expertise-swiper .swiper-button-prev {
           display: none;
+        }
+        
+        /* Ensure images scale properly */
+        .expertise-swiper img {
+          max-width: 100%;
+          height: auto;
+          display: block;
         }
       `}</style>
     </section>
