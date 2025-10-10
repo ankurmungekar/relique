@@ -215,9 +215,9 @@ const ContactPage: React.FC = () => {
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      placeholder="Name"
+                      placeholder="Enter your full name"
                       disabled={isSubmitting}
-                      className={`w-full px-[14px] py-[12px] bg-[rgba(255,255,255,0.05)] rounded-[4px] text-[#F5F5F5] placeholder-[#B0B0B0] font-medium text-[14px] leading-[1.43em] focus:outline-none transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed ${
+                      className={`w-full px-[14px] py-[12px] bg-[rgba(255,255,255,0.05)] rounded-[4px] text-[#F5F5F5] placeholder-[#B0B0B0] placeholder-opacity-40 font-medium text-[14px] leading-[1.43em] focus:outline-none transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed ${
                         fieldErrors.name 
                           ? 'border-2 border-[#FF4D4D] focus:ring-2 focus:ring-[#FF4D4D]' 
                           : 'border-none focus:ring-1 focus:ring-[#4EC6C6]'
@@ -247,9 +247,9 @@ const ContactPage: React.FC = () => {
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        placeholder="Email"
+                        placeholder="Enter your email"
                         disabled={isSubmitting}
-                        className={`w-full px-[14px] py-[12px] bg-[rgba(255,255,255,0.05)] rounded-[4px] text-[#F5F5F5] placeholder-[#B0B0B0] font-medium text-[14px] leading-[1.43em] focus:outline-none transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed ${
+                        className={`w-full px-[14px] py-[12px] bg-[rgba(255,255,255,0.05)] rounded-[4px] text-[#F5F5F5] placeholder-[#B0B0B0] placeholder-opacity-40 font-medium text-[14px] leading-[1.43em] focus:outline-none transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed ${
                           fieldErrors.email 
                             ? 'border-2 border-[#FF4D4D] focus:ring-2 focus:ring-[#FF4D4D]' 
                             : 'border-none focus:ring-1 focus:ring-[#4EC6C6]'
@@ -286,9 +286,9 @@ const ContactPage: React.FC = () => {
                       name="contactNumber"
                       value={formData.contactNumber}
                       onChange={handleChange}
-                      placeholder="Contact Number"
+                      placeholder="Enter your phone number"
                       disabled={isSubmitting}
-                      className="w-full px-[14px] py-[12px] bg-[rgba(255,255,255,0.05)] border-none rounded-[4px] text-[#F5F5F5] placeholder-[#B0B0B0] font-normal text-[14px] leading-[1.43em] focus:outline-none focus:ring-1 focus:ring-[#4EC6C6] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="w-full px-[14px] py-[12px] bg-[rgba(255,255,255,0.05)] border-none rounded-[4px] text-[#F5F5F5] placeholder-[#B0B0B0] placeholder-opacity-40 font-normal text-[14px] leading-[1.43em] focus:outline-none focus:ring-1 focus:ring-[#4EC6C6] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                       style={{ fontFamily: 'Roboto' }}
                     />
                   </div>
@@ -332,10 +332,10 @@ const ContactPage: React.FC = () => {
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
-                      placeholder="Message"
+                      placeholder="How can we help you?"
                       rows={5}
                       disabled={isSubmitting}
-                      className="w-full px-[14px] py-[12px] bg-[rgba(255,255,255,0.05)] border-none rounded-[4px] text-[#F5F5F5] placeholder-[#B0B0B0] font-normal text-[14px] leading-[1.43em] focus:outline-none focus:ring-1 focus:ring-[#4EC6C6] transition-all duration-300 resize-none disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="w-full px-[14px] py-[12px] bg-[rgba(255,255,255,0.05)] border-none rounded-[4px] text-[#F5F5F5] placeholder-[#B0B0B0] placeholder-opacity-40 font-normal text-[14px] leading-[1.43em] focus:outline-none focus:ring-1 focus:ring-[#4EC6C6] transition-all duration-300 resize-none disabled:opacity-50 disabled:cursor-not-allowed"
                       style={{ fontFamily: 'Roboto' }}
                     />
                   </div>
@@ -450,7 +450,7 @@ const ContactPage: React.FC = () => {
                   {/* LinkedIn */}
                   <button 
                     type="button"
-                    onClick={() => window.open('https://www.linkedin.com/company/relique-consultants', '_blank')}
+                    onClick={() => window.open('https://www.linkedin.com/in/relique-consultants-856035389', '_blank')}
                     className="cursor-pointer w-[40px] h-[40px] rounded-full border border-[rgba(255,255,255,0.13)] flex items-center justify-center hover:bg-[rgba(255,255,255,0.1)] transition-all duration-300 focus:outline-none"
                     aria-label="LinkedIn"
                   >

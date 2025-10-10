@@ -157,11 +157,11 @@ const HeroSection: React.FC = () => {
                   <div className="relative z-10 w-full h-full flex flex-col items-center justify-center lg:justify-start px-4 sm:px-8 lg:px-12 lg:pt-[50px]">
                     {/* Main Heading */}
                     <h1 
-                      className="font-regular text-[24px] sm:text-[32px] md:text-[40px] lg:text-[48px] leading-[1.125em] mb-[16px] sm:mb-[20px] md:mb-[24px] lg:mb-[27px] max-w-[280px] sm:max-w-[340px] md:max-w-[380px] lg:max-w-[440px] text-center"
+                      className={`font-regular text-[24px] sm:text-[32px] md:text-[40px] lg:text-[48px] leading-[1.125em] mb-[16px] sm:mb-[20px] md:mb-[24px] lg:mb-[27px] max-w-[280px] sm:max-w-[340px] md:max-w-[380px] lg:max-w-[440px] text-center ${index === 0 ? 'text-white md:text-[#0F071D]' : ''}`}
                       style={{
                         textShadow: '0px 6px 6px rgba(0, 0, 0, 0.1)',
                         fontFamily: 'Roboto',
-                        color: slide.titleColor
+                        color: index === 0 ? undefined : slide.titleColor
                       }}
                     >
                       {slide.title.split('\n').map((line, i) => (
@@ -174,11 +174,11 @@ const HeroSection: React.FC = () => {
 
                     {/* Subtitle */}
                     <p 
-                      className="font-medium text-[14px] sm:text-[16px] md:text-[18px] lg:text-[22px] leading-[1.45em] mb-[20px] sm:mb-[24px] md:mb-[28px] lg:mb-[29px] max-w-[260px] sm:max-w-[400px] md:max-w-[520px] lg:max-w-[623px] text-center"
+                      className={`font-medium text-[14px] sm:text-[16px] md:text-[18px] lg:text-[22px] leading-[1.45em] mb-[20px] sm:mb-[24px] md:mb-[28px] lg:mb-[29px] max-w-[260px] sm:max-w-[400px] md:max-w-[520px] lg:max-w-[623px] text-center ${index === 0 ? 'text-white md:text-[#0F071D]' : ''}`}
                       style={{
                         textShadow: '0px 6px 6px rgba(0, 0, 0, 0.1)',
                         fontFamily: 'Roboto',
-                        color: slide.subtitleColor
+                        color: index === 0 ? undefined : slide.subtitleColor
                       }}
                     >
                       {slide.subtitle}

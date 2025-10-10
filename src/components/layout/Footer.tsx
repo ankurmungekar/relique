@@ -208,21 +208,21 @@ const Footer: React.FC = () => {
             </p>
             
             <div className="flex items-center gap-[24px] md:gap-[40px]">
-              <a 
-                href="#privacy"
+              <Link 
+                to="/privacy-policy"
                 className="text-[#B0B0B0] font-normal text-[12px] md:text-[14px] leading-[2.14em] hover:text-[#4EC6C6] transition-colors duration-300"
                 style={{ fontFamily: 'Roboto' }}
               >
                 Privacy Policy
-              </a>
+              </Link>
               
-              <a 
-                href="#terms"
+              <Link 
+                to="/terms-of-service"
                 className="text-[#B0B0B0] font-normal text-[12px] md:text-[14px] leading-[2.14em] hover:text-[#4EC6C6] transition-colors duration-300"
                 style={{ fontFamily: 'Roboto' }}
               >
                 Terms of Service
-              </a>
+              </Link>
             </div>
           </div>
         </div>

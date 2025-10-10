@@ -6,6 +6,8 @@ import {
   AboutPage, 
   ContactPage,
   SolutionsHubPage,
+  PrivacyPolicyPage,
+  TermsOfServicePage,
   GoToMarketStrategyPage,
   StartupAdvisoryPage,
   ProjectExecutionPage,
@@ -33,6 +35,8 @@ function App() {
             <Route path="services/bfsi-it-advisory" element={<BFSIAdvisoryPage />} />
             <Route path="services/ai-innovations" element={<AIInnovationsPage />} />
             <Route path="contact" element={<ContactPage />} />
+            <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
+            <Route path="terms-of-service" element={<TermsOfServicePage />} />
           </Route>
         </Routes>
       </Router>

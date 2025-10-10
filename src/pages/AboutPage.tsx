@@ -30,7 +30,7 @@ const AboutPage: React.FC = () => {
             className="text-[#B0B0B0] font-normal text-[14px] md:text-[16px] leading-[1.75em] text-center max-w-full md:max-w-[760px] lg:max-w-[980px] mx-auto mb-[32px] md:mb-[40px] lg:mb-[48px]"
             style={{ fontFamily: 'Roboto' }}
           >
-            At Relique, collaboration is at the core of what we do: it should be a strategic advantage. We bring businesses together through technology, delivering solutions that align with real market needs and create measurable impact. We specialize in helping start-ups and mid-sized organizations bridge technology gaps, connect with their customers, and scale confidently in a digital-first world. By combining innovation, partnerships, and deep industry expertise, we design solutions that empower our clients to grow faster, smarter, and stronger.
+            At Relique, collaboration is at the core of what we do - it should be a strategic advantage. We bring businesses together through technology, delivering solutions that align with real market needs and create measurable impact. We specialize in helping start-ups and mid-sized organizations bridge technology gaps, connect with their customers, and scale confidently in a digital-first world. By combining innovation, partnerships, and deep industry expertise, we design solutions that empower our clients to grow faster, smarter, and stronger.
           </p>
           
           <div className="flex justify-center">
