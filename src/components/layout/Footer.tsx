@@ -167,11 +167,11 @@ const Footer: React.FC = () => {
               <div className="flex items-center gap-[12px]">
                 <Phone size={16} className="text-[#FFFFFF]" />
                 <a 
-                  href="tel:+971-54511819"
+                  href="tel:+971585673819"
                   className="text-[#F5F5F5] font-normal text-[14px] leading-[1.43em] hover:text-[#4EC6C6] transition-colors duration-300"
                   style={{ fontFamily: 'Roboto' }}
                 >
-                  +971-54511819
+                  +971 58 567 3819
                 </a>
               </div>
             </div>
@@ -221,7 +221,7 @@ const Footer: React.FC = () => {
                 className="text-[#B0B0B0] font-normal text-[12px] md:text-[14px] leading-[2.14em] hover:text-[#4EC6C6] transition-colors duration-300"
                 style={{ fontFamily: 'Roboto' }}
               >
-                Terms of Service
+                Terms of Use
               </Link>
             </div>
           </div>

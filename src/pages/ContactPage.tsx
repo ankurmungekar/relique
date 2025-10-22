@@ -181,26 +181,6 @@ const ContactPage: React.FC = () => {
                 >
                   Let's do great work together
                 </h2>
-
-                {/* Status Messages */}
-                {submitStatus.type && (
-                  <div
-                    className={`p-[16px] rounded-[8px] mb-[24px] ${
-                      submitStatus.type === 'success'
-                        ? 'bg-[rgba(39,200,64,0.1)] border border-[#27C840]'
-                        : 'bg-[rgba(255,77,77,0.1)] border border-[#FF4D4D]'
-                    }`}
-                  >
-                    <p
-                      className={`text-[14px] leading-[1.5em] ${
-                        submitStatus.type === 'success' ? 'text-[#27C840]' : 'text-[#FF4D4D]'
-                      }`}
-                      style={{ fontFamily: 'Roboto' }}
-                    >
-                      {submitStatus.message}
-                    </p>
-                  </div>
-                )}
                 
                 <form onSubmit={handleSubmit} className="space-y-[20px] md:space-y-[24px]">
                   <div>
@@ -309,9 +289,9 @@ const ContactPage: React.FC = () => {
                         className="w-full px-[14px] py-[12px] bg-[rgba(255,255,255,0.05)] border-none rounded-[4px] text-[#F5F5F5] font-normal text-[14px] leading-[1.43em] focus:outline-none focus:ring-1 focus:ring-[#4EC6C6] transition-all duration-300 appearance-none cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                         style={{ fontFamily: 'Roboto' }}
                       >
-                        <option value="looking-for-solution" className="bg-[#0F071D] text-[#F5F5F5]">Are you looking for a solution.</option>
-                        <option value="partnering" className="bg-[#0F071D] text-[#F5F5F5]">Looking for partnering with us.</option>
-                        <option value="query" className="bg-[#0F071D] text-[#F5F5F5]">You have a query for us.</option>
+                        <option value="looking-for-solution" className="bg-[#0F071D] text-[#F5F5F5]">Looking for a solution</option>
+                        <option value="partnering" className="bg-[#0F071D] text-[#F5F5F5]">Looking for partnering with us</option>
+                        <option value="query" className="bg-[#0F071D] text-[#F5F5F5]">You have a query for us</option>
                       </select>
                       <div className="absolute right-[14px] top-1/2 transform -translate-y-1/2 pointer-events-none">
                         <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
@@ -340,6 +320,26 @@ const ContactPage: React.FC = () => {
                     />
                   </div>
                   
+                  {/* Status Messages */}
+                  {submitStatus.type && (
+                    <div
+                      className={`p-[16px] rounded-[8px] ${
+                        submitStatus.type === 'success'
+                          ? 'bg-[rgba(39,200,64,0.1)] border border-[#27C840]'
+                          : 'bg-[rgba(255,77,77,0.1)] border border-[#FF4D4D]'
+                      }`}
+                    >
+                      <p
+                        className={`text-[14px] leading-[1.5em] ${
+                          submitStatus.type === 'success' ? 'text-[#27C840]' : 'text-[#FF4D4D]'
+                        }`}
+                        style={{ fontFamily: 'Roboto' }}
+                      >
+                        {submitStatus.message}
+                      </p>
+                    </div>
+                  )}
+
                   <div className="flex justify-end">
                     <Button 
                       type="submit" 
@@ -423,11 +423,11 @@ const ContactPage: React.FC = () => {
                       style={{ fontFamily: 'Roboto' }}
                     >
                      <a 
-                      href="tel:+971-54511819"
+                      href="tel:+971585673819"
                       className="text-[#F5F5F5] font-normal text-[16px] leading-[1.43em] hover:text-[#4EC6C6] transition-colors duration-300"
                       style={{ fontFamily: 'Roboto' }}
                     >
-                      +971-54511819
+                      +971 58 567 3819
                     </a>
                     </p>
                   </div>

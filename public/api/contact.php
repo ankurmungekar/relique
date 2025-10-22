@@ -96,9 +96,9 @@ $message = htmlspecialchars(strip_tags($data['message']));
 
 // Map subject codes to readable text (matching dropdown options)
 $subjectMap = [
-    'looking-for-solution' => 'Are you looking for a solution.',
-    'partnering' => 'Looking for partnering with us.',
-    'query' => 'You have a query for us.'
+    'looking-for-solution' => 'Looking for a solution',
+    'partnering' => 'Looking for partnering with us',
+    'query' => 'You have a query for us'
 ];
 $subjectText = $subjectMap[$subject] ?? $subject;
 

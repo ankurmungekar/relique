@@ -128,7 +128,7 @@ const SolutionsSection: React.FC = () => {
               disableOnInteraction: false,
             }}
             speed={600}
-            grabCursor={true}
+            grabCursor={false}
             className="solutions-swiper"
           >
             {solutionsData.map((solution) => (
@@ -136,9 +136,9 @@ const SolutionsSection: React.FC = () => {
                 key={solution.id}
                 className="!w-[260px] sm:!w-[280px] lg:!w-[300px]"
               >
-                <div className="group cursor-pointer text-center py-[8px]">
+                <div className="group text-center py-[8px]">
                   <div 
-                    className="rounded-[12px] md:rounded-[16px] h-[240px] sm:h-[252px] lg:h-[264px] p-[20px] sm:p-[28px] lg:p-[20px] flex flex-col items-center justify-center relative overflow-hidden hover:transform hover:-translate-y-2 transition-transform duration-300"
+                    className="rounded-[12px] md:rounded-[16px] h-[240px] sm:h-[252px] lg:h-[264px] p-[20px] sm:p-[28px] lg:p-[20px] flex flex-col items-center justify-center relative overflow-hidden transition-transform duration-300"
                     style={{ backgroundColor: solution.bgColor }}
                   >
                     {/* Icon Circle */}
@@ -147,7 +147,7 @@ const SolutionsSection: React.FC = () => {
                         <img 
                           src={solution.image}
                           alt=""
-                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                          className="w-full h-full object-cover"
                           draggable={false}
                         />
                       </div>
@@ -169,8 +169,6 @@ const SolutionsSection: React.FC = () => {
                       </p>
                     </div>
 
-                    {/* Hover Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </div>
                 </div>
               </SwiperSlide>
