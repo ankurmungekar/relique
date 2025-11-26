@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Button from '../components/ui/Button';
+import { SEO } from '../components/ui';
 
 const ContactPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -132,7 +133,13 @@ const ContactPage: React.FC = () => {
   };
 
   return (
-    <div className="ContactPage mt-[60px] md:mt-[72px] lg:mt-[88px] mb-[60px] md:mb-[90px] lg:mb-[120px]">
+    <>
+      <SEO
+        title="Contact Us - Relique Consultants"
+        description="Get in touch with Relique Consultants for business growth, digital transformation, and strategic advisory services. We're here to help you succeed."
+        canonical="/contact"
+      />
+      <div className="ContactPage mt-[60px] md:mt-[72px] lg:mt-[88px] mb-[60px] md:mb-[90px] lg:mb-[120px]">
       {/* Hero Banner Section */}
       <section className="relative bg-[#0F071D] h-[200px] sm:h-[240px] md:h-[280px] lg:h-[300px] overflow-hidden">
         {/* Background Image Layer */}
@@ -479,7 +486,8 @@ const ContactPage: React.FC = () => {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 };
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { SEO } from '../components/ui';
 
 const PrivacyPolicyPage: React.FC = () => {
   const renderBulletIcon = () => (
@@ -70,7 +71,13 @@ const PrivacyPolicyPage: React.FC = () => {
   ];
 
   return (
-    <div className="PrivacyPolicyPage bg-[#0F071D] min-h-screen mt-[60px] md:mt-[72px] lg:mt-[88px]">
+    <>
+      <SEO
+        title="Privacy Policy - Relique Consultants"
+        description="Our privacy policy outlines how we collect, process, and protect your personal data. Learn about your rights and how we handle your information."
+        canonical="/privacy-policy"
+      />
+      <div className="PrivacyPolicyPage bg-[#0F071D] min-h-screen mt-[60px] md:mt-[72px] lg:mt-[88px]">
       {/* Hero Banner Section */}
       <section className="relative bg-[#0F1113] h-[200px] sm:h-[240px] md:h-[280px] lg:h-[300px] overflow-hidden">
         {/* Background Image Layer */}
@@ -276,7 +283,8 @@ const PrivacyPolicyPage: React.FC = () => {
 
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 };
 

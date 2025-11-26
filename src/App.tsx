@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import { Layout, ScrollToTop } from './components/layout';
 import { 
   HomePage, 
@@ -18,29 +19,31 @@ import {
 
 function App() {
   return (
-    <div className="App">
-      <Router>
-        <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<HomePage />} />
-            <Route path="about" element={<AboutPage />} />
-            <Route path="solutions" element={<SolutionsHubPage />} />
-            {/* Services routes */}
-            <Route path="services" element={<Navigate to="/services/go-to-market-strategy" replace />} />
-            <Route path="services/go-to-market-strategy" element={<GoToMarketStrategyPage />} />
-            <Route path="services/startup-advisory" element={<StartupAdvisoryPage />} />
-            <Route path="services/project-execution" element={<ProjectExecutionPage />} />
-            <Route path="services/business-growth" element={<BusinessGrowthPage />} />
-            <Route path="services/bfsi-it-advisory" element={<BFSIAdvisoryPage />} />
-            <Route path="services/ai-innovations" element={<AIInnovationsPage />} />
-            <Route path="contact" element={<ContactPage />} />
-            <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
-            <Route path="terms-of-service" element={<TermsOfServicePage />} />
-          </Route>
-        </Routes>
-      </Router>
-    </div>
+    <HelmetProvider>
+      <div className="App">
+        <Router>
+          <ScrollToTop />
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<HomePage />} />
+              <Route path="about" element={<AboutPage />} />
+              <Route path="solutions" element={<SolutionsHubPage />} />
+              {/* Services routes */}
+              <Route path="services" element={<Navigate to="/services/go-to-market-strategy" replace />} />
+              <Route path="services/go-to-market-strategy" element={<GoToMarketStrategyPage />} />
+              <Route path="services/startup-advisory" element={<StartupAdvisoryPage />} />
+              <Route path="services/project-execution" element={<ProjectExecutionPage />} />
+              <Route path="services/business-growth" element={<BusinessGrowthPage />} />
+              <Route path="services/bfsi-it-advisory" element={<BFSIAdvisoryPage />} />
+              <Route path="services/ai-innovations" element={<AIInnovationsPage />} />
+              <Route path="contact" element={<ContactPage />} />
+              <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
+              <Route path="terms-of-service" element={<TermsOfServicePage />} />
+            </Route>
+          </Routes>
+        </Router>
+      </div>
+    </HelmetProvider>
   );
 }
 

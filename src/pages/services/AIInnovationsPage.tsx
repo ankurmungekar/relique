@@ -1,5 +1,6 @@
 import React from 'react';
 import ServiceLayout from '../../components/layout/ServiceLayout';
+import { SEO } from '../../components/ui';
 
 const AIInnovationsPage: React.FC = () => {
   const ArrowIcon = () => (
@@ -7,10 +8,16 @@ const AIInnovationsPage: React.FC = () => {
   );
 
   return (
-    <ServiceLayout
-      title="AI Innovations"
-      description="Harness the power of Artificial Intelligence to unlock new opportunities and transform your business. We go beyond buzzwords — focusing on building practical, scalable AI-driven solutions that deliver measurable results."
-    >
+    <>
+      <SEO
+        title="AI Innovations - Relique Consultants"
+        description="Harness the power of Artificial Intelligence to transform your business. Building practical, scalable AI-driven solutions that deliver measurable results."
+        canonical="/services/ai-innovations"
+      />
+      <ServiceLayout
+        title="AI Innovations"
+        description="Harness the power of Artificial Intelligence to unlock new opportunities and transform your business. We go beyond buzzwords — focusing on building practical, scalable AI-driven solutions that deliver measurable results."
+      >
       <div className="space-y-[30px]">
         {/* Main Content Section with Image Banner and Two Columns */}
         <div className="space-y-[20px]">
@@ -83,7 +90,8 @@ const AIInnovationsPage: React.FC = () => {
           </p>
         </div>
       </div>
-    </ServiceLayout>
+      </ServiceLayout>
+    </>
   );
 };
 

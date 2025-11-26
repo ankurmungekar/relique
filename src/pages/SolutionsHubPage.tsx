@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '../components/ui/Button';
+import { SEO } from '../components/ui';
 
 interface SolutionItem {
   text: string;
@@ -90,7 +91,13 @@ const SolutionsHubPage: React.FC = () => {
   );
 
   return (
-    <div className="SolutionsHubPage bg-[#0F071D] min-h-screen mt-[60px] md:mt-[72px] lg:mt-[88px]">
+    <>
+      <SEO
+        title="Solutions Catalog - Relique Consultants"
+        description="Explore our partner-led products & offerings across industries. Solutions in BFSI, IT & Tech Services, Data Warehousing, Market Research, and more."
+        canonical="/solutions"
+      />
+      <div className="SolutionsHubPage bg-[#0F071D] min-h-screen mt-[60px] md:mt-[72px] lg:mt-[88px]">
       {/* Hero Banner Section */}
       <section className="relative bg-[#0F071D] h-[200px] sm:h-[240px] md:h-[280px] lg:h-[300px] overflow-hidden">
         {/* Background Image Layer */}
@@ -201,7 +208,8 @@ const SolutionsHubPage: React.FC = () => {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 };
 

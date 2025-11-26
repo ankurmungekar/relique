@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { SEO } from '../components/ui';
 
 const TermsOfServicePage: React.FC = () => {
   const renderBulletIcon = () => (
@@ -42,7 +43,13 @@ const TermsOfServicePage: React.FC = () => {
   ];
 
   return (
-    <div className="TermsOfServicePage bg-[#0F071D] min-h-screen mt-[60px] md:mt-[72px] lg:mt-[88px]">
+    <>
+      <SEO
+        title="Terms and Conditions - Relique Consultants"
+        description="Read our terms of service outlining the rules and regulations for using our website and services. Learn about your rights and responsibilities."
+        canonical="/terms-of-service"
+      />
+      <div className="TermsOfServicePage bg-[#0F071D] min-h-screen mt-[60px] md:mt-[72px] lg:mt-[88px]">
       {/* Hero Banner Section */}
       <section className="relative bg-[#010507] h-[200px] sm:h-[240px] md:h-[280px] lg:h-[300px] overflow-hidden">
         {/* Background Image Layer */}
@@ -417,7 +424,8 @@ const TermsOfServicePage: React.FC = () => {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 };
 

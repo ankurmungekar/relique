@@ -1,12 +1,19 @@
 import React from 'react';
 import ServiceLayout from '../../components/layout/ServiceLayout';
+import { SEO } from '../../components/ui';
 
 const StartupAdvisoryPage: React.FC = () => {
   return (
-    <ServiceLayout
-      title="Startup Advisory"
-      description="We partner with early-stage and growth-stage startups to help them navigate uncertainty, build scalable foundations, and accelerate time-to-market. From idea validation to driving new sales and revenue opportunities, our Startup Advisory services provide strategic insights and hands-on execution support."
-    >
+    <>
+      <SEO
+        title="Startup Advisory Services - Relique Consultants"
+        description="Strategic insights and hands-on execution support for early-stage and growth-stage startups. From idea validation to accelerated time-to-market."
+        canonical="/services/startup-advisory"
+      />
+      <ServiceLayout
+        title="Startup Advisory"
+        description="We partner with early-stage and growth-stage startups to help them navigate uncertainty, build scalable foundations, and accelerate time-to-market. From idea validation to driving new sales and revenue opportunities, our Startup Advisory services provide strategic insights and hands-on execution support."
+      >
       <div className="space-y-[16px] md:space-y-[20px]">
         {/* Grid of Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[16px] md:gap-[20px]">
@@ -131,7 +138,8 @@ const StartupAdvisoryPage: React.FC = () => {
           </div>
         </div>
       </div>
-    </ServiceLayout>
+      </ServiceLayout>
+    </>
   );
 };
 

@@ -1,9 +1,16 @@
 import React from 'react';
 import Button from '../components/ui/Button';
+import { SEO } from '../components/ui';
 
 const AboutPage: React.FC = () => {
   return (
-    <div className="AboutPage bg-[#0F071D] min-h-screen pt-[60px] md:pt-[72px] lg:pt-[88px]">
+    <>
+      <SEO
+        title="About Us - Relique Consultants"
+        description="At Relique, collaboration is at the core of what we do. We bring businesses together through technology, delivering solutions that align with real market needs."
+        canonical="/about"
+      />
+      <div className="AboutPage bg-[#0F071D] min-h-screen pt-[60px] md:pt-[72px] lg:pt-[88px]">
       {/* Hero Banner Section */}
       <section className="pt-[32px] md:pt-[48px] lg:pt-[60px]">
         <div className="max-w-[1440px] mx-auto px-[16px] sm:px-[24px] md:px-[36px] lg:px-[120px]">
@@ -157,7 +164,8 @@ const AboutPage: React.FC = () => {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 };
 

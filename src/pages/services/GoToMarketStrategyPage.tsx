@@ -1,5 +1,6 @@
 import React from 'react';
 import ServiceLayout from '../../components/layout/ServiceLayout';
+import { SEO } from '../../components/ui';
 
 const GoToMarketStrategyPage: React.FC = () => {
   const ArrowIcon = () => (
@@ -11,10 +12,16 @@ const GoToMarketStrategyPage: React.FC = () => {
   );
 
   return (
-    <ServiceLayout
-      title="Go-to-Market Strategy"
-      description="Partner in Go-to-Market strategy, specifically for the regions of GCC, APAC, US, Europe and Africa. Crafting high-impact GTM strategies that align products with the right markets, messaging, and momentum."
-    >
+    <>
+      <SEO
+        title="Go-to-Market Strategy Services - Relique Consultants"
+        description="Crafting high-impact GTM strategies that align products with the right markets, messaging, and momentum for GCC, APAC, US, Europe and Africa."
+        canonical="/services/go-to-market-strategy"
+      />
+      <ServiceLayout
+        title="Go-to-Market Strategy"
+        description="Partner in Go-to-Market strategy, specifically for the regions of GCC, APAC, US, Europe and Africa. Crafting high-impact GTM strategies that align products with the right markets, messaging, and momentum."
+      >
       <div className="space-y-[16px] md:space-y-[20px]">
         {/* Market Research & Regional Fit + Image */}
         <div className="flex flex-col lg:flex-row gap-[16px] md:gap-[20px]">
@@ -446,7 +453,8 @@ const GoToMarketStrategyPage: React.FC = () => {
         </div>
         
       </div>
-    </ServiceLayout>
+      </ServiceLayout>
+    </>
   );
 };
 

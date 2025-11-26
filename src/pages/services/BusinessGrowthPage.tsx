@@ -1,15 +1,22 @@
 import React from 'react';
 import ServiceLayout from '../../components/layout/ServiceLayout';
+import { SEO } from '../../components/ui';
 
 const BusinessGrowthPage: React.FC = () => {
   const ArrowIcon = () => (
     <img src="/images/icons/arrow-right.svg" alt="" className="w-[12px] h-[12px] flex-shrink-0" />
   );
   return (
-    <ServiceLayout
-      title="Business Growth & Retention"
-      description="Loyal customers are built, not found. We help you create repeatable experiences that turn customers into advocates."
-    >
+    <>
+      <SEO
+        title="Business Growth & Retention - Relique Consultants"
+        description="We help you create repeatable experiences that turn customers into advocates. Customer-centric growth strategies and retention programs."
+        canonical="/services/business-growth"
+      />
+      <ServiceLayout
+        title="Business Growth & Retention"
+        description="Loyal customers are built, not found. We help you create repeatable experiences that turn customers into advocates."
+      >
       <div className="space-y-[24px] md:space-y-[30px]">
         {/* Image Banner */}
         <div className="w-full md:w-[534px] h-[140px] md:h-[160px] rounded-[12px] md:rounded-[16px] overflow-hidden bg-gradient-to-b from-[#44208380] to-[#0F071D]">
@@ -67,7 +74,8 @@ const BusinessGrowthPage: React.FC = () => {
           </div>
         </div>
       </div>
-    </ServiceLayout>
+      </ServiceLayout>
+    </>
   );
 };
 

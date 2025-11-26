@@ -1,12 +1,19 @@
 import React from 'react';
 import ServiceLayout from '../../components/layout/ServiceLayout';
+import { SEO } from '../../components/ui';
 
 const ProjectExecutionPage: React.FC = () => {
   return (
-    <ServiceLayout
-      title="Project Execution and Customer Success"
-      description="Your partner in project execution, customer success and value realization."
-    >
+    <>
+      <SEO
+        title="Project Execution & Customer Success - Relique Consultants"
+        description="Your partner in project execution, customer success and value realization. End-to-end project ownership with customer-centric approach."
+        canonical="/services/project-execution"
+      />
+      <ServiceLayout
+        title="Project Execution and Customer Success"
+        description="Your partner in project execution, customer success and value realization."
+      >
       <div className="space-y-[16px] md:space-y-[20px]">
         {/* Grid of 8 cards in 2 columns */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-[16px] md:gap-[21px]">
@@ -99,7 +106,8 @@ const ProjectExecutionPage: React.FC = () => {
           </div>
         </div>
       </div>
-    </ServiceLayout>
+      </ServiceLayout>
+    </>
   );
 };
 

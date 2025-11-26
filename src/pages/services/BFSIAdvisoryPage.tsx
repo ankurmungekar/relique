@@ -1,5 +1,6 @@
 import React from 'react';
 import ServiceLayout from '../../components/layout/ServiceLayout';
+import { SEO } from '../../components/ui';
 
 const BFSIAdvisoryPage: React.FC = () => {
   const ArrowIcon = () => (
@@ -7,10 +8,16 @@ const BFSIAdvisoryPage: React.FC = () => {
   );
 
   return (
-    <ServiceLayout
-      title="BFSI & IT Advisory"
-      description="With deep domain expertise in BFSI and tech, we provide tailored insights and hands-on guidance for enterprises navigating complex sales landscapes."
-    >
+    <>
+      <SEO
+        title="BFSI & IT Advisory Services - Relique Consultants"
+        description="Deep domain expertise in BFSI and tech. Tailored insights and hands-on guidance for enterprises navigating complex sales landscapes."
+        canonical="/services/bfsi-it-advisory"
+      />
+      <ServiceLayout
+        title="BFSI & IT Advisory"
+        description="With deep domain expertise in BFSI and tech, we provide tailored insights and hands-on guidance for enterprises navigating complex sales landscapes."
+      >
       <div className="space-y-[16px] md:space-y-[20px]">
         {/* Main Content Section */}
         <div className="flex flex-col lg:flex-row gap-[16px] md:gap-[20px]">
@@ -74,7 +81,8 @@ const BFSIAdvisoryPage: React.FC = () => {
           </div>
         </div>
       </div>
-    </ServiceLayout>
+      </ServiceLayout>
+    </>
   );
 };
 
