@@ -14,6 +14,9 @@
 error_reporting(0);
 ini_set('display_errors', 0);
 
+// Set timezone to Dubai (UAE)
+date_default_timezone_set('Asia/Dubai');
+
 // CORS headers
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST, OPTIONS');
